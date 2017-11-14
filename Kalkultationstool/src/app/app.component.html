@@ -1,0 +1,23 @@
+<div class="container-fluid no-padding outerFrame" style>
+  <div class="row">
+    <div class="col">
+      <div class="header">
+        Ultra krass kalkulierendes Kalkulationstool
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid no-padding" *ngIf="!isStarted">
+  <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">Neuen Auftrag Kalkulieren</button>
+</div>
+<div class="container-fluid no-padding" *ngIf="!isStarted">
+  <label class="btn btn-primary center-block startButton">
+    <input id="impportFile" type="file" style="display:none;" (change)="uploadXML($event)">
+    Import XML file
+  </label>
+</div>
+
+<div *ngIf="isStarted">
+  <app-production-orders></app-production-orders>
+</div>
+

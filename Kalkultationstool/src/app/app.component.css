@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+}
+
+.outerFrame {
+  height: 50px;
+  background-color: lightgreen;
+}
+
+.startButton {
+  vertical-align: middle;
+  margin-top: 50px;
+}

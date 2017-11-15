@@ -25,7 +25,20 @@ export class ProductionOrdersComponent {
   auftraegeE13 = 0;
   auftraegeE18 = 0;
 
-  elements = [1, 26, 51, 16, 17, 50, 4, 10, 49, 7, 13, 18]
+  warehouseOldP1 = 0;
+  warehouseOldE26 = 0;
+  warehouseOldE51 = 0;
+  warehouseOldE16 = 0;
+  warehouseOldE17 = 0;
+  warehouseOldE50 = 0;
+  warehouseOldE4 = 0;
+  warehouseOldE10 = 0;
+  warehouseOldE49 = 0;
+  warehouseOldE7 = 0;
+  warehouseOldE13 = 0;
+  warehouseOldE18 = 0;
+
+  elementsOfP1 = [1, 4, 7, 10, 13, 16, 17, 18, 26, 49, 50, 51 ];
 
   constructor(backendService: BackendService) {
     backendService.getData().subscribe((data: Object) => {
@@ -35,11 +48,43 @@ export class ProductionOrdersComponent {
   }
 
   updateValues() {
-    this.elements.forEach(el => {
-    });
+
+    // Alter Lagerbestand
+
+    this.warehouseOldP1 = this.JSONData.results.warehousestock[0].article[0].$.amount;
+    this.warehouseOldE26 = this.JSONData.results.warehousestock[0].article[25].$.amount;
+    this.warehouseOldE51 = this.JSONData.results.warehousestock[0].article[50].$.amount;
+    this.warehouseOldE16 = this.JSONData.results.warehousestock[0].article[15].$.amount;
+    this.warehouseOldE17 = this.JSONData.results.warehousestock[0].article[16].$.amount;
+    this.warehouseOldE50 = this.JSONData.results.warehousestock[0].article[49].$.amount;
+    this.warehouseOldE4 = this.JSONData.results.warehousestock[0].article[3].$.amount;
+    this.warehouseOldE10 = this.JSONData.results.warehousestock[0].article[9].$.amount;
+    this.warehouseOldE49 = this.JSONData.results.warehousestock[0].article[48].$.amount;
+    this.warehouseOldE7 = this.JSONData.results.warehousestock[0].article[6].$.amount;
+    this.warehouseOldE13 = this.JSONData.results.warehousestock[0].article[12].$.amount;
+    this.warehouseOldE18 = this.JSONData.results.warehousestock[0].article[17].$.amount;
+
+    //Aufträge in Warteschlange
+
+    this.JSONData.results.waitinglistworkstations[0].workplace.forEach(el =>{
+      if(el.waitinglist){
+        el.waitinglist.forEach(wp => {
+
+          if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
+            var element  = document.getElementById('inQueue' + wp.$.item);
+
+            element.value = parseInt(element.value) + parseInt(wp.$.amount);
+          }
+        })
+      }
+    })
   }
 
+  
+
   updateP1() {
+
+    debugger;
 
     const el =  document.getElementsByName('P1');
     const el2 =  document.getElementsByName('E26');

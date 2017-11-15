@@ -3,7 +3,6 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import { Http, Response } from '@angular/http';
 import * as xml2js from 'xml2js';
 import {Observable} from 'rxjs';
-declare const X2JS: any;
 
 @Injectable()
 export class BackendService {
@@ -13,9 +12,9 @@ export class BackendService {
 
   getData(): Observable<Object> {
     return Observable.create((observer) => {
-      this.http.get('../resultServlet.xml').subscribe(res => {
-        var x2js = new X2JS();
+      this.http.get('../../assets/resultServlet.xml').subscribe(res => {
         xml2js.parseString(res['_body'], function (err, result) {
+          console.log(result);
           observer.next(result);
         });
       });

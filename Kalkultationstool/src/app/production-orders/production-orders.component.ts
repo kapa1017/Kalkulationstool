@@ -77,10 +77,23 @@ export class ProductionOrdersComponent {
           }
         })
       }
-    })
+    });
+
+    //Aufträge in Bearbeitung
+
+    this.JSONData.results.ordersinwork[0].workplace.forEach(el =>{
+      if(el.$){
+debugger;
+        if(this.elementsOfP1.indexOf(parseInt(el.$.item)) > -1) {
+          var element  = document.getElementById('inProgress' + el.$.item);
+
+          element.value = parseInt(element.value) + parseInt(el.$.amount);
+        }
+      }
+    });
   }
 
-  
+
 
   updateP1() {
 
@@ -103,17 +116,30 @@ export class ProductionOrdersComponent {
     this.auftraegeP1 = 0;
 
     for (let i = 0 ; i < el.length - 1 ; i++) {
-      this.auftraegeP1 += Number((<HTMLInputElement>el[i]).value);
+      debugger;
+      if(i !== 2){
+        this.auftraegeP1 += Number((<HTMLInputElement>el[i]).value);
+      }else{
+        this.auftraegeP1 -= Number((<HTMLInputElement>el[i]).value);
+      }
     }
 
     this.auftraegeE26 = this.auftraegeP1;
     this.auftraegeE51 = this.auftraegeP1;
 
     for (let i = 1 ; i < el2.length - 1 ; i++) {
-      this.auftraegeE26 += Number((<HTMLInputElement>el2[i]).value);
+      if(i !== 3){
+        this.auftraegeE26 += Number((<HTMLInputElement>el2[i]).value);
+      }else{
+        this.auftraegeE26 -= Number((<HTMLInputElement>el2[i]).value);
+      }
     }
     for (let i = 1 ; i < el3.length - 1; i++) {
-      this.auftraegeE51 += Number((<HTMLInputElement>el3[i]).value);
+      if(i !== 3){
+        this.auftraegeE51 += Number((<HTMLInputElement>el3[i]).value);
+      }else{
+        this.auftraegeE51 -= Number((<HTMLInputElement>el3[i]).value);
+      }
     }
 
     this.auftraegeE16 = this.auftraegeE51;
@@ -121,13 +147,25 @@ export class ProductionOrdersComponent {
     this.auftraegeE50 = this.auftraegeE51;
 
     for (let i = 1 ; i < el4.length - 1; i++) {
-      this.auftraegeE16 += Number((<HTMLInputElement>el4[i]).value);
+      if(i !== 3){
+        this.auftraegeE16 += Number((<HTMLInputElement>el4[i]).value);
+      }else{
+        this.auftraegeE16 -= Number((<HTMLInputElement>el4[i]).value);
+      }
     }
     for (let i = 1 ; i < el5.length - 1; i++) {
-      this.auftraegeE17 += Number((<HTMLInputElement>el5[i]).value);
+      if(i !== 3){
+        this.auftraegeE17 += Number((<HTMLInputElement>el5[i]).value);
+      }else{
+        this.auftraegeE17 -= Number((<HTMLInputElement>el5[i]).value);
+      }
     }
     for (let i = 1 ; i < el6.length - 1 ; i++) {
-      this.auftraegeE50 += Number((<HTMLInputElement>el6[i]).value);
+      if(i !== 3){
+        this.auftraegeE50 += Number((<HTMLInputElement>el6[i]).value);
+      }else{
+        this.auftraegeE50 -= Number((<HTMLInputElement>el6[i]).value);
+      }
     }
 
     this.auftraegeE4 = this.auftraegeE50;
@@ -136,13 +174,26 @@ export class ProductionOrdersComponent {
 
 
     for (let i = 1 ; i < el5.length - 1; i++) {
+      if(i !== 3){
+
+      }else{
+
+      }
       this.auftraegeE4 += Number((<HTMLInputElement>el7[i]).value);
     }
     for (let i = 1 ; i < el6.length - 1; i++) {
-      this.auftraegeE10 += Number((<HTMLInputElement>el8[i]).value);
+      if(i !== 3){
+        this.auftraegeE10 += Number((<HTMLInputElement>el8[i]).value);
+      }else{
+        this.auftraegeE10 -= Number((<HTMLInputElement>el8[i]).value);
+      }
     }
     for (let i = 1 ; i < el7.length - 1; i++) {
-      this.auftraegeE49 += Number((<HTMLInputElement>el9[i]).value);
+      if(i !== 3){
+        this.auftraegeE49 += Number((<HTMLInputElement>el9[i]).value);
+      }else{
+        this.auftraegeE49 -= Number((<HTMLInputElement>el9[i]).value);
+      }
     }
 
     this.auftraegeE7 = this.auftraegeE49;
@@ -150,13 +201,25 @@ export class ProductionOrdersComponent {
     this.auftraegeE18 = this.auftraegeE49;
 
     for (let i = 1 ; i < el8.length - 1; i++) {
-      this.auftraegeE7 += Number((<HTMLInputElement>el10[i]).value);
+      if(i !== 3){
+        this.auftraegeE7 += Number((<HTMLInputElement>el10[i]).value);
+      }else{
+        this.auftraegeE7 -= Number((<HTMLInputElement>el10[i]).value);
+      }
     }
     for (let i = 1 ; i < el9.length - 1; i++) {
-      this.auftraegeE13 += Number((<HTMLInputElement>el11[i]).value);
+      if(i !== 3){
+        this.auftraegeE13 += Number((<HTMLInputElement>el11[i]).value);
+      }else{
+        this.auftraegeE13 -= Number((<HTMLInputElement>el11[i]).value);
+      }
     }
     for (let i = 1 ; i < el10.length - 1; i++) {
-      this.auftraegeE18 += Number((<HTMLInputElement>el12[i]).value);
+      if(i !== 3){
+        this.auftraegeE18 += Number((<HTMLInputElement>el12[i]).value);
+      }else{
+        this.auftraegeE18 -= Number((<HTMLInputElement>el12[i]).value);
+      }
     }
   }
 }

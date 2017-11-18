@@ -9,7 +9,7 @@ import {BackendService} from '../Services/backend.service';
 })
 export class ProductionOrdersComponent {
 
-  JSONData = {};
+  JSONData : any;
 
   P1 = 0;
   auftraegeP1 = 0;
@@ -71,9 +71,9 @@ export class ProductionOrdersComponent {
         el.waitinglist.forEach(wp => {
 
           if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
-            var element  = document.getElementById('inQueue' + wp.$.item);
+            var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));
 
-            element.value = parseInt(element.value) + parseInt(wp.$.amount);
+            element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
           }
         })
       }
@@ -85,9 +85,9 @@ export class ProductionOrdersComponent {
       if(el.$){
 debugger;
         if(this.elementsOfP1.indexOf(parseInt(el.$.item)) > -1) {
-          var element  = document.getElementById('inProgress' + el.$.item);
+          var element  = (<HTMLInputElement>document.getElementById('inProgress' + el.$.item));
 
-          element.value = parseInt(element.value) + parseInt(el.$.amount);
+          element.value = String(parseInt(element.value) + parseInt(el.$.amount));
         }
       }
     });

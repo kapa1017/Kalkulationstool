@@ -4,8 +4,7 @@ import {BackendService} from '../Services/backend.service';
 @Component({
   selector: 'app-production-orders-3',
   templateUrl: './production-orders-3.component.html',
-  styleUrls: ['./production-orders-3.component.css'],
-  providers: [BackendService]
+  styleUrls: ['./production-orders-3.component.css']
 })
 export class ProductionOrders3Component {
   JSONData : any;
@@ -110,8 +109,6 @@ export class ProductionOrders3Component {
 
 
   updateP3() {
-
-    debugger;
 
     const el =  document.getElementsByName('P3');
     const el2 =  document.getElementsByName('E26');

@@ -4,8 +4,7 @@ import {BackendService} from '../Services/backend.service';
 @Component({
   selector: 'app-production-orders-2',
   templateUrl: './production-orders-2.component.html',
-  styleUrls: ['./production-orders-2.component.css'],
-  providers: [BackendService]
+  styleUrls: ['./production-orders-2.component.css']
 })
 export class ProductionOrders2Component {
   JSONData : any;
@@ -111,7 +110,6 @@ export class ProductionOrders2Component {
 
   updateP2() {
 
-    debugger;
 
     const el =  document.getElementsByName('P2');
     const el2 =  document.getElementsByName('E26');
@@ -130,7 +128,6 @@ export class ProductionOrders2Component {
     this.auftraegeP2 = 0;
 
     for (let i = 0 ; i < el.length - 1 ; i++) {
-      debugger;
       if(i !== 2){
         this.auftraegeP2 += Number((<HTMLInputElement>el[i]).value);
       }else{

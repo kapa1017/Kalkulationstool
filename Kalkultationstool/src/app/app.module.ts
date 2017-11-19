@@ -9,6 +9,12 @@ import { ProductionOrders2Component } from './production-orders-2/production-ord
 import { ProductionOrders3Component } from './production-orders-3/production-orders-3.component';
 import { OrderCalculationComponent } from './order-calculation/order-calculation.component';
 import { WorkCalculationComponent } from './work-calculation/work-calculation.component';
+import {BackendService} from "./Services/backend.service";
+import {AuftraegeService} from "./Services/auftraege.service";
+import {StartService} from "./Services/start.service";
+import {StepTwoService} from "./Services/stepTwo.service";
+import {StepThreeService} from "./Services/stepThree.service";
+import {StepFourService} from "./Services/stepFour.service";
 
 @NgModule({
   declarations: [
@@ -24,7 +30,14 @@ import { WorkCalculationComponent } from './work-calculation/work-calculation.co
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    BackendService,
+    AuftraegeService,
+    StartService,
+    StepTwoService,
+    StepThreeService,
+    StepFourService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

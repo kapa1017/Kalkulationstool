@@ -4,8 +4,7 @@ import {BackendService} from '../Services/backend.service';
 @Component({
   selector: 'app-production-orders',
   templateUrl: './production-orders.component.html',
-  styleUrls: ['./production-orders.component.css'],
-  providers: [BackendService]
+  styleUrls: ['./production-orders.component.css']
 })
 export class ProductionOrdersComponent {
 
@@ -99,7 +98,6 @@ export class ProductionOrdersComponent {
 
     this.JSONData.results.ordersinwork[0].workplace.forEach(el =>{
       if(el.$){
-debugger;
         if(this.elementsOfP1.indexOf(parseInt(el.$.item)) > -1) {
           var element  = (<HTMLInputElement>document.getElementById('inProgress' + el.$.item));
 
@@ -112,8 +110,6 @@ debugger;
 
 
   updateP1() {
-
-    debugger;
 
     const el =  document.getElementsByName('P1');
     const el2 =  document.getElementsByName('E26');
@@ -132,7 +128,6 @@ debugger;
     this.auftraegeP1 = 0;
 
     for (let i = 0 ; i < el.length - 1 ; i++) {
-      debugger;
       if(i !== 2){
         this.auftraegeP1 += Number((<HTMLInputElement>el[i]).value);
       }else{

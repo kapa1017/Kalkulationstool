@@ -49,22 +49,30 @@
 
   <!-- Step One -->
 
-  <div *ngIf="isStarted && !isStepTwo">
+  <div *ngIf="isStarted && !isStepTwo && !isStepThree">
     <app-production-orders></app-production-orders>
   </div>
 
   <!-- Step Two -->
 
-  <div *ngIf="isStepTwo">
+  <div *ngIf="isStepTwo && !isStarted && !isStepThree">
     <app-production-orders-2></app-production-orders-2>
   </div>
 
+  <!-- Step Three -->
+
+  <div *ngIf="isStepThree && !isStepTwo && !isStarted">
+    <app-production-orders-3></app-production-orders-3>
+  </div>
+
+
   <!-- Navigation Button -->
 
-  <div *ngIf="isStarted ||  isStepTwo">
+  <div *ngIf="isStarted ||  isStepTwo || isStepThree">
     <div class="row">
       <div class="col text-center buttonCol">
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoStepTwo()">Weiter</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoLastStep()">Zurück</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="goToNextStep()">Weiter</button>
       </div>
     </div>
   </div>

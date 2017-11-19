@@ -1,0 +1,28 @@
+.p1{
+  margin: 50px;
+  width: 95%;
+}
+
+.rowStyle1{
+  border: 1px solid black;
+}
+
+.rowStyle2{
+  border-bottom: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.columnStyle1{
+  background-color: lightgrey;
+}
+
+.columnStyle2{
+  background-color: white;
+}
+
+.input{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+

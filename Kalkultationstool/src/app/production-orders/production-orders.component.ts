@@ -38,6 +38,11 @@ export class ProductionOrdersComponent {
   warehouseOldE13 = 0;
   warehouseOldE18 = 0;
 
+  waitingListUebertragP1 = 0;
+  waitingListUebertragE51 = 0;
+  waitingListUebertragE50 = 0;
+  waitingListUebertragE49 = 0;
+
   elementsOfP1 = [1, 4, 7, 10, 13, 16, 17, 18, 26, 49, 50, 51 ];
 
   constructor(backendService: BackendService) {
@@ -71,6 +76,17 @@ export class ProductionOrdersComponent {
         el.waitinglist.forEach(wp => {
 
           if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
+
+            if(wp.$.item === 1){
+              this.waitingListUebertragP1 = wp.$.amount;
+            }else if(wp.$.item === 51){
+              this.waitingListUebertragE51 = wp.$.amount;
+            }else if(wp.$.item === 50){
+              this.waitingListUebertragE50 = wp.$.amount;
+            }else if(wp.$.item === 49){
+              this.waitingListUebertragE49 = wp.$.amount;
+            }
+
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));
 
             element.value = String(parseInt(element.value) + parseInt(wp.$.amount));

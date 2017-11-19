@@ -1,3 +1,323 @@
-<p>
-  production-orders-3 works!
-</p>
+<div class="container-fluid p1">
+  <div class="row rowStyle1">
+    <div class="col columnStyle2">Produkt</div>
+    <div class="col columnStyle1">Verbindliche Aufträge</div>
+    <div class="col columnStyle2">Aufträge aus Warteschlange der Fertigprodukte</div>
+    <div class="col columnStyle1">Geplanter Lagerbestand</div>
+    <div class="col columnStyle2">Lagerbestand Vorperiode</div>
+    <div class="col columnStyle1">Aufträge in der Warteschlange</div>
+    <div class="col columnStyle2">Aufträge in Bearbeitung</div>
+    <div class="col columnStyle1">Produktionsaufträge für die nächste Periode</div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      P3
+    </div>
+    <div class="col columnStyle1">
+      <input name="P3" type="number" class="form-control input" [value]="P3" [(ngModel)]="P3" (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+    </div>
+    <div class="col columnStyle1">
+      <input name="P3" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="P3" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldP3"  readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="P3" type="number" class="form-control input" value = 0 id="inQueue3" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="P3" type="number" class="form-control input" value = 0 id = "inProgress3" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="P3" type="number" class="form-control input" [(ngModel)]="auftraegeP3" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E26*
+    </div>
+    <div class="col columnStyle1">
+      <input name="E26" type="number" class="form-control input" [(ngModel)]="auftraegeP3" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E26" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragP3"  readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E26" type="number" class="form-control input" value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E26" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE26"  readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E26" type="number" class="form-control input" value = 0 id = "inQueue26" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E26" type="number" class="form-control input" value = 0 id = "inProgress26" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E26" type="number" class="form-control input" [(ngModel)]="auftraegeE26" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E31
+    </div>
+    <div class="col columnStyle1">
+      <input name="E31" type="number" class="form-control input" [(ngModel)]="auftraegeP3" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E31" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragP3" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E31" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E31" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE31" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E31" type="number" class="form-control input" value = 0 id = "inQueue31" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E31" type="number" class="form-control input" value = 0 id = "inProgress31"  readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E31" type="number" class="form-control input" [(ngModel)]="auftraegeE31" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E16*
+    </div>
+    <div class="col columnStyle1">
+      <input name="E16" type="number" class="form-control input" [(ngModel)]="auftraegeE31" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E16" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE31" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E16" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E16" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE16" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E16" type="number" class="form-control input" value = 0 id= "inQueue16" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E16" type="number" class="form-control input" value = 0 id = "inProgress16" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E16" type="number" class="form-control input" [(ngModel)]="auftraegeE16" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E17*
+    </div>
+    <div class="col columnStyle1">
+      <input name="E17" type="number" class="form-control input" [(ngModel)]="auftraegeE31" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E17" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE31"readonly />
+    </div>
+    <div class="col columnStyle1">
+      <input name="E17" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E17" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE17" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E17" type="number" class="form-control input" value = 0 id = "inQueue17" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E17" type="number" class="form-control input" value = 0 id = "inProgress17" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E17" type="number" class="form-control input" [(ngModel)]="auftraegeE17" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E30
+    </div>
+    <div class="col columnStyle1">
+      <input name="E30" type="number" class="form-control input" [(ngModel)]="auftraegeE31" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E30" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE31" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E30" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E30" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE30" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E30" type="number" class="form-control input" value = 0 id = "inQueue30" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E30" type="number" class="form-control input" value = 0 id = "inProgress30" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E30" type="number" class="form-control input" [(ngModel)]="auftraegeE30" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E6
+    </div>
+    <div class="col columnStyle1">
+      <input name="E6" type="number" class="form-control input" [(ngModel)]="auftraegeE30" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E6" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE30" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E6" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E6" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE6" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E6" type="number" class="form-control input" value = 0 id = "inQueue6" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E6" type="number" class="form-control input" value = 0 id = "inProgress6" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E6" type="number" class="form-control input" [(ngModel)]="auftraegeE6" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E12
+    </div>
+    <div class="col columnStyle1">
+      <input name="E12" type="number" class="form-control input" [(ngModel)]="auftraegeE30" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E12" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE30" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E12" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E12" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE12" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E12" type="number" class="form-control input" value = 0 id = "inQueue12" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E12" type="number" class="form-control input" value = 0 id = "inProgress12"  readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E12" type="number" class="form-control input" [(ngModel)]="auftraegeE12"  value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E29
+    </div>
+    <div class="col columnStyle1">
+      <input name="E29" type="number" class="form-control input" [(ngModel)]="auftraegeE30"  value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E29" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE30" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E29" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E29" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE29" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E29" type="number" class="form-control input" value = 0 id = "inQueue29" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E29" type="number" class="form-control input" value = 0 id = "inProgress29" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E29" type="number" class="form-control input" [(ngModel)]="auftraegeE29" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E9
+    </div>
+    <div class="col columnStyle1">
+      <input name="E9" type="number" class="form-control input" [(ngModel)]="auftraegeE29" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E9" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE29" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E9" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E9" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE9" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E9" type="number" class="form-control input" value = 0 id = "inQueue9" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E9" type="number" class="form-control input" value = 0 id = "inProgress9" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E9" type="number" class="form-control input" [(ngModel)]="auftraegeE9" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E15
+    </div>
+    <div class="col columnStyle1">
+      <input name="E15" type="number" class="form-control input" [(ngModel)]="auftraegeE29" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E15" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE29" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E15" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E15" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE15" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E15" type="number" class="form-control input" value = 0 id = "inQueue15" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E15" type="number" class="form-control input" value = 0 id = "inProgress15" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E15" type="number" class="form-control input" [(ngModel)]="auftraegeE15" value = 0 readonly/>
+    </div>
+  </div>
+  <div class="row rowStyle2">
+    <div class="col columnStyle2">
+      E20
+    </div>
+    <div class="col columnStyle1">
+      <input name="E20" type="number" class="form-control input" [(ngModel)]="auftraegeE29" value = 0 readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E20" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE29" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E20" type="number" class="form-control input"  value = 0 (change)="updateP3()"/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E20" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE20" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E20" type="number" class="form-control input" value = 0 id = "inQueue20" readonly/>
+    </div>
+    <div class="col columnStyle2">
+      <input name="E20" type="number" class="form-control input" value = 0 id = "inProgress20" readonly/>
+    </div>
+    <div class="col columnStyle1">
+      <input name="E20" type="number" class="form-control input" [(ngModel)]="auftraegeE20" value = 0 readonly/>
+    </div>
+  </div>
+</div>

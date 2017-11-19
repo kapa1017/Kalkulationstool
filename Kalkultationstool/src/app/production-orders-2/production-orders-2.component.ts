@@ -10,7 +10,7 @@ import {BackendService} from '../Services/backend.service';
 export class ProductionOrders2Component {
   JSONData : any;
 
-  P1 = 0;
+  P2 = 0;
   auftraegeP2 = 0;
   auftraegeE26 = 0;
   auftraegeE56 = 0;
@@ -36,6 +36,11 @@ export class ProductionOrders2Component {
   warehouseOldE8 = 0;
   warehouseOldE14 = 0;
   warehouseOldE19 = 0;
+
+  waitingListUebertragP2 = 0;
+  waitingListUebertragE56 = 0;
+  waitingListUebertragE55 = 0;
+  waitingListUebertragE54 = 0;
 
   elementsOfP2 = [2, 5, 8, 11, 14, 16, 17, 19, 26, 54, 55, 56 ];
 
@@ -70,6 +75,17 @@ export class ProductionOrders2Component {
         el.waitinglist.forEach(wp => {
 
           if(this.elementsOfP2.indexOf(parseInt(wp.$.item)) > -1) {
+
+            if(wp.$.item === 2){
+              this.waitingListUebertragP2 = wp.$.amount;
+            }else if(wp.$.item === 56){
+              this.waitingListUebertragE56 = wp.$.amount;
+            }else if(wp.$.item === 55){
+              this.waitingListUebertragE55 = wp.$.amount;
+            }else if(wp.$.item === 54){
+              this.waitingListUebertragE54 = wp.$.amount;
+            }
+
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));
 
             element.value = String(parseInt(element.value) + parseInt(wp.$.amount));

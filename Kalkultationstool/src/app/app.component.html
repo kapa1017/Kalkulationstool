@@ -1,23 +1,73 @@
-<div class="container-fluid no-padding outerFrame" style>
-  <div class="row">
-    <div class="col">
-      <div class="header">
-        Ultra krass kalkulierendes Kalkulationstool
+<div class="container-fluid">
+
+  <!-- Header -->
+
+  <div class="container-fluid outerFrame" style>
+    <div class="row">
+      <div class="col">
+        <div class="header">
+          Ultra krass kalkulierendes Kalkulationstool
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Menu -->
+
+  <div class="row" *ngIf="!isStarted && !isStepTwo && !isStepThree">
+    <div class="col text-center buttonCol">
+      <div class="mainMenu" >
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">Neuen Auftrag Kalkulieren</button>
+      </div>
+      <div class="mainMenu">
+        <label class="btn btn-primary center-block startButton">
+          <input id="impportFile" type="file" style="display:none;">
+          Import XML file
+        </label>
+      </div>
+      <div class="mainMenu">
+        <label class="btn btn-primary center-block startButton">
+          <input type="file" style="display:none;">
+          Lagerbestände einsehen
+        </label>
+      </div>
+      <div class="mainMenu">
+        <label class="btn btn-primary center-block startButton">
+          <input type="file" style="display:none;">
+          Ergebnisse der letzten Periode einsehen
+        </label>
+      </div>
+      <div class="mainMenu">
+        <label class="btn btn-primary center-block startButton">
+          <input type="file" style="display:none;">
+          KPI's einsehen
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Step One -->
+
+  <div *ngIf="isStarted && !isStepTwo">
+    <app-production-orders></app-production-orders>
+  </div>
+
+  <!-- Step Two -->
+
+  <div *ngIf="isStepTwo">
+    <app-production-orders-2></app-production-orders-2>
+  </div>
+
+  <!-- Navigation Button -->
+
+  <div *ngIf="isStarted ||  isStepTwo">
+    <div class="row">
+      <div class="col text-center buttonCol">
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoStepTwo()">Weiter</button>
       </div>
     </div>
   </div>
 </div>
-<div class="container-fluid no-padding" *ngIf="!isStarted">
-  <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">Neuen Auftrag Kalkulieren</button>
-</div>
-<div class="container-fluid no-padding" *ngIf="!isStarted">
-  <label class="btn btn-primary center-block startButton">
-    <input id="impportFile" type="file" style="display:none;" (change)="uploadXML($event)">
-    Import XML file
-  </label>
-</div>
 
-<div *ngIf="isStarted">
-  <app-production-orders></app-production-orders>
-</div>
 

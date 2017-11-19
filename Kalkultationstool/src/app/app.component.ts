@@ -162,7 +162,7 @@ export class AppComponent {
       //Werte P2 abspeichern
 
       this.auftraegeService.auftraegeP2changed({
-        P2: (<HTMLInputElement>document.getElementById('P1')).value,
+        P2: (<HTMLInputElement>document.getElementById('P2')).value,
 
         E26: (<HTMLInputElement>document.getElementById('E26')).value,
         E56: (<HTMLInputElement>document.getElementById('E56')).value,
@@ -191,7 +191,7 @@ export class AppComponent {
         P3: (<HTMLInputElement>document.getElementById('P3')).value,
 
         E26: (<HTMLInputElement>document.getElementById('E26')).value,
-        E31: (<HTMLInputElement>document.getElementById('E51')).value,
+        E31: (<HTMLInputElement>document.getElementById('E31')).value,
 
         E16: (<HTMLInputElement>document.getElementById('E16')).value,
         E17: (<HTMLInputElement>document.getElementById('E17')).value,
@@ -210,7 +210,7 @@ export class AppComponent {
       this.stepTwoService.isStepTwoChanged(true);
 
     }else if(this.isStepFour === true){
-
+debugger;
       this.stepFourService.isStepFourChanged(false);
       this.stepThreeService.isStepThreeChanged(true);
 

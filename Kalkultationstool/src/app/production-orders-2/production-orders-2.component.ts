@@ -89,7 +89,7 @@ export class ProductionOrders2Component {
 
             element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
           }
-        })
+        });
       }
     });
 

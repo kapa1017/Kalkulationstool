@@ -8,7 +8,7 @@ import {BackendService} from '../Services/backend.service';
 })
 export class ProductionOrdersComponent {
 
-  JSONData : any;
+  JSONData: any;
 
   P1 = 0;
   auftraegeP1 = 0;
@@ -90,7 +90,7 @@ export class ProductionOrdersComponent {
 
             element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
           }
-        })
+        });
       }
     });
 

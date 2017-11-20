@@ -33,7 +33,7 @@
       <input class="form-control input" type="number" [(ngModel)]="worktime1 + setupTime1" readonly/>
     </div>
     <div class="col colStyle1">
-      <input class="form-control input" type="number" [(ngModel)]="worktime1 + setupTime1 - weekMinutes" readonly/>
+      <input class="form-control input" type="number" [(ngModel)]="worktime1 + setupTime1 - weekMinutes*shift1" readonly/>
     </div>
     <div class="col colStyle1"></div>
   </div>
@@ -51,7 +51,7 @@
       <input class="form-control input" type="number" [(ngModel)]="worktime2 + setupTime2" readonly/>
     </div>
     <div class="col colStyle1">
-      <input class="form-control input" type="number" [(ngModel)]="worktime2 + setupTime2 - weekMinutes" readonly/>
+      <input class="form-control input" type="number" [(ngModel)]="worktime2 + setupTime2 - weekMinutes*shift1" readonly/>
     </div>
     <div class="col colStyle1"></div>
   </div>

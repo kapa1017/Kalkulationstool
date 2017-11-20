@@ -11,6 +11,7 @@ export class WorkCalculationComponent {
   auftraegeP1: any;
   auftraegeP2: any;
   auftraegeP3: any;
+  auftraegeGesamt: any;
 
   weekMinutes = 2400;
 
@@ -44,16 +45,33 @@ export class WorkCalculationComponent {
   setupTime13 = 0;
   setupTime14 = 0;
 
+  shift1 = 1;
+  shift2 = 1;
+  shift3 = 1;
+  shift4 = 1;
+  shift5 = 1;
+  shift6 = 1;
+  shift7 = 1;
+  shift8 = 1;
+  shift9 = 1;
+  shift10 = 1;
+  shift11 = 1;
+  shift12 = 1;
+  shift13 = 1;
+  shift14 = 1;
 
   constructor(private auftraegeService: AuftraegeService) {
     auftraegeService.auftraeggeP1$.subscribe((newState: Object) => {
-      this.auftraegeP1 = newState
+      this.auftraegeP1 = newState;
     });
     auftraegeService.auftraeggeP2$.subscribe((newState: Object) => {
-      this.auftraegeP2 = newState
+      this.auftraegeP2 = newState;
     });
     auftraegeService.auftraeggeP3$.subscribe((newState: Object) => {
-      this.auftraegeP3 = newState
+      this.auftraegeP3 = newState;
+    });
+    auftraegeService.auftraegeGesamt$.subscribe((newState: Object) => {
+      this.auftraegeGesamt = newState;
     });
 
     //Kalkulation der Arbeitszeiten
@@ -85,6 +103,136 @@ export class WorkCalculationComponent {
     this.worktime13 = this. auftraegeP1.E16*3 + this.auftraegeP2.E16*3 + this.auftraegeP3.E16*3;
     this.worktime14 = this.auftraegeP1.E17*3 + this.auftraegeP2.E17*3 + this.auftraegeP3.E17*3
                     + this.auftraegeP1.E26*3 + this.auftraegeP2.E26*3 + this.auftraegeP3.E26*3;
+
+    // Kalkulation der Setupzeiten
+
+    var blackList = [];
+
+    this.auftraegeGesamt.forEach(el => {
+      if(parseInt(el.quantity) > 0 && blackList.indexOf(el) < 0) {
+        blackList.push(el);
+        switch (el.item) {
+          case '1':
+            this.setupTime4 += 30;
+            break;
+          case '2':
+            this.setupTime4 += 30;
+            break;
+          case '3':
+            this.setupTime4 += 30;
+            break;
+          case '4':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '5':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '6':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '7':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '8':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '9':
+            this.setupTime9 += 20;
+            this.setupTime10 += 20;
+            break;
+          case '10':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '11':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '12':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '13':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '14':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '15':
+            this.setupTime7 += 15;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '16':
+            this.setupTime5 += 15;
+            break;
+          case '17':
+            this.setupTime14 += 15;
+            break;
+          case '18':
+            this.setupTime5 += 15;
+            this.setupTime7 += 20;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '19':
+            this.setupTime5 += 15;
+            this.setupTime7 += 20;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '20':
+            this.setupTime5 += 15;
+            this.setupTime7 += 20;
+            this.setupTime6 += 20;
+            this.setupTime8 += 15;
+            break;
+          case '26':
+            this.setupTime6 += 30;
+            this.setupTime14 += 15;
+            break;
+          case '29':
+            this.setupTime1 += 20;
+            break;
+          case '30':
+            this.setupTime2 += 20;
+            break;
+          case '31':
+            this.setupTime3 += 20;
+            break;
+          case '49':
+            this.setupTime1 += 20;
+            break;
+          case '50':
+            this.setupTime2 += 20;
+            break;
+          case '51':
+            this.setupTime3 += 20;
+            break;
+          case '54':
+            this.setupTime1 += 20;
+            break;
+          case '55':
+            this.setupTime2 += 30;
+            break;
+          case '56':
+            this.setupTime3 += 20;
+            break;
+        }
+      }
+    });
 
   }
 }

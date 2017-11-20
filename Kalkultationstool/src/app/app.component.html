@@ -14,7 +14,7 @@
 
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="!isStarted && !isStepTwo && !isStepThree && !isStepFour">
+  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">Neuen Auftrag Kalkulieren</button>
@@ -65,6 +65,12 @@
     <app-production-orders-3></app-production-orders-3>
   </div>
 
+  <!-- Prio Step -->
+
+  <div *ngIf="isPrio">
+    <app-auftrags-priorisierung></app-auftrags-priorisierung>
+  </div>
+
   <!-- Step Four -->
 
   <div *ngIf="isStepFour && !isStepThree && !isStepTwo && !isStarted">
@@ -73,7 +79,7 @@
 
   <!-- Navigation Button -->
 
-  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour">
+  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio">
     <div class="row">
       <div class="col text-center buttonCol">
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoLastStep()">Zurück</button>

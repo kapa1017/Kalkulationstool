@@ -5,6 +5,7 @@ import {StepTwoService} from "./Services/stepTwo.service";
 import {StepThreeService} from "./Services/stepThree.service";
 import {AuftraegeService} from "./Services/auftraege.service";
 import {StepFourService} from "./Services/stepFour.service";
+import {PrioService} from "./Services/prio.service";
 
 
 @Component({
@@ -18,6 +19,8 @@ export class AppComponent {
   isStepThree = false;
   isStepFour = false;
 
+  isPrio = false;
+
   data = {};
   result: any;
 
@@ -25,7 +28,8 @@ export class AppComponent {
               private stepTwoService: StepTwoService,
               private stepThreeService: StepThreeService,
               private stepFourService: StepFourService,
-              private auftraegeService: AuftraegeService
+              private auftraegeService: AuftraegeService,
+              private prioService: PrioService
   ) {
     startService.isStarted$.subscribe((isStarted: boolean) => {
       this.isStarted = isStarted;
@@ -38,7 +42,10 @@ export class AppComponent {
     });
     stepFourService.isStepFour$.subscribe((isStepFour: boolean) => {
       this.isStepFour = isStepFour;
-    })
+    });
+    prioService.isPrio$.subscribe((isPrio: boolean) => {
+      this.isPrio = isPrio;
+    });
   }
 
   startCalculation() {
@@ -126,8 +133,13 @@ export class AppComponent {
         E20:  (<HTMLInputElement>document.getElementById('E20')).value
       });
 
-      this.stepFourService.isStepFourChanged(true);
+      this.prioService.isStartedChanged(true);
       this.stepThreeService.isStepThreeChanged(false);
+    }else if(this.isPrio === true){
+
+      this.stepFourService.isStepFourChanged(true);
+      this.prioService.isStartedChanged(false);
+
     }
   }
 
@@ -209,10 +221,15 @@ export class AppComponent {
       this.stepThreeService.isStepThreeChanged(false);
       this.stepTwoService.isStepTwoChanged(true);
 
-    }else if(this.isStepFour === true){
-debugger;
-      this.stepFourService.isStepFourChanged(false);
+    }else if(this.isPrio === true) {
+
+      this.prioService.isStartedChanged(false);
       this.stepThreeService.isStepThreeChanged(true);
+
+    }else if(this.isStepFour === true){
+
+      this.stepFourService.isStepFourChanged(false);
+      this.prioService.isStartedChanged(true);
 
     }
   }

@@ -1,22 +1,54 @@
 <div class="container-fluid containerOwn">
   <div class="row">
-    <div class="col">{{getTrans('element')}}</div>
-    <div class="col">{{getTrans('auftragszahl')}}</div>
-    <div class="col">{{getTrans('prio')}}</div>
+    <div class="col colHeader">{{getTrans('element')}}</div>
+    <div class="col colHeader">{{getTrans('auftragszahl')}}</div>
+    <div class="col colHeader">{{getTrans('prio')}}</div>
+    <div class="col colHeader">{{getTrans('element')}}</div>
+    <div class="col colHeader">{{getTrans('auftragszahl')}}</div>
+    <div class="col colHeader">{{getTrans('prio')}}</div>
   </div>
-  <div  *ngFor="let el of wholeList">
-    <div class="row rowOwn">
-      <div class="col">{{el.item}}</div>
-      <div class="col">
-        <input type="number" class="form-control input" value = {{el.quantity}}/>
+  <div class="row">
+    <div class="col">
+      <div  *ngFor="let el of wholeList; let i = index" [attr.data-index]="i">
+        <div *ngIf="i % 2 == 0">
+          <div class="row rowOwn">
+            <div class="col">{{el.item}}</div>
+            <div class="col">
+              <input type="number" class="form-control input" value = {{el.quantity}}/>
+            </div>
+            <div class="col">
+              <input type="number" class="form-control input" value = {{el.batch}}/>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <input type="number" class="form-control input" value = {{el.batch}}/>
+    </div>
+
+    <div class="col">
+      <div  *ngFor="let el of wholeList; let i = index" [attr.data-index]="i">
+        <div *ngIf="i % 2 == 1">
+          <div class="row rowOwn">
+            <div class="col">{{el.item}}</div>
+            <div class="col">
+              <input type="number" class="form-control input" value = {{el.quantity}}/>
+            </div>
+            <div class="col">
+              <input type="number" class="form-control input" value = {{el.batch}}/>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Zufügen Zeile -->
+
+  <div class="row">
+    <div class="rowHeader">
+      {{getTrans("splitten")}}
+
+    </div>
+  </div>
 
   <div class="row rowOwn">
     <div class="col">
@@ -28,8 +60,6 @@
     <div class="col">
       <input id="batchInput" type="number" class="form-control input"/>
     </div>
-  </div>
-  <div class="row rowOwn">
-    <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton buttonOwn" (click)="saveNewElement()">{{getTrans('speichern')}}</button>
+    <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn" (click)="saveNewElement()">{{getTrans('speichern')}}</button>
   </div>
 </div>

@@ -59,6 +59,10 @@ var translations = {
     de: 'Überstunden in Minuten',
     en: 'Overtime in minutes'
   },
+  splitten: {
+    de: 'Neuen Auftrag hinzufügen oder bestehenden Auftrag splitten',
+    en: 'Add a new order of change existing orders'
+  },
   schichtenAnzahl: {
     de: 'Anzahl Schichten',
     en: 'Shifts'

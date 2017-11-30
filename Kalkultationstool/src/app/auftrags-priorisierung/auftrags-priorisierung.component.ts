@@ -37,77 +37,77 @@ export class AuftragsPriorisierungComponent {
       this.language = lang;
     });
 
-    this.wholeList.push({ item:'1', quantity: this.p1.P1,
+    this.wholeList.push({id: 1, item:'1', quantity: this.p1.P1,
                           batch: 1});
-    this.wholeList.push({ item:'2', quantity: this.p2.P2,
+    this.wholeList.push({id: 2, item:'2', quantity: this.p2.P2,
                           batch: 1});
-    this.wholeList.push({ item:'3', quantity: this.p2.P2,
+    this.wholeList.push({id: 3, item:'3', quantity: this.p2.P2,
                           batch: 1});
 
     // P1
 
-    this.wholeList.push({ item:'51', quantity: this.p1.E51,
+    this.wholeList.push({id: 51, item:'51', quantity: this.p1.E51,
       batch: 1});
-    this.wholeList.push({ item:'50', quantity: this.p1.E50,
+    this.wholeList.push({id: 50, item:'50', quantity: this.p1.E50,
       batch: 1});
-    this.wholeList.push({ item:'4', quantity: this.p1.E4,
+    this.wholeList.push({id: 4, item:'4', quantity: this.p1.E4,
       batch: 1});
-    this.wholeList.push({ item:'10', quantity: this.p1.E10,
+    this.wholeList.push({id: 10, item:'10', quantity: this.p1.E10,
       batch: 1});
-    this.wholeList.push({ item:'49', quantity: this.p1.E49,
+    this.wholeList.push({id: 49, item:'49', quantity: this.p1.E49,
       batch: 1});
-    this.wholeList.push({ item:'7', quantity: this.p1.E7,
+    this.wholeList.push({id: 7, item:'7', quantity: this.p1.E7,
       batch: 1});
-    this.wholeList.push({ item:'13', quantity: this.p1.E13,
+    this.wholeList.push({id: 13, item:'13', quantity: this.p1.E13,
       batch: 1});
-    this.wholeList.push({ item:'18', quantity: this.p1.E18,
+    this.wholeList.push({id: 18, item:'18', quantity: this.p1.E18,
       batch: 1});
 
     // P2
 
-    this.wholeList.push({ item:'56', quantity: this.p2.E56,
+    this.wholeList.push({id: 56, item:'56', quantity: this.p2.E56,
       batch: 1});
-    this.wholeList.push({ item:'55', quantity: this.p2.E55,
+    this.wholeList.push({id: 55, item:'55', quantity: this.p2.E55,
       batch: 1});
-    this.wholeList.push({ item:'5', quantity: this.p2.E5,
+    this.wholeList.push({id: 5, item:'5', quantity: this.p2.E5,
       batch: 1});
-    this.wholeList.push({ item:'11', quantity: this.p2.E11,
+    this.wholeList.push({id: 11, item:'11', quantity: this.p2.E11,
       batch: 1});
-    this.wholeList.push({ item:'54', quantity: this.p2.E54,
+    this.wholeList.push({id: 54, item:'54', quantity: this.p2.E54,
       batch: 1});
-    this.wholeList.push({ item:'8', quantity: this.p2.E8,
+    this.wholeList.push({id: 8, item:'8', quantity: this.p2.E8,
       batch: 1});
-    this.wholeList.push({ item:'14', quantity: this.p2.E14,
+    this.wholeList.push({id: 14, item:'14', quantity: this.p2.E14,
       batch: 1});
-    this.wholeList.push({ item:'19', quantity: this.p2.E19,
+    this.wholeList.push({id: 19, item:'19', quantity: this.p2.E19,
       batch: 1});
 
     // P3
 
-    this.wholeList.push({ item:'31', quantity: this.p3.E31,
+    this.wholeList.push({id: 31, item:'31', quantity: this.p3.E31,
       batch: 1});
-    this.wholeList.push({ item:'30', quantity: this.p3.E30,
+    this.wholeList.push({id: 30, item:'30', quantity: this.p3.E30,
       batch: 1});
-    this.wholeList.push({ item:'6', quantity: this.p3.E6,
+    this.wholeList.push({id: 6, item:'6', quantity: this.p3.E6,
       batch: 1});
-    this.wholeList.push({ item:'12', quantity: this.p3.E12,
+    this.wholeList.push({id: 12, item:'12', quantity: this.p3.E12,
       batch: 1});
-    this.wholeList.push({ item:'29', quantity: this.p3.E29,
+    this.wholeList.push({id: 29, item:'29', quantity: this.p3.E29,
       batch: 1});
-    this.wholeList.push({ item:'9', quantity: this.p3.E9,
+    this.wholeList.push({id: 9, item:'9', quantity: this.p3.E9,
       batch: 1});
-    this.wholeList.push({ item:'15', quantity: this.p3.E15,
+    this.wholeList.push({id: 15, item:'15', quantity: this.p3.E15,
       batch: 1});
-    this.wholeList.push({ item:'20', quantity: this.p3.E20,
+    this.wholeList.push({id: 20, item:'20', quantity: this.p3.E20,
       batch: 1});
 
     //Mehrfachverwendungsteile
 
-    this.wholeList.push({item:'26', quantity: parseInt(this.p1.E26) + parseInt(this.p2.E26) + parseInt(this.p3.E26),
+    this.wholeList.push({id: 26, item:'26', quantity: parseInt(this.p1.E26) + parseInt(this.p2.E26) + parseInt(this.p3.E26),
       batch: 1});
-    this.wholeList.push({item:'17', quantity: parseInt(this.p1.E17) + parseInt(this.p2.E17) + parseInt(this.p3.E17),
+    this.wholeList.push({id: 17, item:'17', quantity: parseInt(this.p1.E17) + parseInt(this.p2.E17) + parseInt(this.p3.E17),
       batch: 1});
-    this.wholeList.push({item:'16', quantity: parseInt(this.p1.E16) + parseInt(this.p2.E16) + parseInt(this.p3.E16),
+    this.wholeList.push({id: 16, item:'16', quantity: parseInt(this.p1.E16) + parseInt(this.p2.E16) + parseInt(this.p3.E16),
       batch: 1});
 
     this.wholeList.sort((a,b) => {

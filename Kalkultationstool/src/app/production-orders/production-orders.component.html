@@ -19,7 +19,7 @@
     <div class="col columnStyle2">
     </div>
     <div class="col columnStyle1">
-      <input name="P1" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="P1" type="number" class="form-control input"  [value] = "warehouseOldP1" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="P1" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldP1"  readonly/>
@@ -45,7 +45,7 @@
       <input name="E26" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragP1" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E26" type="number" class="form-control input" value = 0 (change)="updateP1()"/>
+      <input name="E26" type="number" class="form-control input"  [value] = "warehouseOldE26"  (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E26" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE26"  readonly/>
@@ -71,7 +71,7 @@
       <input name="E51" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragP1" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E51" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E51" type="number" class="form-control input" [value] = "warehouseOldE51" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E51" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE51" readonly/>
@@ -97,7 +97,7 @@
       <input name="E16" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE51" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E16" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E16" type="number" class="form-control input"  [value] = "warehouseOldE16" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E16" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE16" readonly/>
@@ -123,7 +123,7 @@
       <input name="E17" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE51" readonly />
     </div>
     <div class="col columnStyle1">
-      <input name="E17" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E17" type="number" class="form-control input"  [value] = "warehouseOldE17" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E17" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE17" readonly/>
@@ -149,7 +149,7 @@
       <input name="E50" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE51" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E50" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E50" type="number" class="form-control input"  [value] = "warehouseOldE50" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E50" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE50" readonly/>
@@ -175,7 +175,7 @@
       <input name="E4" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE50" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E4" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E4" type="number" class="form-control input"  [value] = "warehouseOldE4" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E4" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE4" readonly/>
@@ -201,7 +201,7 @@
     <input name="E10" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE50" readonly/>
   </div>
   <div class="col columnStyle1">
-    <input name="E10" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+    <input name="E10" type="number" class="form-control input"  [value] = "warehouseOldE10" (change)="updateP1()"/>
   </div>
   <div class="col columnStyle2">
     <input name="E10" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE10" readonly/>
@@ -227,7 +227,7 @@
     <input name="E49" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE50" readonly/>
   </div>
   <div class="col columnStyle1">
-    <input name="E49" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+    <input name="E49" type="number" class="form-control input"  [value] = "warehouseOldE49" (change)="updateP1()"/>
   </div>
   <div class="col columnStyle2">
     <input name="E49" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE49" readonly/>
@@ -253,7 +253,7 @@
       <input name="E7" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE49" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E7" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E7" type="number" class="form-control input"  [value] = "warehouseOldE7" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E7" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE7" readonly/>
@@ -279,7 +279,7 @@
       <input name="E13" type="number" class="form-control input" value = 0 [(ngModel)]="waitingListUebertragE49" readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E13" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E13" type="number" class="form-control input"  [value] = "warehouseOldE13" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E13" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE13" readonly/>
@@ -305,7 +305,7 @@
       <input name="E18" type="number" class="form-control input" value = 0 readonly/>
     </div>
     <div class="col columnStyle1">
-      <input name="E18" type="number" class="form-control input"  value = 0 (change)="updateP1()"/>
+      <input name="E18" type="number" class="form-control input"  [value] = "warehouseOldE18" (change)="updateP1()"/>
     </div>
     <div class="col columnStyle2">
       <input name="E18" type="number" class="form-control input" value = 0 [(ngModel)]="warehouseOldE18" readonly/>

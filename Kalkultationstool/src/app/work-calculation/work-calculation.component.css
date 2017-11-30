@@ -5,26 +5,28 @@
 .colStyle1{
   text-align: center;
   vertical-align: middle;
-  height: 50px;
+  height: 45px;
   border-left: 1px solid black;
 }
 
 .colStyle2{
   text-align: center;
   vertical-align: middle;
-  height: 50px;
+  height: 45px;
 }
 
 .header{
   text-align: center;
   vertical-align: middle;
-  height: 60px;
+  height: 40px;
+  font-size: large;
   border-bottom: 2px solid black;
 }
 
 .ownContainer{
   margin-left:10%;
-  margin-top: 5%;
+  margin-top:50px;
+  margin-bottom:30px;
   border: 2px solid black;
   width: 80%;
   height:90%;

@@ -10,7 +10,7 @@
   height: 100px;
   text-align: center;
   vertical-align: middle;
-  background-color: lightgreen;
+  background-color: deepskyblue;
 }
 
 .startButton {
@@ -19,6 +19,13 @@
   font-size: large;
   vertical-align: middle;
   margin-top: 50px;
+}
+
+.navButton {
+  width: 400px;
+  height: 50px;
+  font-size: large;
+  vertical-align: middle;
 }
 
 .container-fluid {

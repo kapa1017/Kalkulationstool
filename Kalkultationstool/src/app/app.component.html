@@ -87,8 +87,8 @@
   <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio">
     <div class="row">
       <div class="col text-center buttonCol">
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
       </div>
     </div>
   </div>

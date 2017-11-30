@@ -18,6 +18,7 @@ import {StepFourService} from "./Services/stepFour.service";
 import {PrioService} from "./Services/prio.service";
 import { AuftragsPriorisierungComponent } from './auftrags-priorisierung/auftrags-priorisierung.component';
 import {TranslationService} from "app/Services/translation.service";
+import {WorkService} from "./Services/work.service";
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import {TranslationService} from "app/Services/translation.service";
     StepThreeService,
     StepFourService,
     PrioService,
-    TranslationService
+    TranslationService,
+    WorkService
   ],
   bootstrap: [AppComponent]
 })

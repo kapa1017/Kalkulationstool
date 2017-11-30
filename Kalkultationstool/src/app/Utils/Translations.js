@@ -51,6 +51,10 @@ var translations = {
     de: 'Rüstzeit gesamt',
     en: 'Total setup time'
   },
+  arbeitszeiten:{
+    de: 'Arbeitszeiten bestätigen',
+    en: 'Confirm worktimes'
+  },
   kapazitaetsbedarfGes:{
     de: 'Kapazitätsbedarf gesamt',
     en: 'Total capacity requirement'

@@ -23,13 +23,25 @@
   border-bottom: 2px solid black;
 }
 
+.last {
+  border-bottom:1px solid black;
+}
+
 .ownContainer{
   margin-left:10%;
-  margin-top:50px;
-  margin-bottom:30px;
+  margin-top:20px;
+  margin-bottom:20px;
   border: 2px solid black;
   width: 80%;
   height:90%;
+}
+
+.confirm {
+  width: 400px;
+  font-size: large;
+  margin-top: 10px;
+  margin-bottom:10px;
+  vertical-align: middle;
 }
 
 .input{

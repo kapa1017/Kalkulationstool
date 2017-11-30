@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuftraegeService} from "../Services/auftraege.service";
 import {TranslationService} from "../Services/translation.service";
 import {getTranslation} from '../Utils/Translations';
+import {WorkService} from "../Services/work.service";
 
 @Component({
   selector: 'app-work-calculation',
@@ -18,6 +19,8 @@ export class WorkCalculationComponent {
   auftraegeGesamt: any;
 
   weekMinutes = 2400;
+
+  work: any;
 
   worktime1 = 0;
   worktime2 = 0;
@@ -68,7 +71,7 @@ export class WorkCalculationComponent {
     return getTranslation(phrase, this.language);
   }
 
-  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService) {
+  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService, workService: WorkService) {
     auftraegeService.auftraeggeP1$.subscribe((newState: Object) => {
       this.auftraegeP1 = newState;
     });
@@ -84,6 +87,9 @@ export class WorkCalculationComponent {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+    workService.work$.subscribe((worktimes: Object) =>  {
+      this.work = worktimes;
+    })
 
     //Kalkulation der Arbeitszeiten
 

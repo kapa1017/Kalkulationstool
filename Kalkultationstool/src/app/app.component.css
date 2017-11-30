@@ -15,7 +15,8 @@
 
 .startButton {
   width: 400px;
-  heiht: 100px;
+  height: 50px;
+  font-size: large;
   vertical-align: middle;
   margin-top: 50px;
 }
@@ -26,4 +27,12 @@
 
 .mainMenu {
   padding-left: 50px;
+}
+
+.ownDD {
+  margin-left:49%;
+}
+
+.itemDD {
+  font-size: large;
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
+import {TranslationService} from '../Services/translation.service';
+import {getTranslation} from '../Utils/Translations';
 
 @Component({
   selector: 'app-production-orders',
@@ -9,6 +11,7 @@ import {BackendService} from '../Services/backend.service';
 export class ProductionOrdersComponent {
 
   JSONData: any;
+  language;
 
   P1 = 0;
   auftraegeP1 = 0;
@@ -44,11 +47,18 @@ export class ProductionOrdersComponent {
 
   elementsOfP1 = [1, 4, 7, 10, 13, 16, 17, 18, 26, 49, 50, 51 ];
 
-  constructor(backendService: BackendService) {
+  constructor(backendService: BackendService, translationService: TranslationService) {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
     });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
+    });
+  }
+
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
   }
 
   updateValues() {

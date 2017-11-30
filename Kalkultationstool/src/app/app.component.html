@@ -17,31 +17,36 @@
   <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">Neuen Auftrag Kalkulieren</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>
       </div>
       <div class="mainMenu">
-        <label class="btn btn-primary center-block startButton">
-          <input id="impportFile" type="file" style="display:none;">
-          Import XML file
-        </label>
+        <button class="btn btn-primary center-block startButton" type="button">
+          XML Import
+        </button>
       </div>
       <div class="mainMenu">
-        <label class="btn btn-primary center-block startButton">
-          <input type="file" style="display:none;">
-          Lagerbestände einsehen
-        </label>
+        <button class="btn btn-primary center-block startButton" type="button">
+          {{getTrans(('lagerbestaende'))}}
+        </button>
       </div>
       <div class="mainMenu">
-        <label class="btn btn-primary center-block startButton">
-          <input type="file" style="display:none;">
-          Ergebnisse der letzten Periode einsehen
-        </label>
+        <button class="btn btn-primary center-block startButton" type="button">
+          {{getTrans('ergebnisse')}}
+        </button>
       </div>
       <div class="mainMenu">
-        <label class="btn btn-primary center-block startButton">
-          <input type="file" style="display:none;">
-          KPI's einsehen
-        </label>
+        <button class="btn btn-primary center-block startButton" type="button">
+          {{getTrans('kpis')}}
+        </button>
+      </div>
+      <div class="dropdown mainMenu">
+        <button class="btn btn-primary dropdown-toggle startButton" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{getTrans('sprache')}}
+        </button>
+        <div class="dropdown-menu dropdown-menu-left ownDD" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item itemDD" (click)="changeLanguage('de')" href="#">Deutsch</a>
+          <a class="dropdown-item itemDD" (click)="changeLanguage('en')" href="#">Englisch</a>
+        </div>
       </div>
     </div>
   </div>
@@ -82,8 +87,8 @@
   <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio">
     <div class="row">
       <div class="col text-center buttonCol">
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoLastStep()">Zurück</button>
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="goToNextStep()">Weiter</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
       </div>
     </div>
   </div>

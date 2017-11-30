@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuftraegeService} from "../Services/auftraege.service";
+import {TranslationService} from "../Services/translation.service";
+import {getTranslation} from '../Utils/Translations';
 
 @Component({
   selector: 'app-work-calculation',
@@ -7,6 +9,8 @@ import {AuftraegeService} from "../Services/auftraege.service";
   styleUrls: ['./work-calculation.component.css']
 })
 export class WorkCalculationComponent {
+
+  language;
 
   auftraegeP1: any;
   auftraegeP2: any;
@@ -60,7 +64,11 @@ export class WorkCalculationComponent {
   shift13 = 1;
   shift14 = 1;
 
-  constructor(private auftraegeService: AuftraegeService) {
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
+  }
+
+  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService) {
     auftraegeService.auftraeggeP1$.subscribe((newState: Object) => {
       this.auftraegeP1 = newState;
     });
@@ -72,6 +80,9 @@ export class WorkCalculationComponent {
     });
     auftraegeService.auftraegeGesamt$.subscribe((newState: Object) => {
       this.auftraegeGesamt = newState;
+    });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
     });
 
     //Kalkulation der Arbeitszeiten

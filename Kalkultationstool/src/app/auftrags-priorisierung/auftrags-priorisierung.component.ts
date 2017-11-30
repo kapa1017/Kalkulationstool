@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuftraegeService} from '../Services/auftraege.service';
+import {TranslationService} from '../Services/translation.service';
+import {getTranslation} from '../Utils/Translations';
 
 @Component({
   selector: 'app-auftrags-priorisierung',
@@ -8,13 +10,19 @@ import {AuftraegeService} from '../Services/auftraege.service';
 })
 export class AuftragsPriorisierungComponent {
 
+  language;
+
   p1:any;
   p2:any;
   p3:any;
 
   wholeList: any = [];
 
-  constructor(private auftraegeService: AuftraegeService) {
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
+  }
+
+  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService) {
 
     auftraegeService.auftraeggeP1$.subscribe((p1:Object) => {
       this.p1 = p1;
@@ -24,6 +32,9 @@ export class AuftragsPriorisierungComponent {
     });
     auftraegeService.auftraeggeP3$.subscribe((p3:Object) => {
       this.p3 = p3;
+    });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
     });
 
     this.wholeList.push({ item:'1', quantity: this.p1.P1,

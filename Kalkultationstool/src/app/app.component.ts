@@ -5,7 +5,9 @@ import {StepTwoService} from "./Services/stepTwo.service";
 import {StepThreeService} from "./Services/stepThree.service";
 import {AuftraegeService} from "./Services/auftraege.service";
 import {StepFourService} from "./Services/stepFour.service";
+import {getTranslation} from './Utils/Translations';
 import {PrioService} from "./Services/prio.service";
+import {TranslationService} from "./Services/translation.service";
 
 
 @Component({
@@ -19,17 +21,24 @@ export class AppComponent {
   isStepThree = false;
   isStepFour = false;
 
+  language;
+
   isPrio = false;
 
   data = {};
   result: any;
+
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
+  }
 
   constructor(private startService: StartService,
               private stepTwoService: StepTwoService,
               private stepThreeService: StepThreeService,
               private stepFourService: StepFourService,
               private auftraegeService: AuftraegeService,
-              private prioService: PrioService
+              private prioService: PrioService,
+              private translationService: TranslationService
   ) {
     startService.isStarted$.subscribe((isStarted: boolean) => {
       this.isStarted = isStarted;
@@ -45,6 +54,9 @@ export class AppComponent {
     });
     prioService.isPrio$.subscribe((isPrio: boolean) => {
       this.isPrio = isPrio;
+    });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
     });
   }
 
@@ -232,5 +244,9 @@ export class AppComponent {
       this.prioService.isStartedChanged(true);
 
     }
+  }
+
+  changeLanguage(newLang){
+    this.translationService.isLanguageChanged(newLang);
   }
 }

@@ -14,7 +14,7 @@
 
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour">
+  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>
@@ -25,7 +25,7 @@
         </button>
       </div>
       <div class="mainMenu">
-        <button class="btn btn-primary center-block startButton" type="button">
+        <button class="btn btn-primary center-block startButton" type="button" (click)="clickWareHouse(true)">
           {{getTrans(('lagerbestaende'))}}
         </button>
       </div>
@@ -82,13 +82,22 @@
     <app-work-calculation></app-work-calculation>
   </div>
 
+  <!-- Other Methods -->
+
+  <div *ngIf="isWarehouse">
+    <app-warehouse-data></app-warehouse-data>
+  </div>
+
+
   <!-- Navigation Button -->
 
-  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio">
+  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio || isWarehouse">
     <div class="row">
       <div class="col text-center buttonCol">
         <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+        <div *ngIf="!isWarehouse">
+          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+        </div>
       </div>
     </div>
   </div>

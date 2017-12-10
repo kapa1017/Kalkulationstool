@@ -19,6 +19,8 @@ import {PrioService} from "./Services/prio.service";
 import { AuftragsPriorisierungComponent } from './auftrags-priorisierung/auftrags-priorisierung.component';
 import {TranslationService} from "app/Services/translation.service";
 import {WorkService} from "./Services/work.service";
+import { WarehouseDataComponent } from './warehouse-data/warehouse-data.component';
+import {WarehouseService} from "app/Services/warehouse.service";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import {WorkService} from "./Services/work.service";
     OrderCalculationComponent,
     WorkCalculationComponent,
     AuftragsPriorisierungComponent,
+    WarehouseDataComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import {WorkService} from "./Services/work.service";
     StepThreeService,
     StepFourService,
     PrioService,
+    WarehouseService,
     TranslationService,
     WorkService
   ],

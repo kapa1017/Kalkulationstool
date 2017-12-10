@@ -8,6 +8,7 @@ import {StepFourService} from "./Services/stepFour.service";
 import {getTranslation} from './Utils/Translations';
 import {PrioService} from "./Services/prio.service";
 import {TranslationService} from "./Services/translation.service";
+import {WarehouseService} from "app/Services/warehouse.service";
 
 
 @Component({
@@ -20,6 +21,7 @@ export class AppComponent {
   isStepTwo = false;
   isStepThree = false;
   isStepFour = false;
+  isWarehouse = false;
 
   language;
 
@@ -36,6 +38,7 @@ export class AppComponent {
               private stepTwoService: StepTwoService,
               private stepThreeService: StepThreeService,
               private stepFourService: StepFourService,
+              private warehouseService: WarehouseService,
               private auftraegeService: AuftraegeService,
               private prioService: PrioService,
               private translationService: TranslationService
@@ -55,9 +58,16 @@ export class AppComponent {
     prioService.isPrio$.subscribe((isPrio: boolean) => {
       this.isPrio = isPrio;
     });
+    warehouseService.isWwarehouseStarted$.subscribe((newState: boolean) => {
+      this.isWarehouse = newState;
+    });
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+  }
+
+  clickWareHouse(newState: boolean){
+    this.warehouseService.isWarehouseChanged(newState);
   }
 
   startCalculation() {
@@ -243,6 +253,9 @@ export class AppComponent {
       this.stepFourService.isStepFourChanged(false);
       this.prioService.isStartedChanged(true);
 
+    }else if(this.isWarehouse === true){
+
+      this.warehouseService.isWarehouseChanged(false);
     }
   }
 

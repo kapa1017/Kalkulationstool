@@ -99,11 +99,18 @@
   <!-- Navigation Button -->
 
   <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio || isWarehouse || isKpi || result">
-    <div class="row">
-      <div class="col text-center buttonCol">
-        <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-        <div *ngIf="!isWarehouse && !isKpi && !result">
+    <div *ngIf="!isWarehouse && !isKpi && !result">
+      <div class="row">
+        <div class="col text-center buttonCol">
+          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
           <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="isWarehouse || isKpi || result">
+      <div class="row">
+        <div class="col text-center buttonCol">
+          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ import {getTranslation} from './Utils/Translations';
 import {PrioService} from "./Services/prio.service";
 import {TranslationService} from "./Services/translation.service";
 import {WarehouseService} from "app/Services/warehouse.service";
+import {ResultService} from "./Services/result.service";
+import {KpiService} from "./Services/kpi.service";
 
 
 @Component({
@@ -22,6 +24,8 @@ export class AppComponent {
   isStepThree = false;
   isStepFour = false;
   isWarehouse = false;
+  isResult = false;
+  isKpi = false;
 
   language;
 
@@ -41,6 +45,8 @@ export class AppComponent {
               private warehouseService: WarehouseService,
               private auftraegeService: AuftraegeService,
               private prioService: PrioService,
+              private resultService: ResultService,
+              private kpiService: KpiService,
               private translationService: TranslationService
   ) {
     startService.isStarted$.subscribe((isStarted: boolean) => {
@@ -64,10 +70,24 @@ export class AppComponent {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+    resultService.isResultStarted$.subscribe((result: boolean) => {
+      this.result = result;
+    });
+    kpiService.isKpiStarted$.subscribe((kpi: boolean) => {
+      this.isKpi = kpi;
+    });
   }
 
   clickWareHouse(newState: boolean){
     this.warehouseService.isWarehouseChanged(newState);
+  }
+
+  clickKpi(newState: boolean){
+    this.kpiService.isKpiChanged(newState);
+  }
+
+  clickResult(newState: boolean){
+    this.resultService.isResultChanged(newState);
   }
 
   startCalculation() {
@@ -256,6 +276,12 @@ export class AppComponent {
     }else if(this.isWarehouse === true){
 
       this.warehouseService.isWarehouseChanged(false);
+    }else if(this.isKpi === true){
+
+      this.kpiService.isKpiChanged(false);
+    }else if(this.result === true){
+
+      this.resultService.isResultChanged(false);
     }
   }
 

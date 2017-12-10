@@ -14,7 +14,7 @@
 
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse">
+  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse && !isKpi && !result">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>
@@ -30,12 +30,12 @@
         </button>
       </div>
       <div class="mainMenu">
-        <button class="btn btn-primary center-block startButton" type="button">
+        <button class="btn btn-primary center-block startButton" type="button" (click)="clickResult(true)">
           {{getTrans('ergebnisse')}}
         </button>
       </div>
       <div class="mainMenu">
-        <button class="btn btn-primary center-block startButton" type="button">
+        <button class="btn btn-primary center-block startButton" type="button" (click)="clickKpi(true)">
           {{getTrans('kpis')}}
         </button>
       </div>
@@ -88,14 +88,21 @@
     <app-warehouse-data></app-warehouse-data>
   </div>
 
+  <div *ngIf="isKpi">
+    <app-kpi></app-kpi>
+  </div>
+
+  <div *ngIf="result">
+    <app-result></app-result>
+  </div>
 
   <!-- Navigation Button -->
 
-  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio || isWarehouse">
+  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio || isWarehouse || isKpi || result">
     <div class="row">
       <div class="col text-center buttonCol">
         <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-        <div *ngIf="!isWarehouse">
+        <div *ngIf="!isWarehouse && !isKpi && !result">
           <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
         </div>
       </div>

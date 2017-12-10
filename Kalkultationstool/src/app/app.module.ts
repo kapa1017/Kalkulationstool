@@ -9,18 +9,22 @@ import { ProductionOrders2Component } from './production-orders-2/production-ord
 import { ProductionOrders3Component } from './production-orders-3/production-orders-3.component';
 import { OrderCalculationComponent } from './order-calculation/order-calculation.component';
 import { WorkCalculationComponent } from './work-calculation/work-calculation.component';
-import {BackendService} from "./Services/backend.service";
-import {AuftraegeService} from "./Services/auftraege.service";
-import {StartService} from "./Services/start.service";
-import {StepTwoService} from "./Services/stepTwo.service";
-import {StepThreeService} from "./Services/stepThree.service";
-import {StepFourService} from "./Services/stepFour.service";
-import {PrioService} from "./Services/prio.service";
+import {BackendService} from './Services/backend.service';
+import {AuftraegeService} from './Services/auftraege.service';
+import {StartService} from './Services/start.service';
+import {StepTwoService} from './Services/stepTwo.service';
+import {StepThreeService} from './Services/stepThree.service';
+import { StepFourService} from './Services/stepFour.service';
+import {PrioService} from './Services/prio.service';
 import { AuftragsPriorisierungComponent } from './auftrags-priorisierung/auftrags-priorisierung.component';
-import {TranslationService} from "app/Services/translation.service";
-import {WorkService} from "./Services/work.service";
+import {TranslationService} from 'app/Services/translation.service';
+import {WorkService} from './Services/work.service';
 import { WarehouseDataComponent } from './warehouse-data/warehouse-data.component';
-import {WarehouseService} from "app/Services/warehouse.service";
+import {WarehouseService} from 'app/Services/warehouse.service';
+import {KpiService} from 'app/Services/kpi.service';
+import {ResultService} from 'app/Services/result.service';
+import { ResultComponent } from './result/result.component';
+import { KpiComponent } from './kpi/kpi.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,8 @@ import {WarehouseService} from "app/Services/warehouse.service";
     WorkCalculationComponent,
     AuftragsPriorisierungComponent,
     WarehouseDataComponent,
+    ResultComponent,
+    KpiComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +51,8 @@ import {WarehouseService} from "app/Services/warehouse.service";
     StepTwoService,
     StepThreeService,
     StepFourService,
+    ResultService,
+    KpiService,
     PrioService,
     WarehouseService,
     TranslationService,

@@ -1,0 +1,23 @@
+.rowOwn{
+  margin:5px;
+  font-size: large;
+}
+
+.rowOwn2{
+  margin:5px;
+  font-size: large;
+  margin-bottom: 30px;
+}
+
+.rowOwn3{
+  margin:5px;
+  font-size: large;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.inputOwn{
+  font-size: medium;
+  display: inline-block;
+}

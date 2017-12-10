@@ -1,3 +1,102 @@
-<p>
-  kpi works!
-</p>
+<div class="container-fluid">
+  <div class="row rowOwn3">
+    <div class="col">
+      KPI
+    </div>
+    <div class="col">
+      Aktuell
+    </div>
+    <div clasS="col">
+      Durchschnitt
+    </div>
+    <div class="col">
+      Gesamt
+    </div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Produktionszeit in min
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="productiveTimeAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="productiveTimeAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Liefertreue
+    </div>
+    <div class="col">
+      <input type="text" class="form-control input inputOwn" [(ngModel)]="efficiencyAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="text" class="form-control input inputOwn" [(ngModel)]="efficiencyAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Leerzeiten
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Kosten Leerzeiten
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Lagerwert
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn">
+    <div class="col">
+      Lagerkosten
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAv" value = 0 readonly/>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row rowOwn2">
+    <div class="col">
+      Profit
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="profitAc" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="profitAv" value = 0 readonly/>
+    </div>
+    <div class="col">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="profitAll" value = 0 readonly/>
+    </div>
+  </div>
+</div>

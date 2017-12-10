@@ -14,8 +14,8 @@ export class KpiComponent {
   productiveTimeAc: number;
   productiveTimeAv: number;
 
-  efficiencyAc: number;
-  efficiencyAv: number;
+  efficiencyAc: string;
+  efficiencyAv: string;
 
   idleTimeAc: number;
   idleTimeAv: number;
@@ -42,13 +42,15 @@ export class KpiComponent {
 
   updateValues(){
 
-    debugger;
-
     this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].$.current;
     this.productiveTimeAv = this.JSONData.results.result[0].general[0].productivetime[0].$.average;
 
+    debugger;
+
     this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].$.current;
     this.efficiencyAv = this.JSONData.results.result[0].general[0].effiency[0].$.average;
+
+    debugger;
 
     this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].$.current;
     this.idleTimeAv = this.JSONData.results.result[0].general[0].idletime[0].$.average;
@@ -66,6 +68,5 @@ export class KpiComponent {
     this.profitAv = this.JSONData.results.result[0].summary[0].profit[0].$.average;
     this.profitAll = this.JSONData.results.result[0].summary[0].profit[0].$.all;
 
-    debugger;
   }
 }

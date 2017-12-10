@@ -1,0 +1,15 @@
+.containerOwn{
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 3px;
+  margin-top: 30px;
+  width: 60%;
+}
+
+.rowOwn{
+  margin:5px;
+}
+
+.input{
+  font-size: medium;
+}

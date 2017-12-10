@@ -1,3 +1,20 @@
-<p>
-  warehouse-data works!
-</p>
+<div class="container-fluid no-padding containerOwn">
+  <div class="row rowOwn">
+    <div class="col">Element</div>
+    <div class="col">Menge</div>
+    <div class="col">Lagerwert</div>
+  </div>
+  <div *ngFor="let item of article">
+    <div class="row rowOwn">
+      <div class="col">
+        <input type="number" class="form-control input inputOwn" value = {{item.id}} readonly/>
+      </div>
+      <div class="col">
+        <input type="number" class="form-control input inputOwn" value = {{item.amount}} readonly/>
+      </div>
+      <div class="col">
+        <input type="number" class="form-control input inputOwn" value = {{item.stockvalue}} readonly/>
+      </div>
+    </div>
+  </div>
+</div>

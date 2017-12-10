@@ -45,12 +45,8 @@ export class KpiComponent {
     this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].$.current;
     this.productiveTimeAv = this.JSONData.results.result[0].general[0].productivetime[0].$.average;
 
-    debugger;
-
     this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].$.current;
     this.efficiencyAv = this.JSONData.results.result[0].general[0].effiency[0].$.average;
-
-    debugger;
 
     this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].$.current;
     this.idleTimeAv = this.JSONData.results.result[0].general[0].idletime[0].$.average;

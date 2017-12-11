@@ -12,6 +12,7 @@ import {WarehouseService} from "app/Services/warehouse.service";
 import {ResultService} from "./Services/result.service";
 import {KpiService} from "./Services/kpi.service";
 import {InitService} from "./Services/init.service";
+import {OrderService} from "./Services/order.service";
 
 
 @Component({
@@ -25,6 +26,7 @@ export class AppComponent {
   isStepThree = false;
   isStepFour = false;
   isWarehouse = false;
+  orderStarted = false;
   isResult = false;
 
   // muss wieder auf true gesetzt werden!
@@ -45,6 +47,7 @@ export class AppComponent {
 
   constructor(private startService: StartService,
               private stepTwoService: StepTwoService,
+              private orderService: OrderService,
               private stepThreeService: StepThreeService,
               private stepFourService: StepFourService,
               private initService: InitService,
@@ -84,6 +87,9 @@ export class AppComponent {
     });
     initService.isInit$.subscribe((init: boolean) => {
       this.isInit = init;
+    });
+    orderService.orderStarted$.subscribe((newState: boolean) => {
+      this.orderStarted = newState;
     });
   }
 
@@ -191,6 +197,11 @@ export class AppComponent {
       this.stepFourService.isStepFourChanged(true);
       this.prioService.isStartedChanged(false);
 
+    } else if(this.isStepFour === true){
+
+      this.orderService.orderStarted(true);
+      this.stepFourService.isStepFourChanged(false);
+
     }
   }
 
@@ -285,12 +296,20 @@ export class AppComponent {
     }else if(this.isWarehouse === true){
 
       this.warehouseService.isWarehouseChanged(false);
+
     }else if(this.isKpi === true){
 
       this.kpiService.isKpiChanged(false);
+
     }else if(this.result === true){
 
       this.resultService.isResultChanged(false);
+
+    }else if(this.orderStarted === true){
+
+      this.orderService.orderStarted(false);
+      this.stepFourService.isStepFourChanged(true);
+
     }
   }
 

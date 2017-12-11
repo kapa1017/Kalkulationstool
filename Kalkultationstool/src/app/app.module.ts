@@ -27,6 +27,7 @@ import { ResultComponent } from './result/result.component';
 import { KpiComponent } from './kpi/kpi.component';
 import { XmlSelectorComponent } from './xml-selector/xml-selector.component';
 import {InitService} from "app/Services/init.service";
+import {OrderService} from "./Services/order.service";
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {InitService} from "app/Services/init.service";
     StepFourService,
     ResultService,
     KpiService,
+    OrderService,
     PrioService,
     WarehouseService,
     TranslationService,

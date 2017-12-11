@@ -11,6 +11,7 @@ import {TranslationService} from "./Services/translation.service";
 import {WarehouseService} from "app/Services/warehouse.service";
 import {ResultService} from "./Services/result.service";
 import {KpiService} from "./Services/kpi.service";
+import {InitService} from "./Services/init.service";
 
 
 @Component({
@@ -25,6 +26,10 @@ export class AppComponent {
   isStepFour = false;
   isWarehouse = false;
   isResult = false;
+
+  // muss wieder auf true gesetzt werden!
+  isInit = false;
+
   isKpi = false;
 
   language;
@@ -42,6 +47,7 @@ export class AppComponent {
               private stepTwoService: StepTwoService,
               private stepThreeService: StepThreeService,
               private stepFourService: StepFourService,
+              private initService: InitService,
               private warehouseService: WarehouseService,
               private auftraegeService: AuftraegeService,
               private prioService: PrioService,
@@ -75,6 +81,9 @@ export class AppComponent {
     });
     kpiService.isKpiStarted$.subscribe((kpi: boolean) => {
       this.isKpi = kpi;
+    });
+    initService.isInit$.subscribe((init: boolean) => {
+      this.isInit = init;
     });
   }
 

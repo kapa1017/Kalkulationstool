@@ -12,9 +12,15 @@
     </div>
   </div>
 
+  <!-- Init -->
+
+  <div *ngIf="isInit">
+    <app-xml-selector></app-xml-selector>
+  </div>
+
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="!isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse && !isKpi && !result">
+  <div class="row" *ngIf="!isInit && !isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse && !isKpi && !result">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>

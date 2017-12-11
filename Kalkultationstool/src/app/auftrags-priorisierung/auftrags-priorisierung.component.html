@@ -14,10 +14,10 @@
           <div class="row rowOwn">
             <div class="col">{{el.item}}</div>
             <div class="col">
-              <input type="number" class="form-control input" value = {{el.quantity}}/>
+              <input type="number" class="form-control input" value = {{el.quantity}} readonly/>
             </div>
             <div class="col">
-              <input type="number" class="form-control input" value = {{el.batch}}/>
+              <input type="number" class="form-control input" value = {{el.batch}} readonly/>
             </div>
             <div class="col">
               <button id="{{el.uid}}" type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="splitten($event)">Splitten</button>
@@ -33,10 +33,10 @@
           <div class="row rowOwn">
             <div class="col">{{el.item}}</div>
             <div class="col">
-              <input type="number" class="form-control input" value = {{el.quantity}}/>
+              <input type="number" class="form-control input" value = {{el.quantity}} readonly/>
             </div>
             <div class="col">
-              <input type="number" class="form-control input" value = {{el.batch}}/>
+              <input type="number" class="form-control input" value = {{el.batch}} readonly/>
             </div>
             <div class="col">
               <button id="{{el.uid}}" type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="splitten($event)">Splitten</button>
@@ -63,7 +63,7 @@
 
   <div class="row rowOwn">
     <div class="col">
-      <input id="itemInput1" type="number" class="form-control input" [(ngModel)]="splitId1"/>
+      <input id="itemInput1" type="number" class="form-control input" [(ngModel)]="splitId1" readonly/>
     </div>
     <div class="col">
       <input id="quantityInput1" type="number" class="form-control input" [(ngModel)]="count1" (change)="setNewValues($event)"/>
@@ -75,7 +75,7 @@
 
   <div class="row rowOwn">
     <div class="col">
-      <input id="itemInput2" type="number" class="form-control input" [(ngModel)]="splitId1"/>
+      <input id="itemInput2" type="number" class="form-control input" [(ngModel)]="splitId1" readonly/>
     </div>
     <div class="col">
       <input id="quantityInput2" type="number" class="form-control input" [(ngModel)]="count2"/>

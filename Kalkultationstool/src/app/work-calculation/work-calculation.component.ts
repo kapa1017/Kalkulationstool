@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {AuftraegeService} from "../Services/auftraege.service";
-import {TranslationService} from "../Services/translation.service";
+import {AuftraegeService} from '../Services/auftraege.service';
+import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
-import {WorkService} from "../Services/work.service";
+import {WorkService} from '../Services/work.service';
 
 @Component({
   selector: 'app-work-calculation',
@@ -71,7 +71,9 @@ export class WorkCalculationComponent {
     return getTranslation(phrase, this.language);
   }
 
-  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService, workService: WorkService) {
+  constructor(private auftraegeService: AuftraegeService,
+              private translationService: TranslationService,
+              private workService: WorkService) {
     auftraegeService.auftraeggeP1$.subscribe((newState: Object) => {
       this.auftraegeP1 = newState;
     });
@@ -89,7 +91,7 @@ export class WorkCalculationComponent {
     });
     workService.work$.subscribe((worktimes: Object) =>  {
       this.work = worktimes;
-    })
+    });
 
     //Kalkulation der Arbeitszeiten
 
@@ -253,33 +255,54 @@ export class WorkCalculationComponent {
 
     //Kalkulation der Schichten
 
-    this.shift1 = ((this.setupTime1+this.worktime1)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime1 + this.worktime1 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift2 = ((this.setupTime2+this.worktime2)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime2 + this.worktime2 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift3 = ((this.setupTime3+this.worktime3)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime3 + this.worktime3 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift4 = ((this.setupTime4+this.worktime4)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime4 + this.worktime4 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift5 = ((this.setupTime5+this.worktime5)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime5 + this.worktime5 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift6 = ((this.setupTime6+this.worktime6)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime6 + this.worktime6 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift7 = ((this.setupTime7+this.worktime7)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime7 + this.worktime7 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift8 = ((this.setupTime8+this.worktime8)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime8 + this.worktime8 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift9 = ((this.setupTime9+this.worktime9)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime9 + this.worktime9 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift10 = ((this.setupTime10+this.worktime10)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime10 + this.worktime10 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift11 = ((this.setupTime11+this.worktime11)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime11 + this.worktime11 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift12 = ((this.setupTime12+this.worktime12)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime12 + this.worktime12 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift13 = ((this.setupTime13+this.worktime13)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime13 + this.worktime13 / this.weekMinutes > 1.5) ? 2 : 1);
-    this.shift14 = ((this.setupTime14+this.worktime14)/this.weekMinutes > 2.5) ? 3 :
-      ((this.setupTime14 + this.worktime14 / this.weekMinutes > 1.5) ? 2 : 1);
+    this.shift1 = (Math.abs((this.setupTime1+this.worktime1)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime1 + this.worktime1) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift2 = (Math.abs((this.setupTime2+this.worktime2)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime2 + this.worktime2) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift3 = (Math.abs((this.setupTime3+this.worktime3)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime3 + this.worktime3) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift4 = (Math.abs((this.setupTime4+this.worktime4)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime4 + this.worktime4) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift5 = (Math.abs((this.setupTime5+this.worktime5)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime5 + this.worktime5) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift6 = (Math.abs((this.setupTime6+this.worktime6)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime6 + this.worktime6) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift7 = (Math.abs((this.setupTime7+this.worktime7)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime7 + this.worktime7) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift8 = (Math.abs((this.setupTime8+this.worktime8)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime8 + this.worktime8) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift9 = (Math.abs((this.setupTime9+this.worktime9)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime9 + this.worktime9) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift10 = (Math.abs((this.setupTime10+this.worktime10)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime10 + this.worktime10) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift11 = (Math.abs((this.setupTime11+this.worktime11)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime11 + this.worktime11) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift12 = (Math.abs((this.setupTime12+this.worktime12)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime12 + this.worktime12) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift13 = (Math.abs((this.setupTime13+this.worktime13)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime13 + this.worktime13) / this.weekMinutes) > 1.5) ? 2 : 1);
+    this.shift14 = (Math.abs((this.setupTime14+this.worktime14)/this.weekMinutes) > 2.5) ? 3 :
+      ((Math.abs((this.setupTime14 + this.worktime14) / this.weekMinutes) > 1.5) ? 2 : 1);
+  }
+
+  confirmWorktime(){
+
+    var shiftsInput = document.getElementsByName('shift');
+    var overtimesInput = document.getElementsByName('overtime');
+
+    var shifts = [];
+
+    debugger;
+
+    for(var i = 0; i<shiftsInput.length; i++) {
+      var shift = <HTMLInputElement>shiftsInput[i];
+      var overtime = <HTMLInputElement>overtimesInput[i];
+      if(parseInt(overtime.value) > 0){
+        shifts.push({id: i+1, shifts: parseInt(shift.value), overtime: parseInt(overtime.value)/5});
+      }else{
+        shifts.push({id: i+1, shifts: parseInt(shift.value), overtime: 0});
+      }
+    }
+    this.workService.workChanged(shifts);
   }
 }

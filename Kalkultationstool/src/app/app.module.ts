@@ -25,6 +25,8 @@ import {KpiService} from 'app/Services/kpi.service';
 import {ResultService} from 'app/Services/result.service';
 import { ResultComponent } from './result/result.component';
 import { KpiComponent } from './kpi/kpi.component';
+import { XmlSelectorComponent } from './xml-selector/xml-selector.component';
+import {InitService} from "app/Services/init.service";
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import { KpiComponent } from './kpi/kpi.component';
     WarehouseDataComponent,
     ResultComponent,
     KpiComponent,
+    XmlSelectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,7 @@ import { KpiComponent } from './kpi/kpi.component';
     PrioService,
     WarehouseService,
     TranslationService,
+    InitService,
     WorkService
   ],
   bootstrap: [AppComponent]

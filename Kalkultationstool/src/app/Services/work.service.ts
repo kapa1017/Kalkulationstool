@@ -4,11 +4,11 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 @Injectable()
 export class WorkService {
 
-  private workSource = new BehaviorSubject<Object>({});
+  private workSource = new BehaviorSubject<Object>([]);
 
   work$ = this.workSource.asObservable();
 
-  workChanged(newState: Object) {
+  workChanged(newState: Object[]) {
     this.workSource.next(newState);
   }
 }

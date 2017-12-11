@@ -196,11 +196,10 @@ export class ProductionOrdersComponent {
 
     for (let i = 1 ; i < el5.length - 1; i++) {
       if(i !== 3){
-
+        this.auftraegeE4 += Number((<HTMLInputElement>el7[i]).value);
       }else{
-
+        this.auftraegeE4 -= Number((<HTMLInputElement>el7[i]).value);
       }
-      this.auftraegeE4 += Number((<HTMLInputElement>el7[i]).value);
     }
     for (let i = 1 ; i < el6.length - 1; i++) {
       if(i !== 3){

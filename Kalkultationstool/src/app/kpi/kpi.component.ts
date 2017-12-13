@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from "../Services/backend.service";
+import {NavigationService} from "../Services/navigation.service";
 
 @Component({
   selector: 'app-kpi',
@@ -7,6 +8,8 @@ import {BackendService} from "../Services/backend.service";
   styleUrls: ['./kpi.component.css']
 })
 export class KpiComponent {
+
+  navigationStep: number;
 
   JSONData: any;
   result: any;
@@ -33,11 +36,21 @@ export class KpiComponent {
   profitAv: number;
   profitAll: number;
 
-  constructor(backendService: BackendService) {
+  constructor(private backendService: BackendService,
+              private navigationService: NavigationService) {
+
     backendService.getData().subscribe((data: any) => {
       this.JSONData = data;
       this.updateValues();
     });
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
+  }
+
+
+  goToLastStep(){
+    this.navigationService.isNavigationChanged(0)
   }
 
   updateValues(){

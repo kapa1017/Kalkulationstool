@@ -12,6 +12,10 @@ export class OrderCalculationComponent {
   JSONData: any;
   orders: any;
 
+  orderstarted2: any;
+
+  productionProgram: number[];
+
   constructor(private backendService: BackendService, private orderService: OrderService) {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;

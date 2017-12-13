@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
 import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
+import {NavigationService} from "../Services/navigation.service";
+import {AuftraegeService} from "../Services/auftraege.service";
 
 @Component({
   selector: 'app-production-orders',
@@ -12,6 +14,7 @@ export class ProductionOrdersComponent {
 
   JSONData: any;
   language;
+  navigationStep: number;
 
   P1 = 0;
   auftraegeP1 = 0;
@@ -45,9 +48,13 @@ export class ProductionOrdersComponent {
   waitingListUebertragE50 = 0;
   waitingListUebertragE49 = 0;
 
-  elementsOfP1 = [1, 4, 7, 10, 13, 16, 17, 18, 26, 49, 50, 51 ];
+  elementsOfP1 = [1, 4, 7, 10, 13, 16, 17, 18, 26, 49, 50, 51];
 
-  constructor(backendService: BackendService, translationService: TranslationService) {
+  constructor(private backendService: BackendService,
+              private translationService: TranslationService,
+              private navigationService: NavigationService,
+              private auftraegeService: AuftraegeService,
+  ) {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
@@ -55,9 +62,59 @@ export class ProductionOrdersComponent {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
   }
 
-  getTrans(phrase){
+  goToNextStep() {
+
+    this.navigationService.isNavigationChanged(2);
+
+    this.auftraegeService.auftraegeP1changed({
+      P1: (<HTMLInputElement>document.getElementById('P1')).value,
+
+      E26: (<HTMLInputElement>document.getElementById('E26')).value,
+      E51: (<HTMLInputElement>document.getElementById('E51')).value,
+
+      E16: (<HTMLInputElement>document.getElementById('E16')).value,
+      E17: (<HTMLInputElement>document.getElementById('E17')).value,
+      E50: (<HTMLInputElement>document.getElementById('E50')).value,
+
+      E4: (<HTMLInputElement>document.getElementById('E4')).value,
+      E10:(<HTMLInputElement> document.getElementById('E10')).value,
+      E49:  (<HTMLInputElement>document.getElementById('E49')).value,
+
+      E7:  (<HTMLInputElement>document.getElementById('E7')).value,
+      E13: (<HTMLInputElement> document.getElementById('E13')).value,
+      E18:  (<HTMLInputElement>document.getElementById('E18')).value
+    });
+  }
+
+  goToLastStep() {
+    this.navigationService.isNavigationChanged(0);
+
+    this.auftraegeService.auftraegeP1changed({
+      P1: (<HTMLInputElement>document.getElementById('P1')).value,
+
+      E26: (<HTMLInputElement>document.getElementById('E26')).value,
+      E51: (<HTMLInputElement>document.getElementById('E51')).value,
+
+      E16: (<HTMLInputElement>document.getElementById('E16')).value,
+      E17: (<HTMLInputElement>document.getElementById('E17')).value,
+      E50: (<HTMLInputElement>document.getElementById('E50')).value,
+
+      E4: (<HTMLInputElement>document.getElementById('E4')).value,
+      E10:(<HTMLInputElement> document.getElementById('E10')).value,
+      E49:  (<HTMLInputElement>document.getElementById('E49')).value,
+
+      E7:  (<HTMLInputElement>document.getElementById('E7')).value,
+      E13: (<HTMLInputElement> document.getElementById('E13')).value,
+      E18:  (<HTMLInputElement>document.getElementById('E18')).value
+    });
+  }
+
+      getTrans(phrase){
     return getTranslation(phrase, this.language);
   }
 

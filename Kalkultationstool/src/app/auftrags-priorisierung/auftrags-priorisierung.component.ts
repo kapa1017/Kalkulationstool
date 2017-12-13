@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuftraegeService} from '../Services/auftraege.service';
 import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
+import {NavigationService} from "../Services/navigation.service";
 
 @Component({
   selector: 'app-auftrags-priorisierung',
@@ -11,6 +12,7 @@ import {getTranslation} from '../Utils/Translations';
 export class AuftragsPriorisierungComponent {
 
   language;
+  navigationStep: number;
 
   p1:any;
   p2:any;
@@ -29,7 +31,9 @@ export class AuftragsPriorisierungComponent {
     return getTranslation(phrase, this.language);
   }
 
-  constructor(private auftraegeService: AuftraegeService, translationService: TranslationService) {
+  constructor(private auftraegeService: AuftraegeService,
+              private translationService: TranslationService,
+              private navigationService: NavigationService) {
 
     auftraegeService.auftraeggeP1$.subscribe((p1:Object) => {
       this.p1 = p1;
@@ -122,6 +126,18 @@ export class AuftragsPriorisierungComponent {
     });
 
     auftraegeService.auftraegeGesamtChanged(this.wholeList);
+
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
+  }
+
+  goToNextStep(){
+    this.navigationService.isNavigationChanged(5);
+  }
+
+  goToLastStep(){
+    this.navigationService.isNavigationChanged(3);
   }
 
   splitten(event){

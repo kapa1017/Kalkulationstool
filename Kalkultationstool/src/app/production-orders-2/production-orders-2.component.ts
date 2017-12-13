@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
 import {TranslationService} from "../Services/translation.service";
 import {getTranslation} from '../Utils/Translations';
+import {NavigationService} from "../Services/navigation.service";
+import {AuftraegeService} from "../Services/auftraege.service";
 
 @Component({
   selector: 'app-production-orders-2',
@@ -9,7 +11,9 @@ import {getTranslation} from '../Utils/Translations';
   styleUrls: ['./production-orders-2.component.css']
 })
 export class ProductionOrders2Component {
-  JSONData : any;
+
+  JSONData: any;
+  navigationStep: number;
 
   language;
 
@@ -47,7 +51,10 @@ export class ProductionOrders2Component {
 
   elementsOfP2 = [2, 5, 8, 11, 14, 16, 17, 19, 26, 54, 55, 56 ];
 
-  constructor(backendService: BackendService, translationService: TranslationService) {
+  constructor(private backendService: BackendService,
+              private translationService: TranslationService,
+              private navigationService: NavigationService,
+              private auftraegeService: AuftraegeService) {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
@@ -56,8 +63,37 @@ export class ProductionOrders2Component {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
   }
 
+  goToNextStep(){
+    this.navigationService.isNavigationChanged(3);
+
+    this.auftraegeService.auftraegeP2changed({
+      P2: (<HTMLInputElement>document.getElementById('P2')).value,
+
+      E26: (<HTMLInputElement>document.getElementById('E26')).value,
+      E56: (<HTMLInputElement>document.getElementById('E56')).value,
+
+      E16: (<HTMLInputElement>document.getElementById('E16')).value,
+      E17: (<HTMLInputElement>document.getElementById('E17')).value,
+      E55: (<HTMLInputElement>document.getElementById('E55')).value,
+
+      E5: (<HTMLInputElement>document.getElementById('E5')).value,
+      E11: (<HTMLInputElement> document.getElementById('E11')).value,
+      E54:  (<HTMLInputElement>document.getElementById('E54')).value,
+
+      E8:  (<HTMLInputElement>document.getElementById('E8')).value,
+      E14: (<HTMLInputElement> document.getElementById('E14')).value,
+      E19:  (<HTMLInputElement>document.getElementById('E19')).value
+    });
+  }
+
+  goToLastStep(){
+    this.navigationService.isNavigationChanged(1);
+  }
 
   getTrans(phrase){
     return getTranslation(phrase, this.language);

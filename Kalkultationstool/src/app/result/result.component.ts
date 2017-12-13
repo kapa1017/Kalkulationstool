@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
+import {NavigationService} from "../Services/navigation.service";
 
 @Component({
   selector: 'app-result',
@@ -7,6 +8,8 @@ import {BackendService} from '../Services/backend.service';
   styleUrls: ['./result.component.css']
 })
 export class ResultComponent {
+
+  navigationStep: number;
 
   JSONData: any;
 
@@ -24,11 +27,20 @@ export class ResultComponent {
 
   profitAc: number;
 
-  constructor(backendService: BackendService) {
+  constructor(private backendService: BackendService,
+              private navigationService: NavigationService) {
     backendService.getData().subscribe((data: any) => {
       this.JSONData = data;
       this.updateValues();
     });
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
+  }
+
+
+  goToLastStep(){
+    this.navigationService.isNavigationChanged(0)
   }
 
   updateValues(){

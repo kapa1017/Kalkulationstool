@@ -320,4 +320,10 @@
       <input name="E18" type="number" class="form-control input" [(ngModel)]="auftraegeE18" id="E18" value = 0 readonly/>
     </div>
   </div>
+  <div class="row">
+    <div class="col text-center buttonCol">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToLastStep()">{{getTrans('zurueck')}}</button>
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+    </div>
+  </div>
 </div>

@@ -22,12 +22,14 @@ import {WorkService} from './Services/work.service';
 import { WarehouseDataComponent } from './warehouse-data/warehouse-data.component';
 import {WarehouseService} from 'app/Services/warehouse.service';
 import {KpiService} from 'app/Services/kpi.service';
+import {NavigationService} from 'app/Services/navigation.service';
 import {ResultService} from 'app/Services/result.service';
 import { ResultComponent } from './result/result.component';
 import { KpiComponent } from './kpi/kpi.component';
 import { XmlSelectorComponent } from './xml-selector/xml-selector.component';
 import {InitService} from "app/Services/init.service";
 import {OrderService} from "./Services/order.service";
+import { OrderCalculationStep2Component } from './order-calculation-step2/order-calculation-step2.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import {OrderService} from "./Services/order.service";
     ResultComponent,
     KpiComponent,
     XmlSelectorComponent,
+    OrderCalculationStep2Component,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import {OrderService} from "./Services/order.service";
     StepTwoService,
     StepThreeService,
     StepFourService,
+    NavigationService,
     ResultService,
     KpiService,
     OrderService,

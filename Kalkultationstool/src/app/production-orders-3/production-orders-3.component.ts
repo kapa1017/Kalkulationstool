@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
 import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
+import {NavigationService} from "../Services/navigation.service";
+import {AuftraegeService} from "../Services/auftraege.service";
 
 @Component({
   selector: 'app-production-orders-3',
@@ -10,6 +12,7 @@ import {getTranslation} from '../Utils/Translations';
 })
 export class ProductionOrders3Component {
   JSONData: any;
+  navigationStep: number;
 
   language;
 
@@ -51,7 +54,10 @@ export class ProductionOrders3Component {
     return getTranslation(phrase, this.language);
   }
 
-  constructor(backendService: BackendService, translationService: TranslationService) {
+  constructor(private backendService: BackendService,
+              private translationService: TranslationService,
+              private navigationService: NavigationService,
+              private auftraegeService: AuftraegeService) {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
@@ -59,6 +65,38 @@ export class ProductionOrders3Component {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
+  }
+
+  goToNextStep(){
+
+    this.auftraegeService.auftraegeP3changed({
+
+      P3: (<HTMLInputElement>document.getElementById('P3')).value,
+
+      E26: (<HTMLInputElement>document.getElementById('E26')).value,
+      E31: (<HTMLInputElement>document.getElementById('E31')).value,
+
+      E16: (<HTMLInputElement>document.getElementById('E16')).value,
+      E17: (<HTMLInputElement>document.getElementById('E17')).value,
+      E30: (<HTMLInputElement>document.getElementById('E30')).value,
+
+      E6: (<HTMLInputElement>document.getElementById('E6')).value,
+      E12: (<HTMLInputElement> document.getElementById('E12')).value,
+      E29:  (<HTMLInputElement>document.getElementById('E29')).value,
+
+      E9:  (<HTMLInputElement>document.getElementById('E9')).value,
+      E15: (<HTMLInputElement> document.getElementById('E15')).value,
+      E20:  (<HTMLInputElement>document.getElementById('E20')).value
+    });
+
+    this.navigationService.isNavigationChanged(4);
+  }
+
+  goToLastStep(){
+    this.navigationService.isNavigationChanged(2);
   }
 
   updateValues() {
@@ -100,7 +138,7 @@ export class ProductionOrders3Component {
 
             element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
           }
-        })
+        });
       }
     });
 

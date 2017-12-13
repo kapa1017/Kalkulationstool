@@ -3,6 +3,7 @@ import {AuftraegeService} from '../Services/auftraege.service';
 import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
 import {WorkService} from '../Services/work.service';
+import {NavigationService} from "../Services/navigation.service";
 
 @Component({
   selector: 'app-work-calculation',
@@ -12,6 +13,7 @@ import {WorkService} from '../Services/work.service';
 export class WorkCalculationComponent {
 
   language;
+  navigationStep: number;
 
   auftraegeP1: any;
   auftraegeP2: any;
@@ -73,7 +75,8 @@ export class WorkCalculationComponent {
 
   constructor(private auftraegeService: AuftraegeService,
               private translationService: TranslationService,
-              private workService: WorkService) {
+              private workService: WorkService,
+              private navigationService: NavigationService) {
     auftraegeService.auftraeggeP1$.subscribe((newState: Object) => {
       this.auftraegeP1 = newState;
     });
@@ -283,6 +286,19 @@ export class WorkCalculationComponent {
       ((Math.abs((this.setupTime13 + this.worktime13) / this.weekMinutes) > 1.5) ? 2 : 1);
     this.shift14 = (Math.abs((this.setupTime14+this.worktime14)/this.weekMinutes) > 2.5) ? 3 :
       ((Math.abs((this.setupTime14 + this.worktime14) / this.weekMinutes) > 1.5) ? 2 : 1);
+    navigationService.isNavigation$.subscribe((newstate: number) => {
+      this.navigationStep = newstate;
+    });
+  }
+
+  goToNextStep(){
+    this.confirmWorktime();
+    this.navigationService.isNavigationChanged(6);
+  }
+
+  goToLastStep(){
+    this.confirmWorktime();
+    this.navigationService.isNavigationChanged(4);
   }
 
   confirmWorktime(){
@@ -291,8 +307,6 @@ export class WorkCalculationComponent {
     var overtimesInput = document.getElementsByName('overtime');
 
     var shifts = [];
-
-    debugger;
 
     for(var i = 0; i<shiftsInput.length; i++) {
       var shift = <HTMLInputElement>shiftsInput[i];

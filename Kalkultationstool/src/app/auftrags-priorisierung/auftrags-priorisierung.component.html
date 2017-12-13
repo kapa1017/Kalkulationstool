@@ -62,34 +62,44 @@
   </div>
 
   <div class="row rowOwn">
-    <div class="col">
+    <div class="col-3">
       <input id="itemInput1" type="number" class="form-control input" [(ngModel)]="splitId1" readonly/>
     </div>
-    <div class="col">
+    <div class="col-3">
       <input id="quantityInput1" type="number" class="form-control input" [(ngModel)]="count1" (change)="setNewValues($event)"/>
     </div>
-    <div class="col">
+    <div class="col-3">
       <input id="batchInput1" type="number" class="form-control input" [(ngModel)]="prio1"/>
     </div>
+    <div class="col-1"></div>
   </div>
 
   <div class="row rowOwn">
-    <div class="col">
+    <div class="col-3">
       <input id="itemInput2" type="number" class="form-control input" [(ngModel)]="splitId1" readonly/>
     </div>
-    <div class="col">
+    <div class="col-3">
       <input id="quantityInput2" type="number" class="form-control input" [(ngModel)]="count2"/>
     </div>
-    <div class="col">
+    <div class="col-3">
       <input id="batchInput2" type="number" class="form-control input"  [(ngModel)]="prio2"/>
+    </div>
+    <div class="col-1">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn2" (click)="saveNewElement()">{{getTrans('speichern')}}</button>
     </div>
   </div>
 
   <div class="row rowOwn">
     <div class="col"></div>
     <div class="col">
-      <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn2" (click)="saveNewElement()">{{getTrans('speichern')}}</button>
     </div>
     <div class="col"></div>
+  </div>
+
+  <div class="row">
+    <div class="col text-center buttonCol">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToLastStep()">{{getTrans('zurueck')}}</button>
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
+    </div>
   </div>
 </div>

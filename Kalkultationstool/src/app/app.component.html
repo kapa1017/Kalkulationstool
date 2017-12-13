@@ -20,7 +20,7 @@
 
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="!orderStarted && !isInit && !isStarted && !isStepTwo && !isPrio && !isStepThree && !isStepFour && !isWarehouse && !isKpi && !result">
+  <div class="row" *ngIf="navigationStep == 0 && !isWarehouse && !isKpi && !result">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>
@@ -60,73 +60,52 @@
 
   <!-- Step One -->
 
-  <div *ngIf="isStarted && !isStepTwo && !isStepThree">
+  <div *ngIf="navigationStep == 1">
     <app-production-orders></app-production-orders>
   </div>
 
   <!-- Step Two -->
 
-  <div *ngIf="isStepTwo && !isStarted && !isStepThree">
+  <div *ngIf="navigationStep == 2">
     <app-production-orders-2></app-production-orders-2>
   </div>
 
   <!-- Step Three -->
 
-  <div *ngIf="isStepThree && !isStepTwo && !isStarted">
+  <div *ngIf="navigationStep == 3">
     <app-production-orders-3></app-production-orders-3>
   </div>
 
   <!-- Prio Step -->
 
-  <div *ngIf="isPrio">
+  <div *ngIf="navigationStep == 4">
     <app-auftrags-priorisierung></app-auftrags-priorisierung>
   </div>
 
   <!-- Step Four -->
 
-  <div *ngIf="isStepFour && !isStepThree && !isStepTwo && !isStarted">
+  <div *ngIf="navigationStep == 5">
     <app-work-calculation></app-work-calculation>
   </div>
 
   <!-- Step Five -->
 
-  <div *ngIf="orderStarted">
+  <div *ngIf="navigationStep == 6">
     <app-order-calculation></app-order-calculation>
   </div>
 
   <!-- Other Methods -->
 
-  <div *ngIf="isWarehouse">
+  <div *ngIf="navigationStep == 10">
     <app-warehouse-data></app-warehouse-data>
   </div>
 
-  <div *ngIf="isKpi">
+  <div *ngIf="navigationStep == 11">
     <app-kpi></app-kpi>
   </div>
 
-  <div *ngIf="result">
+  <div *ngIf="navigationStep == 12">
     <app-result></app-result>
   </div>
-
-  <!-- Navigation Button -->
-
-  <div *ngIf="isStarted ||  isStepTwo || isStepThree || isStepFour || isPrio || isWarehouse || isKpi || result || orderStarted">
-    <div *ngIf="!isWarehouse && !isKpi && !result">
-      <div class="row">
-        <div class="col text-center buttonCol">
-          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToNextStep()">{{getTrans('weiter')}}</button>
-        </div>
-      </div>
-    </div>
-    <div *ngIf="isWarehouse || isKpi || result">
-      <div class="row">
-        <div class="col text-center buttonCol">
-          <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="gotoLastStep()">{{getTrans('zurueck')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 

@@ -134,6 +134,7 @@ export class AuftragsPriorisierungComponent {
 
   goToNextStep(){
     this.navigationService.isNavigationChanged(5);
+    this.auftraegeService.auftraegeGesamtChanged(this.wholeList);
   }
 
   goToLastStep(){

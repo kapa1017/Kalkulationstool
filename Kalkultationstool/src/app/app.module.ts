@@ -23,6 +23,7 @@ import {InitService} from 'app/Services/init.service';
 import {OrderService} from './Services/order.service';
 import { OrderCalculationStep2Component } from './order-calculation-step2/order-calculation-step2.component';
 import {ExportService} from "app/Services/export.service";
+import {PrognoseService} from "app/Services/prognose.service";
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {ExportService} from "app/Services/export.service";
     TranslationService,
     InitService,
     WorkService,
-    ExportService
+    ExportService,
+    PrognoseService
   ],
   bootstrap: [AppComponent]
 })

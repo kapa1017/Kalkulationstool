@@ -4,6 +4,7 @@ import {OrderService} from '../Services/order.service';
 import {getTranslation} from "app/Utils/Translations";
 import {TranslationService} from "../Services/translation.service";
 import {NavigationService} from "../Services/navigation.service";
+import {PrognoseService} from "../Services/prognose.service";
 
 @Component({
   selector: 'app-order-calculation',
@@ -15,14 +16,16 @@ export class OrderCalculationComponent {
   JSONData: any;
   language;
   navigationStep;
-  orders: any;
 
-  orderstarted2: any;
+  p1 = {per1: 0, per2: 0, per3:0};
+  p2 = {per1: 0, per2: 0, per3:0};
+  p3 = {per1: 0, per2: 0, per3:0};
 
-  productionProgram: number[];
+  prognose = [this.p1, this.p2, this.p3];
 
   constructor(private backendService: BackendService,
               private translationService: TranslationService,
+              private prognoseService: PrognoseService,
               private navigationService: NavigationService,
               private orderService: OrderService) {
     backendService.getData().subscribe((data: Object) => {
@@ -37,6 +40,7 @@ export class OrderCalculationComponent {
   }
 
   goToNextStep(){
+    this.prognoseService.prognoseChanged(this.prognose);
     this.navigationService.isNavigationChanged(7);
   }
 

@@ -39,6 +39,8 @@ export class KpiComponent {
   profitAv: number;
   profitAll: number;
 
+  efficiencyIsBad = false;
+
   constructor(private backendService: BackendService,
               private translationService: TranslationService,
               private navigationService: NavigationService) {
@@ -60,7 +62,7 @@ export class KpiComponent {
   }
 
   goToLastStep(){
-    this.navigationService.isNavigationChanged(0)
+    this.navigationService.isNavigationChanged(0);
   }
 
   updateValues(){
@@ -87,5 +89,8 @@ export class KpiComponent {
     this.profitAv = this.JSONData.results.result[0].summary[0].profit[0].$.average;
     this.profitAll = this.JSONData.results.result[0].summary[0].profit[0].$.all;
 
+    if(parseInt(this.efficiencyAc.replace('%','')) < 90){
+      this.efficiencyIsBad = true;
+    }
   }
 }

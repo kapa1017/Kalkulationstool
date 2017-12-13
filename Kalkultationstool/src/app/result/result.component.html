@@ -19,8 +19,11 @@
     <div class="col">
       {{getTrans('liefertreue')}}
     </div>
-    <div class="col">
+    <div class="col" *ngIf="efficiencyIsBad">
       <input type="text" class="form-control input inputOwn" [(ngModel)]="efficiencyAc" value = 0 readonly/>
+    </div>
+    <div class="col" *ngIf="!efficiencyIsBad">
+      <input type="text" class="form-control input inputOwn" style="color:red" [(ngModel)]="efficiencyAc" value = 0 readonly/>
     </div>
   </div>
   <div class="row rowOwn">
@@ -43,8 +46,11 @@
     <div class="col">
       {{getTrans('lagerwert')}}
     </div>
-    <div class="col">
-      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
+    <div class="col" *ngIf="storeValueAc < 250000">
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="storeValueAc" value = 0 readonly/>
+    </div>
+    <div class="col" *ngIf="storeValueAc >= 250000">
+      <input type="number" class="form-control input inputOwn" style="color:red;" [(ngModel)]="storeValueAc" value = 0 readonly/>
     </div>
   </div>
   <div class="row rowOwn">
@@ -52,15 +58,18 @@
       {{getTrans('lagerkosten')}}
     </div>
     <div class="col">
-      <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
+      <input type="number" class="form-control input inputOwn" [(ngModel)]="storageCostsAc" value = 0 readonly/>
     </div>
   </div>
   <div class="row rowOwn2">
     <div class="col">
       Profit
     </div>
-    <div class="col">
+    <div class="col" *ngIf="profitAc > 0">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="profitAc" value = 0 readonly/>
+    </div>
+    <div class="col" *ngIf="profitAc <= 0">
+      <input type="number" class="form-control input inputOwn" style="color:red;" [(ngModel)]="profitAc" value = 0 readonly/>
     </div>
   </div>
   <div class="row">

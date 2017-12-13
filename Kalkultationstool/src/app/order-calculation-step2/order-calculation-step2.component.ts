@@ -126,8 +126,6 @@ export class OrderCalculationStep2Component {
     this.input.workingtimelist = this.workingtimelist;
     this.input.orderlist = this.orderlist;
 
-    debugger;
-
     this.navigationService.isNavigationChanged(0);
   }
 }

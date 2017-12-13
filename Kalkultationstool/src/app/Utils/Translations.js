@@ -19,6 +19,38 @@ var translations = {
     de: 'Aktuell',
     en: 'Acutal'
   },
+  header1:{
+    de: 'Geben Sie die Aufträge für P1 ein oder passen Sie die Lagerwerte an',
+    en: 'Enter the orders for P1 or change the stock values'
+  },
+  header2:{
+    de: 'Geben Sie die Aufträge für P2 ein oder passen Sie die Lagerwerte an',
+    en: 'Enter the orders for P2 or change the stock values'
+  },
+  header3:{
+    de: 'Geben Sie die Aufträge für P3 ein oder passen Sie die Lagerwerte an',
+    en: 'Enter the orders for P3 or change the stock values'
+  },
+  header4:{
+    de: 'Splitten Sie Aufträge oder nehmen Sie eine Reihenfolgeplanung vor',
+    en: 'Split the orders or change the priority'
+  },
+  header5: {
+    de: 'Kontrollieren Sie die Arbeitszeiten und passen sie ggfs. die Schichten an',
+    en: 'Check the worktimes and change the shifts'
+  },
+  header6: {
+    de: 'Geben Sie die Absatzprognosen für die Bestellplanung der Kaufteile an',
+    en: 'Enter the order forecast for calculating the orders of the parts'
+  },
+  header7: {
+    de: 'Passen Sie bei Bedarf die Bestellungen der Kaufteile an',
+    en: ' Change the orders'
+  },
+  header8: {
+    de: 'Lagerbestände',
+    en: 'Stock value'
+  },
   durchschnitt: {
     de: 'Durchschnitt',
     en: 'Average'

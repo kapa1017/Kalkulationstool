@@ -1,3 +1,8 @@
-<p>
-  order-calculation-step2 works!
-</p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col text-center buttonCol">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToLastStep()">{{getTrans('zurueck')}}</button>
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="export()">{{getTrans('exportieren')}}</button>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import 'rxjs/add/operator/map';
 import {getTranslation} from './Utils/Translations';
-import {TranslationService} from "./Services/translation.service";
-import {ResultService} from "./Services/result.service";
-import {InitService} from "./Services/init.service";
-import {NavigationService} from "./Services/navigation.service";
+import {TranslationService} from './Services/translation.service';
+import {InitService} from './Services/init.service';
+import {NavigationService} from './Services/navigation.service';
 
 
 @Component({
@@ -18,7 +17,6 @@ export class AppComponent {
   isInit = false;
   language;
   data = {};
-  result: any;
 
   getTrans(phrase){
     return getTranslation(phrase, this.language);
@@ -26,15 +24,11 @@ export class AppComponent {
 
   constructor(
               private initService: InitService,
-              private resultService: ResultService,
               private translationService: TranslationService,
               private navigationService: NavigationService
   ) {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
-    });
-    resultService.isResultStarted$.subscribe((result: boolean) => {
-      this.result = result;
     });
     initService.isInit$.subscribe((init: boolean) => {
       this.isInit = init;

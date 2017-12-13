@@ -11,6 +11,10 @@ var translations = {
     de: 'weiter',
     en: 'next'
   },
+  exportieren: {
+    de: 'Exportieren',
+    en: 'Export'
+  },
   aktuell: {
     de: 'Aktuell',
     en: 'Acutal'

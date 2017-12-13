@@ -15,16 +15,14 @@ import { AuftragsPriorisierungComponent } from './auftrags-priorisierung/auftrag
 import {TranslationService} from 'app/Services/translation.service';
 import {WorkService} from './Services/work.service';
 import { WarehouseDataComponent } from './warehouse-data/warehouse-data.component';
-import {WarehouseService} from 'app/Services/warehouse.service';
-import {KpiService} from 'app/Services/kpi.service';
 import {NavigationService} from 'app/Services/navigation.service';
-import {ResultService} from 'app/Services/result.service';
 import { ResultComponent } from './result/result.component';
 import { KpiComponent } from './kpi/kpi.component';
 import { XmlSelectorComponent } from './xml-selector/xml-selector.component';
 import {InitService} from 'app/Services/init.service';
 import {OrderService} from './Services/order.service';
 import { OrderCalculationStep2Component } from './order-calculation-step2/order-calculation-step2.component';
+import {ExportService} from "app/Services/export.service";
 
 @NgModule({
   declarations: [
@@ -50,13 +48,11 @@ import { OrderCalculationStep2Component } from './order-calculation-step2/order-
     BackendService,
     AuftraegeService,
     NavigationService,
-    ResultService,
-    KpiService,
     OrderService,
-    WarehouseService,
     TranslationService,
     InitService,
-    WorkService
+    WorkService,
+    ExportService
   ],
   bootstrap: [AppComponent]
 })

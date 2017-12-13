@@ -5,6 +5,10 @@
   margin-top:40px;
 }
 
+.input {
+  font-size: large;
+}
+
 .navButton {
   width: 400px;
   height: 50px;

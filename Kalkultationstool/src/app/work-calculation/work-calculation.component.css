@@ -3,6 +3,7 @@
 }
 
 .colStyle1{
+  font-size: large;
   text-align: center;
   vertical-align: middle;
   height: 45px;
@@ -24,6 +25,7 @@
 }
 
 .ownContainer{
+  font-size: large;
   margin-left:10%;
   margin-top:20px;
   margin-bottom:20px;
@@ -41,6 +43,7 @@
 }
 
 .input{
+  font-size: large;
   margin-top: 5px;
   margin-bottom: 5px;
 }

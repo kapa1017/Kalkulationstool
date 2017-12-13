@@ -1,6 +1,6 @@
 .containerOwn{
-  font-size: large;
   font-weight: bold;
+  font-size: large;
   margin-bottom: 3px;
   margin-top: 30px;
   width: 60%;
@@ -11,7 +11,8 @@
 }
 
 .input{
-  font-size: medium;
+  font-weight: normal;
+  font-size: large;
 }
 
 .navButton {

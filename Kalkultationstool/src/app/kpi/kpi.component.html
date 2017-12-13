@@ -4,18 +4,18 @@
       KPI
     </div>
     <div class="col">
-      Aktuell
+      {{getTrans('aktuell')}}
     </div>
     <div clasS="col">
-      Durchschnitt
+      {{getTrans('durchschnitt')}}
     </div>
     <div class="col">
-      Gesamt
+      {{getTrans('gesamt')}}
     </div>
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Produktionszeit in min
+      {{getTrans('prodzeit')}}
     </div>
     <div class="col">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="productiveTimeAc" value = 0 readonly/>
@@ -27,7 +27,7 @@
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Liefertreue
+      {{getTrans('liefertreue')}}
     </div>
     <div class="col">
       <input type="text" class="form-control input inputOwn" [(ngModel)]="efficiencyAc" value = 0 readonly/>
@@ -39,7 +39,7 @@
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Leerzeiten
+      {{getTrans('leerzeit')}}
     </div>
     <div class="col">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeAc" value = 0 readonly/>
@@ -51,7 +51,7 @@
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Kosten Leerzeiten
+      {{getTrans('leerzeitkosten')}}
     </div>
     <div class="col">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
@@ -63,7 +63,7 @@
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Lagerwert
+      {{getTrans('lagerwert')}}
     </div>
     <div class="col">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>
@@ -75,7 +75,7 @@
   </div>
   <div class="row rowOwn">
     <div class="col">
-      Lagerkosten
+      {{getTrans('lagerkosten')}}
     </div>
     <div class="col">
       <input type="number" class="form-control input inputOwn" [(ngModel)]="idleTimeCostsAc" value = 0 readonly/>

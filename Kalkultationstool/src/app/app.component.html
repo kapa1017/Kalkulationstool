@@ -20,7 +20,7 @@
 
   <!-- Main Menu -->
 
-  <div class="row" *ngIf="navigationStep == 0 && !isWarehouse && !isKpi && !result">
+  <div class="row" *ngIf="navigationStep == 0">
     <div class="col text-center buttonCol">
       <div class="mainMenu" >
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>

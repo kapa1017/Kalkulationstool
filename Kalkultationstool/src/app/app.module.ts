@@ -11,11 +11,6 @@ import { OrderCalculationComponent } from './order-calculation/order-calculation
 import { WorkCalculationComponent } from './work-calculation/work-calculation.component';
 import {BackendService} from './Services/backend.service';
 import {AuftraegeService} from './Services/auftraege.service';
-import {StartService} from './Services/start.service';
-import {StepTwoService} from './Services/stepTwo.service';
-import {StepThreeService} from './Services/stepThree.service';
-import { StepFourService} from './Services/stepFour.service';
-import {PrioService} from './Services/prio.service';
 import { AuftragsPriorisierungComponent } from './auftrags-priorisierung/auftrags-priorisierung.component';
 import {TranslationService} from 'app/Services/translation.service';
 import {WorkService} from './Services/work.service';
@@ -27,8 +22,8 @@ import {ResultService} from 'app/Services/result.service';
 import { ResultComponent } from './result/result.component';
 import { KpiComponent } from './kpi/kpi.component';
 import { XmlSelectorComponent } from './xml-selector/xml-selector.component';
-import {InitService} from "app/Services/init.service";
-import {OrderService} from "./Services/order.service";
+import {InitService} from 'app/Services/init.service';
+import {OrderService} from './Services/order.service';
 import { OrderCalculationStep2Component } from './order-calculation-step2/order-calculation-step2.component';
 
 @NgModule({
@@ -54,15 +49,10 @@ import { OrderCalculationStep2Component } from './order-calculation-step2/order-
   providers: [
     BackendService,
     AuftraegeService,
-    StartService,
-    StepTwoService,
-    StepThreeService,
-    StepFourService,
     NavigationService,
     ResultService,
     KpiService,
     OrderService,
-    PrioService,
     WarehouseService,
     TranslationService,
     InitService,

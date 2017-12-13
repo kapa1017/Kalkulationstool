@@ -11,6 +11,18 @@ var translations = {
     de: 'weiter',
     en: 'next'
   },
+  aktuell: {
+    de: 'Aktuell',
+    en: 'Acutal'
+  },
+  durchschnitt: {
+    de: 'Durchschnitt',
+    en: 'Average'
+  },
+  gesamt: {
+    de: 'Gesamt',
+    en: 'Total'
+  },
   zurueck: {
     de: 'Zurück',
     en: 'back'
@@ -22,6 +34,54 @@ var translations = {
   lagerbestaende:{
     de: 'Lagerbestände einsehen',
     en: 'Check warehouse stock'
+  },
+  periodeEins:{
+    de: 'Periode 1',
+    en: 'Period 1'
+  },
+  periodeDrei:{
+    de: 'Periode 3',
+    en: 'Period 3'
+  },
+  periodeZwei:{
+    de: 'Periode 2',
+    en: 'Period 2'
+  },
+  menge: {
+    de: 'Menge',
+    en: 'Amount'
+  },
+  wert: {
+    de: 'Wert',
+    en: 'Value'
+  },
+  bezeichnung: {
+    de: 'Bezeichnung',
+    en: 'KPI'
+  },
+  prodzeit:{
+    de: 'Produktionszeit in min',
+    en: 'Productiontime in min'
+  },
+  liefertreue:{
+    de: 'Liefertreue',
+    en: 'Delivery reliability'
+  },
+  leerzeit:{
+    de: 'Leerzeiten',
+    en: 'Idletime'
+  },
+  leerzeitkosten:{
+    de: 'Kosten Leerzeiten',
+    en: 'Idletime costs'
+  },
+  lagerwert: {
+    de: 'Lagerwert',
+    en: 'Stock value',
+  },
+  lagerkosten: {
+    de: 'Lagerkosten',
+    en: 'Stock costs'
   },
   ergebnisse:{
     de: 'Ergebnisse der letzten Periode einsehen',

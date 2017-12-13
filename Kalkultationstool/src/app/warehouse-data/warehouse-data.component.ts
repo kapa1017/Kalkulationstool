@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
 import {NavigationService} from "../Services/navigation.service";
+import {getTranslation} from "app/Utils/Translations";
+import {TranslationService} from "../Services/translation.service";
 
 @Component({
   selector: 'app-warehouse-data',
@@ -12,10 +14,13 @@ export class WarehouseDataComponent {
   navigationStep:number;
   JSONData: any;
 
+  language;
+
   article = [];
 
   constructor(private backendService: BackendService,
-              private navigationService: NavigationService) {
+              private navigationService: NavigationService,
+              private translationService: TranslationService) {
     backendService.getData().subscribe((data: any) => {
       this.JSONData = data;
       this.updateValues();
@@ -23,8 +28,14 @@ export class WarehouseDataComponent {
     navigationService.isNavigation$.subscribe((newstate: number) => {
       this.navigationStep = newstate;
     });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
+    });
   }
 
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
+  }
 
   goToLastStep(){
     this.navigationService.isNavigationChanged(0)

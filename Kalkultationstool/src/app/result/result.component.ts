@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {BackendService} from '../Services/backend.service';
 import {NavigationService} from "../Services/navigation.service";
+import {getTranslation} from "app/Utils/Translations";
+import {TranslationService} from "../Services/translation.service";
 
 @Component({
   selector: 'app-result',
@@ -10,6 +12,7 @@ import {NavigationService} from "../Services/navigation.service";
 export class ResultComponent {
 
   navigationStep: number;
+  language;
 
   JSONData: any;
 
@@ -28,6 +31,7 @@ export class ResultComponent {
   profitAc: number;
 
   constructor(private backendService: BackendService,
+              private translationService: TranslationService,
               private navigationService: NavigationService) {
     backendService.getData().subscribe((data: any) => {
       this.JSONData = data;
@@ -36,8 +40,14 @@ export class ResultComponent {
     navigationService.isNavigation$.subscribe((newstate: number) => {
       this.navigationStep = newstate;
     });
+    translationService.language$.subscribe((lang: String) => {
+      this.language = lang;
+    });
   }
 
+  getTrans(phrase){
+    return getTranslation(phrase, this.language);
+  }
 
   goToLastStep(){
     this.navigationService.isNavigationChanged(0)

@@ -15,6 +15,46 @@ var translations = {
     de: 'Exportieren',
     en: 'Export'
   },
+  kaufteil: {
+    de: 'Kaufteil',
+    en: 'item'
+  },
+  bestellung: {
+    de: 'Bestellung',
+    en: 'Order'
+  },
+  lieferfrist: {
+    de: 'Lieferfrist',
+    en: 'Delivery Time'
+  },
+  abweichung: {
+    de: 'Abweichung',
+    en: 'Discrepancy'
+  },
+  diskontmenge: {
+    de: 'Diskont',
+    en: 'Discount'
+  },
+  anfangsbestandPeriode: {
+    de: 'Bestand aktuell',
+    en: 'Warehouse Stock'
+  },
+  typ: {
+    de: 'Typ',
+    en: 'Type'
+  },
+  verwendung: {
+    de: 'Verwendung',
+    en: 'Usage'
+  },
+  bestandPlan: {
+    de: 'Geplanter Bestand nach Wareneinngängen',
+    en: 'Scheduled Stock after delivery'
+  },
+  bruttoBedarf: {
+    de: 'Bruttobedarf nach Produktionsprogramm',
+    en: 'Requirement for production plan'
+  },
   aktuell: {
     de: 'Aktuell',
     en: 'Acutal'

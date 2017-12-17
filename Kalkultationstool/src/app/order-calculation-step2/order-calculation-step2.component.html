@@ -116,7 +116,7 @@
             <input type="number" class="form-control input inputOwn3" value = {{el.diskont}} readonly/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn" value = {{el.bestandAktuell}} readonly/>
+            <input type="number" class="form-control input inputOwn4" value = {{el.bestandAktuell}} readonly/>
           </div>
           <div class="col">
             <input type="number" class="form-control input inputOwn" value = {{el.bbP1}} readonly/>
@@ -131,22 +131,34 @@
             <input type="number" class="form-control input inputOwn" value = {{el.bbP4}} readonly/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" value = {{el.bestellMenge}}/>
+            <input type="number" class="form-control input inputOwn2" id="menge{{i}}" (change)="updateOnChange($event)" value = {{el.bestellMenge}}/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" value = {{el.bestellTyp}}/>
+            <input type="number" class="form-control input inputOwn2" id="typ{{i}}" (change)="updateOnChange($event)" min="1" max="2" value = {{el.bestellTyp}}/>
           </div>
-          <div class="col">
-            <input type="number" class="form-control input inputOwn" value = {{el.gpP2}} readonly/>
+          <div class="col" *ngIf="el.gpP2 < 0">
+            <input type="number" class="form-control input inputOwnBad" [(ngModel)]="kaufteile[i].gpP2" readonly/>
           </div>
-          <div class="col">
-            <input type="number" class="form-control input inputOwn" value = {{el.gpP3}} readonly/>
+          <div class="col" *ngIf="el.gpP2 >= 0">
+            <input type="number" class="form-control input inputOwn" [(ngModel)]="kaufteile[i].gpP2" readonly/>
           </div>
-          <div class="col">
-            <input typ e="number" class="form-control input inputOwn" value = {{el.gpP4}} readonly/>
+          <div class="col" *ngIf="el.gpP3 < 0">
+            <input type="number" class="form-control input inputOwnBad" [(ngModel)]="kaufteile[i].gpP3" readonly/>
           </div>
-          <div class="col">
-            <input type="number" class="form-control input inputOwn" value = {{el.gpP5}} readonly/>
+          <div class="col" *ngIf="el.gpP3 >= 0">
+            <input type="number" class="form-control input inputOwn" [(ngModel)]="kaufteile[i].gpP3" readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP4 < 0">
+            <input type="number" class="form-control input inputOwnBad" [(ngModel)]="kaufteile[i].gpP4" readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP4 >= 0">
+            <input type="number" class="form-control input inputOwn" [(ngModel)]="kaufteile[i].gpP4" readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP5 < 0">
+            <input type="number" class="form-control input inputOwnBad" [(ngModel)]="kaufteile[i].gpP5" readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP5 >= 0">
+            <input type="number" class="form-control input inputOwn" [(ngModel)]="kaufteile[i].gpP5" readonly/>
           </div>
         </div>
       </div>
@@ -174,7 +186,7 @@
             <input type="number" class="form-control input inputOwn3" value = {{el.diskont}} readonly/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn" value = {{el.bestandAktuell}} readonly/>
+            <input type="number" class="form-control input inputOwn4" value = {{el.bestandAktuell}} readonly/>
           </div>
           <div class="col">
             <input type="number" class="form-control input inputOwn" value = {{el.bbP1}} readonly/>
@@ -189,21 +201,33 @@
             <input type="number" class="form-control input inputOwn" value = {{el.bbP4}} readonly/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" value = {{el.bestellMenge}}/>
+            <input type="number" class="form-control input inputOwn2" id="menge{{i}}" (change)="updateOnChange($event)" value = {{el.bestellMenge}}/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" value = {{el.bestellTyp}}/>
+            <input type="number" class="form-control input inputOwn2" id="typ{{i}}" (change)="updateOnChange($event)" value = {{el.bestellTyp}}/>
           </div>
-          <div class="col">
+          <div class="col" *ngIf="el.gpP2 < 0">
+            <input type="number" class="form-control input inputOwnBad" value = {{el.gpP2}} readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP2 >= 0">
             <input type="number" class="form-control input inputOwn" value = {{el.gpP2}} readonly/>
           </div>
-          <div class="col">
+          <div class="col" *ngIf="el.gpP3 < 0">
+            <input type="number" class="form-control input inputOwnBad" value = {{el.gpP3}} readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP3 >= 0">
             <input type="number" class="form-control input inputOwn" value = {{el.gpP3}} readonly/>
           </div>
-          <div class="col">
-            <input typ e="number" class="form-control input inputOwn" value = {{el.gpP4}} readonly/>
+          <div class="col" *ngIf="el.gpP4 < 0">
+            <input type="number" class="form-control input inputOwnBad" value = {{el.gpP4}} readonly/>
           </div>
-          <div class="col">
+          <div class="col" *ngIf="el.gpP4 >= 0">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP4}} readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP5 < 0">
+            <input type="number" class="form-control input inputOwnBad" value = {{el.gpP5}} readonly/>
+          </div>
+          <div class="col" *ngIf="el.gpP5 >= 0">
             <input type="number" class="form-control input inputOwn" value = {{el.gpP5}} readonly/>
           </div>
         </div>

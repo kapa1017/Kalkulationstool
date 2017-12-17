@@ -7,6 +7,7 @@ import {OrderService} from "../Services/order.service";
 import {AuftraegeService} from "../Services/auftraege.service";
 import {PrognoseService} from "app/Services/prognose.service";
 import {WorkService} from "../Services/work.service";
+import {el} from "@angular/platform-browser/testing/src/browser_util";
 
 @Component({
   selector: 'app-order-calculation-step2',
@@ -18,6 +19,8 @@ export class OrderCalculationStep2Component {
   language;
   JSONData;
   navigationStep;
+  actPeriod: number;
+  futureOrder = [];
 
   warehouse = [];
 
@@ -612,6 +615,8 @@ export class OrderCalculationStep2Component {
     backendService.getData().subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
+      this.futureOrder = this.JSONData.results.futureinwardstockmovement[0].order;
+      this.actPeriod = parseInt(this.JSONData.results.$.period) + 1;
       this.calculateValuesForTable();
     });
 
@@ -638,8 +643,6 @@ export class OrderCalculationStep2Component {
 
   calculateValuesForTable(){
 
-    debugger;
-
     this.kaufteile.forEach(el => {
       // Bestand kalkulieren
 
@@ -656,13 +659,39 @@ export class OrderCalculationStep2Component {
       el.bbP3 = el.p1 * this.prognose[0].per3 + el.p2 * this.prognose[1].per3 + el.p3 * this.prognose[2].per3;
       el.bbP4 = el.p1 * this.prognose[0].per4 + el.p2 * this.prognose[1].per4 + el.p3 * this.prognose[2].per4;
 
-      // Geplanter Bestand nach Wareneingang
+      // Geplanter Bestand ohne Berücksichtigung der eingehenden Bestellungen
 
+      el.gpP2 = el.bestandAktuell - el.bbP1;
+      el.gpP3 = el.gpP2 - el.bbP2;
+      el.gpP4 = el.gpP3 - el.bbP3;
+      el.gpP5 = el.gpP4 - el.bbP4;
+
+      // Geplanter Bestang mit eingehenden Bestellungen
+
+      this.futureOrder.forEach(futureOrder => {
+
+        if(el.id == futureOrder.$.article){
+          if(((parseInt(futureOrder.$.orderPeriod) + el.deliverytime + 0.5*el.abweichung) <= this.actPeriod) || futureOrder.$.mode == 5){
+            el.gpP2 += parseInt(futureOrder.$.amount);
+            el.gpP3 += parseInt(futureOrder.$.amount);
+            el.gpP4 += parseInt(futureOrder.$.amount);
+            el.gpP5 += parseInt(futureOrder.$.amount);
+          } else if(parseInt(futureOrder.$.orderPeriod) + el.deliverytime + 0.5*el.abweichung <= this.actPeriod + 1){
+            el.gpP3 += parseInt(futureOrder.$.amount);
+            el.gpP4 += parseInt(futureOrder.$.amount);
+            el.gpP5 += parseInt(futureOrder.$.amount);
+          } else if(parseInt(futureOrder.$.orderPeriod) + el.deliverytime + 0.5*el.abweichung <= this.actPeriod + 1){
+            el.gpP4 += parseInt(futureOrder.$.amount);
+            el.gpP5 += parseInt(futureOrder.$.amount);
+          } else if(parseInt(futureOrder.$.orderPeriod) + el.deliverytime + 0.5*el.abweichung <= this.actPeriod + 1){
+            el.gpP5 += parseInt(futureOrder.$.amount);
+          }
+        }
+      });
     });
   }
 
   updateValues(){
-    debugger;
     this.JSONData.results.warehousestock[0].article.forEach((el) => {
       this.warehouse.push({
         id: el.$.id,
@@ -677,6 +706,51 @@ export class OrderCalculationStep2Component {
 
   getTrans(phrase){
     return getTranslation(phrase, this.language);
+  }
+
+  updateOnChange(event){
+
+
+    let id = event.currentTarget.id.replace('menge', '');
+    id.replace('typ', '');
+
+    let menge;
+    let typ;
+    let elementToChange = this.kaufteile[parseInt(id)];
+    let bestelldauer = elementToChange.deliverytime + 0.5 * elementToChange.abweichung;
+
+    if(event.currentTarget.id.startsWith('menge')){
+      menge = event.currentTarget.value;
+      const otherElement = <HTMLInputElement>document.getElementById('typ' + id);
+      typ = parseInt(otherElement.value);
+    }else{
+      typ = event.currentTarget.value
+      const otherElement = <HTMLInputElement>document.getElementById('menge' + id);
+      menge = parseInt(otherElement.value);
+    }
+
+    if(typ !==  1){
+      elementToChange.gpP2 += parseInt(menge);
+      elementToChange.gpP3 += parseInt(menge);
+      elementToChange.gpP4 += parseInt(menge);
+      elementToChange.gpP5 += parseInt(menge);
+    } else {
+      if( bestelldauer < 1){
+        elementToChange.gpP2 += parseInt(menge);
+        elementToChange.gpP3 += parseInt(menge);
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 2){
+        elementToChange.gpP3 += parseInt(menge);
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 3){
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 4){
+        elementToChange.gpP5 += parseInt(menge);
+      }
+    }
   }
 
   export(){

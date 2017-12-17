@@ -39,6 +39,20 @@
   margin-bottom: 5px;
 }
 
+.inputOwn4 {
+  font-size: large;
+  margin-top: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.inputOwnBad {
+  color: red;
+  font-size: large;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 .inputOwn2 {
   font-size: large;
   font-weight: bold;

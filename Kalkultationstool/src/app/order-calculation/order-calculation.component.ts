@@ -17,9 +17,9 @@ export class OrderCalculationComponent {
   language;
   navigationStep;
 
-  p1 = {per1: 0, per2: 0, per3:0};
-  p2 = {per1: 0, per2: 0, per3:0};
-  p3 = {per1: 0, per2: 0, per3:0};
+  p1 = {per1: 0, per2: 0, per3:0, per4: 0};
+  p2 = {per1: 0, per2: 0, per3:0, per4: 0};
+  p3 = {per1: 0, per2: 0, per3:0, per4: 0};
 
   prognose = [this.p1, this.p2, this.p3];
 

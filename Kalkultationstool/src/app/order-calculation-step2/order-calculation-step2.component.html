@@ -1,4 +1,215 @@
-<div class="container-fluid">
+<div class="container-fluidc containerOwn">
+  <!-- Header Zeile 1 -->
+
+  <div class="row rowOwn">
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      {{getTrans('verwendung')}}
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      {{getTrans('bruttoBedarf')}}
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      {{getTrans('bestellung')}}
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+    <div class="col">
+      {{getTrans('bestandPlan')}}
+    </div>
+    <div class="col"></div>
+    <div class="col"></div>
+  </div>
+
+  <!-- Header Zeile 2 -->,
+
+  <div class="row rowOwn">
+    <div class="col">
+      {{getTrans('kaufteil')}}
+    </div>
+    <div class="col">
+      {{getTrans('lieferfrist')}}
+    </div>
+    <div class="col">
+      {{getTrans('abweichung')}}
+    </div>
+    <div class="col borderLeft">
+      P1
+    </div>
+    <div class="col">
+      P2
+    </div>
+    <div class="col borderRight">
+      P3
+    </div>
+    <div class="col">
+      {{getTrans('diskontmenge')}}
+    </div>
+    <div class="col">
+      {{getTrans('anfangsbestandPeriode')}}
+    </div>
+    <div class="col borderLeft">
+      1
+    </div>
+    <div class="col">
+      2
+    </div>
+    <div class="col">
+      3
+    </div>
+    <div class="col borderRight">
+      4
+    </div>
+    <div class="col">
+      {{getTrans('menge')}}
+    </div>
+    <div class="col">
+      {{getTrans('typ')}}
+    </div>
+    <div class="col borderLeft">
+      2
+    </div>
+    <div class="col">
+      3
+    </div>
+    <div class="col">
+      4
+    </div>
+    <div class="col">
+      5
+    </div>
+  </div>
+
+  <div class="row rowOwn2">
+    <div *ngFor="let el of kaufteile; let i = index" [attr.data-index]="i">
+      <div *ngIf="i%2 == 0">
+        <div class="row coloredBG">
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.id}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.deliverytime}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.abweichung}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p1}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p3}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.diskont}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bestandAktuell}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP1}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP3}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP4}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.bestellMenge}}/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.bestellTyp}}/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP3}} readonly/>
+          </div>
+          <div class="col">
+            <input typ e="number" class="form-control input inputOwn" value = {{el.gpP4}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP5}} readonly/>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="i%2 != 0">
+        <div class="row">
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.id}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.deliverytime}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.abweichung}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p1}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.p3}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn3" value = {{el.diskont}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bestandAktuell}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP1}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP3}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.bbP4}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.bestellMenge}}/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn2" value = {{el.bestellTyp}}/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP2}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP3}} readonly/>
+          </div>
+          <div class="col">
+            <input typ e="number" class="form-control input inputOwn" value = {{el.gpP4}} readonly/>
+          </div>
+          <div class="col">
+            <input type="number" class="form-control input inputOwn" value = {{el.gpP5}} readonly/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col text-center buttonCol">
       <button type="btn btn-primary center-block" class="btn btn-primary center-block navButton" (click)="goToLastStep()">{{getTrans('zurueck')}}</button>

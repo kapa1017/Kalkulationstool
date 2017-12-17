@@ -5,3 +5,53 @@
   font-size: large;
   vertical-align: middle;
 }
+
+.containerOwn {
+  width:98%;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.rowOwn {
+  font-size: large;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+
+.rowOwn2 {
+  font-size: large;
+  border: 1px solid black;
+  padding: 1%;
+}
+
+.borderLeft {
+  border-left: 1px solid black;
+}
+
+.borderRight {
+  border-right: 1px solid black;
+}
+
+.inputOwn {
+  font-size: large;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.inputOwn2 {
+  font-size: large;
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.inputOwn3 {
+  font-size: large;
+  color: blue;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.coloredBG {
+  background-color: lightgrey;
+}

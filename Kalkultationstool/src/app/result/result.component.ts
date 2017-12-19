@@ -13,6 +13,7 @@ export class ResultComponent {
 
   navigationStep: number;
   language;
+  selectedId;
 
   JSONData: any;
 
@@ -33,7 +34,10 @@ export class ResultComponent {
   constructor(private backendService: BackendService,
               private translationService: TranslationService,
               private navigationService: NavigationService) {
-    backendService.getData().subscribe((data: any) => {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+    backendService.getData(this.selectedId).subscribe((data: any) => {
       this.JSONData = data;
       this.updateValues();
     });

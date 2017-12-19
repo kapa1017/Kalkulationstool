@@ -10,14 +10,32 @@ export class BackendService {
   constructor(private http: Http) {
   }
 
-  getData(): Observable<Object> {
+  private selectedIdSource = new BehaviorSubject<String>('2');
+
+  selectedId$ = this.selectedIdSource.asObservable();
+
+  idChanged(newState: String) {
+    this.selectedIdSource.next(newState);
+  }
+
+  getData(id): Observable<Object> {
     return Observable.create((observer) => {
-      this.http.get('../../assets/resultServlet.xml').subscribe(res => {
-        xml2js.parseString(res['_body'], function (err, result) {
+      this.http.get('http://localhost:3000/element/' + id ).subscribe(res => {
+
+        xml2js.parseString(JSON.parse(res['_body']).xmlData, function (err, result) {
           console.log(result);
           observer.next(result);
         });
-      });
+      })
     });
   }
+
+  getAllFiles(): Observable<Object> {
+    return Observable.create((observer) => {
+      this.http.get('http://localhost:3000/element/').subscribe(res => {
+        return res;
+      })
+    });
+  }
+
 }

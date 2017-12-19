@@ -15,6 +15,7 @@ export class ProductionOrdersComponent {
   JSONData: any;
   language;
   navigationStep: number;
+  selectedId;
 
   P1 = 0;
   auftraegeP1 = 0;
@@ -55,7 +56,10 @@ export class ProductionOrdersComponent {
               private navigationService: NavigationService,
               private auftraegeService: AuftraegeService,
   ) {
-    backendService.getData().subscribe((data: Object) => {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+    backendService.getData(this.selectedId).subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
     });

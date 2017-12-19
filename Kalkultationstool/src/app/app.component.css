@@ -6,6 +6,15 @@
   justify-content: center;
 }
 
+.import {
+  width: 400px;
+  height: 50px;
+  padding-top: 0.5%;
+  font-size: large;
+  vertical-align: middle;
+  margin-top: 50px;
+}
+
 .outerFrame {
   height: 100px;
   text-align: center;

@@ -13,7 +13,7 @@ export class WarehouseDataComponent {
 
   navigationStep:number;
   JSONData: any;
-
+  selectedId;
   language;
 
   article = [];
@@ -21,7 +21,10 @@ export class WarehouseDataComponent {
   constructor(private backendService: BackendService,
               private navigationService: NavigationService,
               private translationService: TranslationService) {
-    backendService.getData().subscribe((data: any) => {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+    backendService.getData(this.selectedId).subscribe((data: any) => {
       this.JSONData = data;
       this.updateValues();
     });

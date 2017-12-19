@@ -16,6 +16,7 @@ export class OrderCalculationComponent {
   JSONData: any;
   language;
   navigationStep;
+  selectedId;
 
   p1 = {per1: 0, per2: 0, per3:0, per4: 0};
   p2 = {per1: 0, per2: 0, per3:0, per4: 0};
@@ -26,9 +27,11 @@ export class OrderCalculationComponent {
   constructor(private backendService: BackendService,
               private translationService: TranslationService,
               private prognoseService: PrognoseService,
-              private navigationService: NavigationService,
-              private orderService: OrderService) {
-    backendService.getData().subscribe((data: Object) => {
+              private navigationService: NavigationService) {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+    backendService.getData(this.selectedId).subscribe((data: Object) => {
       this.JSONData = data;
     });
     translationService.language$.subscribe((lang: String) => {

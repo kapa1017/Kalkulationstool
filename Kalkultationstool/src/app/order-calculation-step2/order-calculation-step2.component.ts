@@ -17,6 +17,7 @@ import {Observable} from "rxjs/Observable";
 })
 export class OrderCalculationStep2Component {
 
+  selectedId;
   language;
   JSONData;
   navigationStep;
@@ -604,7 +605,6 @@ export class OrderCalculationStep2Component {
     });
     auftraegeService.auftraegeGesamt$.subscribe((newState: Object[]) => {
       this.auftraege = newState;
-      debugger;
     });
     workService.work$.subscribe((newState: Object[]) => {
       this.work = newState;
@@ -615,7 +615,11 @@ export class OrderCalculationStep2Component {
     orderService.order$.subscribe((newState: Object) => {
       this.order = newState;
     });
-    backendService.getData().subscribe((data: Object) => {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+
+    backendService.getData(this.selectedId).subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
       this.futureOrder = this.JSONData.results.futureinwardstockmovement[0].order;
@@ -766,14 +770,12 @@ export class OrderCalculationStep2Component {
 
 
   extractData(res: Response) {
-    debugger;
     const body = res.json();
     return body.element || [];
   }
 
   private errorHandler(error: Response | any) {
 
-    debugger;
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';
@@ -824,8 +826,6 @@ export class OrderCalculationStep2Component {
     this.input.workingtimelist.workingtime = this.workingtimelist;
     this.input.orderlist.order = this.orderlist;
 
-    debugger;
-
     //Request
 
     const headers = new Headers({
@@ -833,9 +833,7 @@ export class OrderCalculationStep2Component {
     });
     const options = new RequestOptions({ headers: headers });
 
-    this.http.post('http://localhost:3000/generate', JSON.stringify(this.input), options).toPromise().then(response => {
-      debugger;
-    });
+    this.http.post('http://localhost:3000/generate', JSON.stringify(this.input), options)
 
     this.navigationService.isNavigationChanged(0);
 

@@ -14,7 +14,7 @@ export class ProductionOrders2Component {
 
   JSONData: any;
   navigationStep: number;
-
+  selectedId;
   language;
 
   P2 = 0;
@@ -55,11 +55,13 @@ export class ProductionOrders2Component {
               private translationService: TranslationService,
               private navigationService: NavigationService,
               private auftraegeService: AuftraegeService) {
-    backendService.getData().subscribe((data: Object) => {
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState
+    });
+    backendService.getData(this.selectedId).subscribe((data: Object) => {
       this.JSONData = data;
       this.updateValues();
     });
-
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {getTranslation} from './Utils/Translations';
 import {TranslationService} from './Services/translation.service';
 import {InitService} from './Services/init.service';
 import {NavigationService} from './Services/navigation.service';
+import {DomSanitizer} from "@angular/platform-browser";
+import {Http, RequestOptions} from "@angular/http";
+import {Observable} from "rxjs/Observable";
+import {BackendService} from "./Services/backend.service";
 
 
 @Component({
@@ -11,31 +15,64 @@ import {NavigationService} from './Services/navigation.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  ngOnInit(): void {
+
+  }
+
 
   navigationStep = 0;
-  isInit = false;
+  selectedId
   language;
   data = {};
+  xmlBase64;
 
   getTrans(phrase){
     return getTranslation(phrase, this.language);
   }
 
-  constructor(
-              private initService: InitService,
+  constructor( private http: Http,
               private translationService: TranslationService,
+              private backendService: BackendService,
               private navigationService: NavigationService
   ) {
     translationService.language$.subscribe((lang: String) => {
       this.language = lang;
     });
-    initService.isInit$.subscribe((init: boolean) => {
-      this.isInit = init;
+    backendService.selectedId$.subscribe((newState: String) => {
+      this.selectedId = newState;
     });
+
+    if(this.selectedId == ''){
+      navigationService.isNavigationChanged(9);
+    }
+
     navigationService.isNavigation$.subscribe((newstate: number) => {
       this.navigationStep = newstate;
     });
+  }
+
+  uploadFile(event) {
+    let fileList: FileList = event.target.files;
+    if(fileList.length > 0) {
+      let file: File = fileList[0];
+      let formData:FormData = new FormData();
+      formData.append('xmlData', file, file.name);
+      formData.append('titel', 'Testtitel')
+      let headers = new Headers();
+      /** No need to include Content-Type in Angular 4 */
+      headers.append('Content-Type', 'multipart/form-data');
+      headers.append('Accept', 'application/json');
+
+      this.http.post('http://localhost:3000/element', formData, <RequestOptions>{ headers: headers })
+        .map(res => res.json())
+        .catch(error => Observable.throw(error))
+        .subscribe(
+          data => console.log('success'),
+          error => console.log(error)
+        )
+    }
   }
 
   clickWareHouse(){

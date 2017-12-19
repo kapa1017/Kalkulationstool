@@ -10,7 +10,7 @@ export class BackendService {
   constructor(private http: Http) {
   }
 
-  private selectedIdSource = new BehaviorSubject<String>('2');
+  private selectedIdSource = new BehaviorSubject<String>('');
 
   selectedId$ = this.selectedIdSource.asObservable();
 
@@ -33,7 +33,7 @@ export class BackendService {
   getAllFiles(): Observable<Object> {
     return Observable.create((observer) => {
       this.http.get('http://localhost:3000/element/').subscribe(res => {
-        return res;
+        observer.next(JSON.parse(res['_body']));
       })
     });
   }

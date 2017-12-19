@@ -16,15 +16,12 @@ export class XmlSelectorComponent {
   constructor(private http: Http,
               private backendService: BackendService,
               private navigationService: NavigationService) {
-    debugger;
     backendService.getAllFiles().subscribe((res: Object[]) => {
-      debugger;
       this.items = res;
     })
   }
 
   select(item){
-    debugger;
     this.backendService.idChanged(item._id);
     this.navigationService.isNavigationChanged(0);
   }

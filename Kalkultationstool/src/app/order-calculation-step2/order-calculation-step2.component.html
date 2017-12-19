@@ -131,10 +131,10 @@
             <input type="number" class="form-control input inputOwn" value = {{el.bbP4}} readonly/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" id="menge{{i}}" (change)="updateOnChange($event)" value = {{el.bestellMenge}}/>
+            <input type="number" class="form-control input inputOwn2" [(ngModel)]="kaufteile[i].bestellMenge" id="menge{{i}}" (change)="updateOnChange($event)"/>
           </div>
           <div class="col">
-            <input type="number" class="form-control input inputOwn2" id="typ{{i}}" (change)="updateOnChange($event)" min="1" max="2" value = {{el.bestellTyp}}/>
+            <input type="number" class="form-control input inputOwn2" [(ngModel)]="kaufteile[i].bestellTyp" id="typ{{i}}" (change)="updateOnChange($event)" min="1" max="2"/>
           </div>
           <div class="col" *ngIf="el.gpP2 < 0">
             <input type="number" class="form-control input inputOwnBad" [(ngModel)]="kaufteile[i].gpP2" readonly/>

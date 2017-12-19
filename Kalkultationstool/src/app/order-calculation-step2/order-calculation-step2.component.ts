@@ -7,7 +7,8 @@ import {OrderService} from "../Services/order.service";
 import {AuftraegeService} from "../Services/auftraege.service";
 import {PrognoseService} from "app/Services/prognose.service";
 import {WorkService} from "../Services/work.service";
-import {el} from "@angular/platform-browser/testing/src/browser_util";
+import {Http, RequestOptions, Response, Headers} from '@angular/http';
+import {Observable} from "rxjs/Observable";
 
 @Component({
   selector: 'app-order-calculation-step2',
@@ -587,7 +588,8 @@ export class OrderCalculationStep2Component {
   productionlist: Object[];
   workingtimelist: Object[];
 
-  constructor(private backendService: BackendService,
+  constructor( private http: Http,
+              private backendService: BackendService,
               private translationService: TranslationService,
               private navigationService: NavigationService,
               private auftraegeService: AuftraegeService,
@@ -602,6 +604,7 @@ export class OrderCalculationStep2Component {
     });
     auftraegeService.auftraegeGesamt$.subscribe((newState: Object[]) => {
       this.auftraege = newState;
+      debugger;
     });
     workService.work$.subscribe((newState: Object[]) => {
       this.work = newState;
@@ -625,19 +628,23 @@ export class OrderCalculationStep2Component {
     this.workingtimelist = [];
 
     this.input = {
-      user: {
-        game: 200,
-        group: 13,
-        period: 8,
+      "user": {
+        "@": {
+          "game": "200",
+          "group": "13",
+          "period": "8"
+        }
       },
-      qualitycontrol: {
-        type: 'yes',
-        losequantity: '0',
-        delay: '8'
+      "qualitycontrol": {
+        "@": {
+          "type": "yes",
+          "losequantity": "0",
+          "delay": "8"
+        }
       },
-      orderlist: [],
-      productionlist: [],
-      workingtimelist: [],
+      "orderlist": { "order": [] },
+      "productionlist": { "production": [] },
+      "workingtimelist": { "workingtime": [] }
     }
   }
 
@@ -753,42 +760,84 @@ export class OrderCalculationStep2Component {
     }
   }
 
+  setOrderValues(){
+    this.orderlist.push()
+  }
+
+
+  extractData(res: Response) {
+    debugger;
+    const body = res.json();
+    return body.element || [];
+  }
+
+  private errorHandler(error: Response | any) {
+
+    debugger;
+    let errMsg: string;
+    if (error instanceof Response) {
+      const body = error.json() || '';
+      const err = body.error || JSON.stringify(body);
+      errMsg = `${error.status} - ${error.statusText || ''} ${err}`;
+    } else {
+      errMsg = error.message ? error.message : error.toString();
+    }
+    console.error(errMsg);
+    return Observable.throw(errMsg);
+  }
+
   export(){
 
     this.auftraege.forEach(el => {
       this.productionlist.push({
-        production: {
-          article: el.item.toString(),
-          quantity: el.quantity.toString(),
-          priority: el.batch.toString()
+        "@": {
+          "article": el.id.toString(),
+          "quantity": el.quantity.toString(),
+          "priority": el.batch.toString()
         }
       });
+    });
+
+    this.kaufteile.forEach(el => {
+      if(el.bestellMenge > 0) {
+        this.orderlist.push({
+          "@": {
+            "article": el.id.toString(),
+            "quantity": el.bestellMenge.toString(),
+            "mode": (el.bestellTyp + 3).toString()
+          }
+        });
+      }
     });
 
     this.work.forEach(el => {
       this.workingtimelist.push({
-        workingtime: {
-          station: el.id.toString(),
-          shift: el.shifts.toString(),
-          overtime: el.overtime.toString()
+        "@": {
+          "station": el.id.toString(),
+          "shift": el.shifts.toString(),
+          "overtime": el.overtime.toString()
         }
       });
     });
 
-    this.order.forEach(el => {
-      this.orderlist.push({
-        order: {
-          article: el.item.toString(),
-          quantity: el.item.toString(),
-          modus: el.item.modus.toString(),
-        }
-      });
-    });
+    this.input.productionlist.production = this.productionlist;
+    this.input.workingtimelist.workingtime = this.workingtimelist;
+    this.input.orderlist.order = this.orderlist;
 
-    this.input.productionlist = this.productionlist;
-    this.input.workingtimelist = this.workingtimelist;
-    this.input.orderlist = this.orderlist;
+    debugger;
+
+    //Request
+
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    const options = new RequestOptions({ headers: headers });
+
+    this.http.post('http://localhost:3000/generate', JSON.stringify(this.input), options).toPromise().then(response => {
+      debugger;
+    });
 
     this.navigationService.isNavigationChanged(0);
+
   }
 }

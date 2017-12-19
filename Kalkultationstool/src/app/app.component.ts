@@ -53,26 +53,8 @@ export class AppComponent implements OnInit {
     });
   }
 
-  uploadFile(event) {
-    let fileList: FileList = event.target.files;
-    if(fileList.length > 0) {
-      let file: File = fileList[0];
-      let formData:FormData = new FormData();
-      formData.append('xmlData', file, file.name);
-      formData.append('titel', 'Testtitel')
-      let headers = new Headers();
-      /** No need to include Content-Type in Angular 4 */
-      headers.append('Content-Type', 'multipart/form-data');
-      headers.append('Accept', 'application/json');
-
-      this.http.post('http://localhost:3000/element', formData, <RequestOptions>{ headers: headers })
-        .map(res => res.json())
-        .catch(error => Observable.throw(error))
-        .subscribe(
-          data => console.log('success'),
-          error => console.log(error)
-        )
-    }
+  selectNewElement(){
+    this.navigationService.isNavigationChanged(9);
   }
 
   clickWareHouse(){

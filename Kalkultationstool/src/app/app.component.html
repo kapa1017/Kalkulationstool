@@ -14,7 +14,7 @@
 
   <!-- Init -->
 
-  <div *ngIf="selectedId ==='' && navigationStep == 9">
+  <div *ngIf="navigationStep == 9">
     <app-xml-selector></app-xml-selector>
   </div>
 
@@ -26,10 +26,7 @@
         <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="startCalculation()">{{getTrans('neuerAuftrag')}}</button>
       </div>
       <div class="mainMenu">
-        <label class="btn btn-primary center-block import">
-          <input id="impportFile" type="file" style="display:none;" aria-describedby="fileHelp" accept=".xml,.XML" (change)="uploadFile($event)">
-          Import
-        </label>
+        <button type="btn btn-primary center-block" class="btn btn-primary center-block startButton" (click)="selectNewElement()">{{getTrans('andereDatei')}}</button>
       </div>
       <div class="mainMenu">
         <button class="btn btn-primary center-block startButton" type="button" (click)="clickWareHouse(true)">

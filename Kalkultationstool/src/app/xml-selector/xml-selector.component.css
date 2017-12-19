@@ -1,0 +1,30 @@
+
+.ownRow{
+  padding-bottom: 2%;
+  font-weight: bold;
+  width: 100%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: large;
+}
+
+.containerOwn{
+  margin-top: 3%
+}
+
+.buttonOwn{
+  width: 400px;
+  height: 50px;
+  margin-bottom: 30px;
+  font-size: large;
+  vertical-align: middle;
+}
+
+.buttonOwn2{
+  width: 400px;
+  padding-top: 0.5%;
+  height: 50px;
+  margin-bottom: 2%;
+  font-size: large;
+  vertical-align: middle;
+}

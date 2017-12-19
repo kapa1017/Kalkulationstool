@@ -1,3 +1,24 @@
-<p>
-  xml-selector works!
-</p>
+<div class="container-fluid containerOwn">
+
+  <div class="ownRow">
+    Laden Sie eine neue Datei hoch
+  </div>
+
+  <div class="row">
+    <label class="btn btn-primary center-block buttonOwn2">
+      <input id="impportFile" type="file" style="display:none;" aria-describedby="fileHelp" accept=".xml,.XML" (change)="upload($event)">
+      Import
+    </label>  </div>
+
+  <div class="ownRow">
+    Oder wählen Sie eine alte Datei aus
+  </div>
+
+  <div *ngFor="let item of items">
+    <div class="row">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn" (click)="select(item)">{{item.titel}}</button>
+    </div>
+  </div>
+
+
+</div>

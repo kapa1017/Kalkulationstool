@@ -7,6 +7,10 @@ export function getTranslation(phrase, lang){
 }
 
 var translations = {
+  andereDatei: {
+    de: 'Andere Datei für die Kalkulation wählen',
+    en: 'Select another element for calculation'
+  },
   weiter: {
     de: 'weiter',
     en: 'next'

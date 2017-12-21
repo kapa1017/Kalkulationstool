@@ -179,7 +179,7 @@ export class ProductionOrders3Component {
     this.auftraegeP3 = 0;
 
     for (let i = 0 ; i < el.length - 1 ; i++) {
-      if(i !== 2){
+      if(i !== 3 && i !== 4 && i !== 2){
         this.auftraegeP3 += Number((<HTMLInputElement>el[i]).value);
       }else{
         this.auftraegeP3 -= Number((<HTMLInputElement>el[i]).value);
@@ -190,14 +190,14 @@ export class ProductionOrders3Component {
     this.auftraegeE31 = this.auftraegeP3;
 
     for (let i = 1 ; i < el2.length - 1 ; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE26 += Number((<HTMLInputElement>el2[i]).value);
       }else{
         this.auftraegeE26 -= Number((<HTMLInputElement>el2[i]).value);
       }
     }
     for (let i = 1 ; i < el3.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE31 += Number((<HTMLInputElement>el3[i]).value);
       }else{
         this.auftraegeE31 -= Number((<HTMLInputElement>el3[i]).value);
@@ -209,21 +209,21 @@ export class ProductionOrders3Component {
     this.auftraegeE30 = this.auftraegeE31;
 
     for (let i = 1 ; i < el4.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE16 += Number((<HTMLInputElement>el4[i]).value);
       }else{
         this.auftraegeE16 -= Number((<HTMLInputElement>el4[i]).value);
       }
     }
     for (let i = 1 ; i < el5.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE17 += Number((<HTMLInputElement>el5[i]).value);
       }else{
         this.auftraegeE17 -= Number((<HTMLInputElement>el5[i]).value);
       }
     }
     for (let i = 1 ; i < el6.length - 1 ; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE30 += Number((<HTMLInputElement>el6[i]).value);
       }else{
         this.auftraegeE30 -= Number((<HTMLInputElement>el6[i]).value);
@@ -236,21 +236,21 @@ export class ProductionOrders3Component {
 
 
     for (let i = 1 ; i < el5.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE6 += Number((<HTMLInputElement>el7[i]).value);
       }else{
         this.auftraegeE6 -= Number((<HTMLInputElement>el7[i]).value);
       }
     }
     for (let i = 1 ; i < el6.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE12 += Number((<HTMLInputElement>el8[i]).value);
       }else{
         this.auftraegeE12 -= Number((<HTMLInputElement>el8[i]).value);
       }
     }
     for (let i = 1 ; i < el7.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE29 += Number((<HTMLInputElement>el9[i]).value);
       }else{
         this.auftraegeE29 -= Number((<HTMLInputElement>el9[i]).value);
@@ -262,21 +262,21 @@ export class ProductionOrders3Component {
     this.auftraegeE20 = this.auftraegeE29;
 
     for (let i = 1 ; i < el8.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE9 += Number((<HTMLInputElement>el10[i]).value);
       }else{
         this.auftraegeE9 -= Number((<HTMLInputElement>el10[i]).value);
       }
     }
     for (let i = 1 ; i < el9.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE15 += Number((<HTMLInputElement>el11[i]).value);
       }else{
         this.auftraegeE15 -= Number((<HTMLInputElement>el11[i]).value);
       }
     }
     for (let i = 1 ; i < el10.length - 1; i++) {
-      if(i !== 3){
+      if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE20 += Number((<HTMLInputElement>el12[i]).value);
       }else{
         this.auftraegeE20 -= Number((<HTMLInputElement>el12[i]).value);

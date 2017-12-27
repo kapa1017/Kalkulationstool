@@ -11,6 +11,14 @@ var translations = {
     de: 'Andere Datei für die Kalkulation wählen',
     en: 'Select another element for calculation'
   },
+  split: {
+    de: 'Splitten',
+    en: 'Split'
+  },
+  periodeVier: {
+    de: 'Periode 4',
+    en: 'Period 4'
+  },
   weiter: {
     de: 'weiter',
     en: 'next'

@@ -833,9 +833,8 @@ export class OrderCalculationStep2Component {
     });
     const options = new RequestOptions({ headers: headers });
 
-    this.http.post('http://localhost:3000/generate', JSON.stringify(this.input), options)
-
-    this.navigationService.isNavigationChanged(0);
-
+    this.http.post('http://localhost:3000/generate', JSON.stringify(this.input), options).toPromise().then((res: any) => {
+      this.navigationService.isNavigationChanged(0);
+    })
   }
 }

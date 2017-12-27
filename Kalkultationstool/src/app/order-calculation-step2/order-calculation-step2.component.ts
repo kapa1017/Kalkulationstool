@@ -586,6 +586,7 @@ export class OrderCalculationStep2Component {
 
   input: any;
   orderlist: Object[];
+  prognoseList: Object[];
   productionlist: Object[];
   workingtimelist: Object[];
 
@@ -646,6 +647,7 @@ export class OrderCalculationStep2Component {
           "delay": "8"
         }
       },
+      "sellwish": { "item": [] },
       "orderlist": { "order": [] },
       "productionlist": { "production": [] },
       "workingtimelist": { "workingtime": [] }
@@ -790,14 +792,37 @@ export class OrderCalculationStep2Component {
 
   export(){
 
-    this.auftraege.forEach(el => {
-      this.productionlist.push({
+      this.prognoseList.push({
         "@": {
-          "article": el.id.toString(),
-          "quantity": el.quantity.toString(),
-          "priority": el.batch.toString()
+          "article": "1",
+          "quantity": this.prognose[0].p1.toString()
         }
       });
+
+      this.prognoseList.push({
+        "@": {
+          "article": "2",
+          "quantity": this.prognose[0].p2.toString()
+        }
+      });
+
+      this.prognoseList.push({
+        "@": {
+          "article": "3",
+          "quantity": this.prognose[0].p3.toString()
+        }
+      });
+
+    this.auftraege.forEach(el => {
+      if(el.quantity > 0){
+        this.productionlist.push({
+          "@": {
+            "article": el.id.toString(),
+            "quantity": el.quantity.toString(),
+            "priority": el.batch.toString()
+          }
+        });
+      }
     });
 
     this.kaufteile.forEach(el => {
@@ -806,7 +831,7 @@ export class OrderCalculationStep2Component {
           "@": {
             "article": el.id.toString(),
             "quantity": el.bestellMenge.toString(),
-            "mode": (el.bestellTyp + 3).toString()
+            "modus": (el.bestellTyp + 3).toString()
           }
         });
       }
@@ -822,6 +847,7 @@ export class OrderCalculationStep2Component {
       });
     });
 
+    this.input.sellwish.item = this.prognoseList;
     this.input.productionlist.production = this.productionlist;
     this.input.workingtimelist.workingtime = this.workingtimelist;
     this.input.orderlist.order = this.orderlist;

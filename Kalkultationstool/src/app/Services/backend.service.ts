@@ -34,7 +34,6 @@ export class BackendService {
     return Observable.create((observer) => {
       this.http.get('http://localhost:3000/element/').subscribe(res => {
         observer.next(JSON.parse(res['_body']));
-        debugger;
       })
     });
   }

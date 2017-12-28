@@ -242,21 +242,22 @@ export class ProductionOrders2Component {
     this.auftraegeE54 = this.auftraegeE55;
 
 
-    for (let i = 1 ; i < el5.length - 1; i++) {
+    for (let i = 1 ; i < el7.length - 1; i++) {
+      debugger;
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE5 += Number((<HTMLInputElement>el7[i]).value);
       }else{
         this.auftraegeE5 -= Number((<HTMLInputElement>el7[i]).value);
       }
     }
-    for (let i = 1 ; i < el6.length - 1; i++) {
+    for (let i = 1 ; i < el8.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE11 += Number((<HTMLInputElement>el8[i]).value);
       }else{
         this.auftraegeE11 -= Number((<HTMLInputElement>el8[i]).value);
       }
     }
-    for (let i = 1 ; i < el7.length - 1; i++) {
+    for (let i = 1 ; i < el9.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE54 += Number((<HTMLInputElement>el9[i]).value);
       }else{
@@ -268,21 +269,21 @@ export class ProductionOrders2Component {
     this.auftraegeE14 = this.auftraegeE54;
     this.auftraegeE19 = this.auftraegeE54;
 
-    for (let i = 1 ; i < el8.length - 1; i++) {
+    for (let i = 1 ; i < el10.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE8 += Number((<HTMLInputElement>el10[i]).value);
       }else{
         this.auftraegeE8 -= Number((<HTMLInputElement>el10[i]).value);
       }
     }
-    for (let i = 1 ; i < el9.length - 1; i++) {
+    for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE14 += Number((<HTMLInputElement>el11[i]).value);
       }else{
         this.auftraegeE14 -= Number((<HTMLInputElement>el11[i]).value);
       }
     }
-    for (let i = 1 ; i < el10.length - 1; i++) {
+    for (let i = 1 ; i < el12.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE19 += Number((<HTMLInputElement>el12[i]).value);
       }else{

@@ -240,21 +240,21 @@ export class ProductionOrders3Component {
     this.auftraegeE29 = this.auftraegeE30;
 
 
-    for (let i = 1 ; i < el5.length - 1; i++) {
+    for (let i = 1 ; i < el7.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE6 += Number((<HTMLInputElement>el7[i]).value);
       }else{
         this.auftraegeE6 -= Number((<HTMLInputElement>el7[i]).value);
       }
     }
-    for (let i = 1 ; i < el6.length - 1; i++) {
+    for (let i = 1 ; i < el8.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE12 += Number((<HTMLInputElement>el8[i]).value);
       }else{
         this.auftraegeE12 -= Number((<HTMLInputElement>el8[i]).value);
       }
     }
-    for (let i = 1 ; i < el7.length - 1; i++) {
+    for (let i = 1 ; i < el9.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE29 += Number((<HTMLInputElement>el9[i]).value);
       }else{
@@ -266,21 +266,21 @@ export class ProductionOrders3Component {
     this.auftraegeE15 = this.auftraegeE29;
     this.auftraegeE20 = this.auftraegeE29;
 
-    for (let i = 1 ; i < el8.length - 1; i++) {
+    for (let i = 1 ; i < el10.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE9 += Number((<HTMLInputElement>el10[i]).value);
       }else{
         this.auftraegeE9 -= Number((<HTMLInputElement>el10[i]).value);
       }
     }
-    for (let i = 1 ; i < el9.length - 1; i++) {
+    for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE15 += Number((<HTMLInputElement>el11[i]).value);
       }else{
         this.auftraegeE15 -= Number((<HTMLInputElement>el11[i]).value);
       }
     }
-    for (let i = 1 ; i < el10.length - 1; i++) {
+    for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE20 += Number((<HTMLInputElement>el12[i]).value);
       }else{
@@ -288,5 +288,4 @@ export class ProductionOrders3Component {
       }
     }
   }
-
 }

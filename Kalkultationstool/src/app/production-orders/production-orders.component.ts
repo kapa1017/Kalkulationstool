@@ -73,26 +73,49 @@ export class ProductionOrdersComponent {
 
   goToNextStep() {
 
-    this.navigationService.isNavigationChanged(2);
+    var P1 = (<HTMLInputElement>document.getElementById('P1')).value;
+    var E26 =  (<HTMLInputElement>document.getElementById('E26')).value;
+    var E51 = (<HTMLInputElement>document.getElementById('E51')).value;
 
-    this.auftraegeService.auftraegeP1changed({
-      P1: (<HTMLInputElement>document.getElementById('P1')).value,
+    var E16 = (<HTMLInputElement>document.getElementById('E16')).value;
+    var E17 = (<HTMLInputElement>document.getElementById('E17')).value;
+    var E50 =(<HTMLInputElement>document.getElementById('E50')).value;
+    var E4 = (<HTMLInputElement>document.getElementById('E4')).value;
+    var E10 =(<HTMLInputElement> document.getElementById('E10')).value;
+    var E49 =  (<HTMLInputElement>document.getElementById('E49')).value;
+    var E7 = (<HTMLInputElement>document.getElementById('E7')).value;
+    var E13 = (<HTMLInputElement> document.getElementById('E13')).value;
+    var E18 =  (<HTMLInputElement>document.getElementById('E18')).value;
 
-      E26: (<HTMLInputElement>document.getElementById('E26')).value,
-      E51: (<HTMLInputElement>document.getElementById('E51')).value,
+    if(parseInt(P1) < 0 || parseInt(E26) < 0 ||
+      parseInt(E51) < 0 || parseInt(E16) < 0 ||
+      parseInt(E17) < 0 || parseInt(E50) < 0 ||
+      parseInt(E4) < 0 || parseInt(E10) < 0 ||
+      parseInt(E49) < 0 || parseInt(E7) < 0 ||
+      parseInt(E13) < 0 || parseInt(E18) < 0){
+      alert('Sie haben negative Werte in ihrer Planung. Passen Sie die Werte an!')
+    }else {
+      this.navigationService.isNavigationChanged(2);
 
-      E16: (<HTMLInputElement>document.getElementById('E16')).value,
-      E17: (<HTMLInputElement>document.getElementById('E17')).value,
-      E50: (<HTMLInputElement>document.getElementById('E50')).value,
+      this.auftraegeService.auftraegeP1changed({
+        P1: (<HTMLInputElement>document.getElementById('P1')).value,
 
-      E4: (<HTMLInputElement>document.getElementById('E4')).value,
-      E10:(<HTMLInputElement> document.getElementById('E10')).value,
-      E49:  (<HTMLInputElement>document.getElementById('E49')).value,
+        E26: (<HTMLInputElement>document.getElementById('E26')).value,
+        E51: (<HTMLInputElement>document.getElementById('E51')).value,
 
-      E7:  (<HTMLInputElement>document.getElementById('E7')).value,
-      E13: (<HTMLInputElement> document.getElementById('E13')).value,
-      E18:  (<HTMLInputElement>document.getElementById('E18')).value
-    });
+        E16: (<HTMLInputElement>document.getElementById('E16')).value,
+        E17: (<HTMLInputElement>document.getElementById('E17')).value,
+        E50: (<HTMLInputElement>document.getElementById('E50')).value,
+
+        E4: (<HTMLInputElement>document.getElementById('E4')).value,
+        E10: (<HTMLInputElement> document.getElementById('E10')).value,
+        E49: (<HTMLInputElement>document.getElementById('E49')).value,
+
+        E7: (<HTMLInputElement>document.getElementById('E7')).value,
+        E13: (<HTMLInputElement> document.getElementById('E13')).value,
+        E18: (<HTMLInputElement>document.getElementById('E18')).value
+      });
+    }
   }
 
   goToLastStep() {
@@ -146,8 +169,6 @@ export class ProductionOrdersComponent {
         el.waitinglist.forEach(wp => {
 
           if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
-
-            debugger;
 
             if(wp.$.item == 1){
               this.waitingListUebertragP1 = wp.$.amount;
@@ -257,21 +278,21 @@ export class ProductionOrdersComponent {
     this.auftraegeE49 = this.auftraegeE50;
 
 
-    for (let i = 1 ; i < el5.length - 1; i++) {
+    for (let i = 1 ; i < el7.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE4 += Number((<HTMLInputElement>el7[i]).value);
       }else{
         this.auftraegeE4 -= Number((<HTMLInputElement>el7[i]).value);
       }
     }
-    for (let i = 1 ; i < el6.length - 1; i++) {
+    for (let i = 1 ; i < el8.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE10 += Number((<HTMLInputElement>el8[i]).value);
       }else{
         this.auftraegeE10 -= Number((<HTMLInputElement>el8[i]).value);
       }
     }
-    for (let i = 1 ; i < el7.length - 1; i++) {
+    for (let i = 1 ; i < el9.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE49 += Number((<HTMLInputElement>el9[i]).value);
       }else{
@@ -283,21 +304,21 @@ export class ProductionOrdersComponent {
     this.auftraegeE13 = this.auftraegeE49;
     this.auftraegeE18 = this.auftraegeE49;
 
-    for (let i = 1 ; i < el8.length - 1; i++) {
+    for (let i = 1 ; i < el10.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE7 += Number((<HTMLInputElement>el10[i]).value);
       }else{
         this.auftraegeE7 -= Number((<HTMLInputElement>el10[i]).value);
       }
     }
-    for (let i = 1 ; i < el9.length - 1; i++) {
+    for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE13 += Number((<HTMLInputElement>el11[i]).value);
       }else{
         this.auftraegeE13 -= Number((<HTMLInputElement>el11[i]).value);
       }
     }
-    for (let i = 1 ; i < el10.length - 1; i++) {
+    for (let i = 1 ; i < el12.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE18 += Number((<HTMLInputElement>el12[i]).value);
       }else{

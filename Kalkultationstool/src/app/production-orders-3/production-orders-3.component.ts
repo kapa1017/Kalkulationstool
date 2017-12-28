@@ -139,7 +139,9 @@ export class ProductionOrders3Component {
 
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));
 
-            element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
+            if(element){
+              element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
+            }
           }
         });
       }
@@ -150,9 +152,12 @@ export class ProductionOrders3Component {
     this.JSONData.results.ordersinwork[0].workplace.forEach(el =>{
       if(el.$){
         if(this.elementsOfP2.indexOf(parseInt(el.$.item)) > -1) {
+
           var element  = (<HTMLInputElement>document.getElementById('inProgress' + el.$.item));
 
-          element.value = String(parseInt(element.value) + parseInt(el.$.amount));
+          if(element){
+            element.value = String(parseInt(element.value) + parseInt(el.$.amount));
+          }
         }
       }
     });

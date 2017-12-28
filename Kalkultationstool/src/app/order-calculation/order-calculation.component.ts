@@ -5,6 +5,7 @@ import {getTranslation} from "app/Utils/Translations";
 import {TranslationService} from "../Services/translation.service";
 import {NavigationService} from "../Services/navigation.service";
 import {PrognoseService} from "../Services/prognose.service";
+import has = Reflect.has;
 
 @Component({
   selector: 'app-order-calculation',
@@ -18,11 +19,7 @@ export class OrderCalculationComponent {
   navigationStep;
   selectedId;
 
-  p1 = {per1: 0, per2: 0, per3:0, per4: 0};
-  p2 = {per1: 0, per2: 0, per3:0, per4: 0};
-  p3 = {per1: 0, per2: 0, per3:0, per4: 0};
-
-  prognose = [this.p1, this.p2, this.p3];
+  prognose;
 
   constructor(private backendService: BackendService,
               private translationService: TranslationService,
@@ -40,11 +37,29 @@ export class OrderCalculationComponent {
     navigationService.isNavigation$.subscribe((newstate: number) => {
       this.navigationStep = newstate;
     });
+    prognoseService.prognose$.subscribe((newState: Object[]) => {
+      this.prognose = newState;
+    })
+
   }
 
   goToNextStep(){
-    this.prognoseService.prognoseChanged(this.prognose);
-    this.navigationService.isNavigationChanged(7);
+
+    var values = Array.from(document.getElementsByTagName('input'));
+    var hasWrongValues = false;
+
+    values.forEach(el => {
+      if(parseInt(el.value) < 0){
+        hasWrongValues = true;
+      }
+    });
+
+    if(hasWrongValues){
+      alert('Sie haben falsche Werte in ihrer Prognose')
+    }else{
+      this.prognoseService.prognoseChanged(this.prognose);
+      this.navigationService.isNavigationChanged(7);
+    }
   }
 
   goToLastStep(){

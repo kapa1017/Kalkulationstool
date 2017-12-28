@@ -18,7 +18,8 @@ export class ProductionOrdersComponent {
   navigationStep: number;
   selectedId;
 
-  P1 = 0;
+  inputP1;
+
   auftraegeP1 = 0;
   auftraegeE26 = 0;
   auftraegeE51 = 0;
@@ -32,6 +33,8 @@ export class ProductionOrdersComponent {
   auftraegeE13 = 0;
   auftraegeE18 = 0;
 
+
+  P1 = 0;
   warehouseOldP1 = 0;
   warehouseOldE26 = 0;
   warehouseOldE51 = 0;
@@ -70,6 +73,9 @@ export class ProductionOrdersComponent {
     navigationService.isNavigation$.subscribe((newstate: number) => {
       this.navigationStep = newstate;
     });
+    auftraegeService.inpurtP1$.subscribe((newState: Object) => {
+      this.inputP1 = newState;
+    });
   }
 
   goToNextStep() {
@@ -86,6 +92,9 @@ export class ProductionOrdersComponent {
     if(hasWrongValues){
       alert('Sie haben negative Werte in ihrer Planung. Passen Sie die Werte an!')
     }else {
+
+
+
       this.navigationService.isNavigationChanged(2);
 
       this.auftraegeService.auftraegeP1changed({

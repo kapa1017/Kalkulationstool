@@ -141,13 +141,13 @@ export class ProductionOrders3Component {
           if(this.elementsOfP2.indexOf(parseInt(wp.$.item)) > -1) {
 
             if(wp.$.item == 3){
-              this.waitingListUebertragP3 =  parseInt(wp.$.amount);
+              this.waitingListUebertragP3 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 31){
-              this.waitingListUebertragE31 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE31 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 30){
-              this.waitingListUebertragE30 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE30 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 29){
-              this.waitingListUebertragE29 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE29 +=  parseInt(wp.$.amount);
             }
 
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));

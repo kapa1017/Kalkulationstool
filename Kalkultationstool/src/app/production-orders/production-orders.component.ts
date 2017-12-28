@@ -162,13 +162,13 @@ export class ProductionOrdersComponent {
           if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
 
             if(wp.$.item == 1){
-              this.waitingListUebertragP1 =  parseInt(wp.$.amount);
+              this.waitingListUebertragP1 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 51){
-              this.waitingListUebertragE51 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE51 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 50){
-              this.waitingListUebertragE50 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE50 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 49){
-              this.waitingListUebertragE49 =  parseInt(wp.$.amount);
+              this.waitingListUebertragE49 +=  parseInt(wp.$.amount);
             }
 
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));

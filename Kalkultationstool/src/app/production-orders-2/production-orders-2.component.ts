@@ -140,15 +140,14 @@ export class ProductionOrders2Component {
         el.waitinglist.forEach(wp => {
 
           if(this.elementsOfP2.indexOf(parseInt(wp.$.item)) > -1) {
-
             if(wp.$.item == 2){
-              this.waitingListUebertragP2 = wp.$.amount;
+              this.waitingListUebertragP2 += parseInt(wp.$.amount);
             }else if(wp.$.item == 56){
-              this.waitingListUebertragE56 = wp.$.amount;
+              this.waitingListUebertragE56 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 55){
-              this.waitingListUebertragE55 = wp.$.amount;
+              this.waitingListUebertragE55 +=  parseInt(wp.$.amount);
             }else if(wp.$.item == 54){
-              this.waitingListUebertragE54 = wp.$.amount;
+              this.waitingListUebertragE54 +=  parseInt(wp.$.amount);
             }
 
             var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));

@@ -147,13 +147,15 @@ export class ProductionOrdersComponent {
 
           if(this.elementsOfP1.indexOf(parseInt(wp.$.item)) > -1) {
 
-            if(wp.$.item === 1){
+            debugger;
+
+            if(wp.$.item == 1){
               this.waitingListUebertragP1 = wp.$.amount;
-            }else if(wp.$.item === 51){
+            }else if(wp.$.item == 51){
               this.waitingListUebertragE51 = wp.$.amount;
-            }else if(wp.$.item === 50){
+            }else if(wp.$.item == 50){
               this.waitingListUebertragE50 = wp.$.amount;
-            }else if(wp.$.item === 49){
+            }else if(wp.$.item == 49){
               this.waitingListUebertragE49 = wp.$.amount;
             }
 

@@ -126,13 +126,13 @@ export class ProductionOrders2Component {
 
           if(this.elementsOfP2.indexOf(parseInt(wp.$.item)) > -1) {
 
-            if(wp.$.item === 2){
+            if(wp.$.item == 2){
               this.waitingListUebertragP2 = wp.$.amount;
-            }else if(wp.$.item === 56){
+            }else if(wp.$.item == 56){
               this.waitingListUebertragE56 = wp.$.amount;
-            }else if(wp.$.item === 55){
+            }else if(wp.$.item == 55){
               this.waitingListUebertragE55 = wp.$.amount;
-            }else if(wp.$.item === 54){
+            }else if(wp.$.item == 54){
               this.waitingListUebertragE54 = wp.$.amount;
             }
 

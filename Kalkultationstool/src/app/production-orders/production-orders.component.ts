@@ -4,6 +4,7 @@ import {TranslationService} from '../Services/translation.service';
 import {getTranslation} from '../Utils/Translations';
 import {NavigationService} from "../Services/navigation.service";
 import {AuftraegeService} from "../Services/auftraege.service";
+import has = Reflect.has;
 
 @Component({
   selector: 'app-production-orders',
@@ -73,26 +74,16 @@ export class ProductionOrdersComponent {
 
   goToNextStep() {
 
-    var P1 = (<HTMLInputElement>document.getElementById('P1')).value;
-    var E26 =  (<HTMLInputElement>document.getElementById('E26')).value;
-    var E51 = (<HTMLInputElement>document.getElementById('E51')).value;
+    var values = Array.from(document.getElementsByTagName('input'));
+    var hasWrongValues = false;
 
-    var E16 = (<HTMLInputElement>document.getElementById('E16')).value;
-    var E17 = (<HTMLInputElement>document.getElementById('E17')).value;
-    var E50 =(<HTMLInputElement>document.getElementById('E50')).value;
-    var E4 = (<HTMLInputElement>document.getElementById('E4')).value;
-    var E10 =(<HTMLInputElement> document.getElementById('E10')).value;
-    var E49 =  (<HTMLInputElement>document.getElementById('E49')).value;
-    var E7 = (<HTMLInputElement>document.getElementById('E7')).value;
-    var E13 = (<HTMLInputElement> document.getElementById('E13')).value;
-    var E18 =  (<HTMLInputElement>document.getElementById('E18')).value;
+    values.forEach(el => {
+      if(parseInt(el.value) < 0 ){
+        hasWrongValues = true;
+      }
+    });
 
-    if(parseInt(P1) < 0 || parseInt(E26) < 0 ||
-      parseInt(E51) < 0 || parseInt(E16) < 0 ||
-      parseInt(E17) < 0 || parseInt(E50) < 0 ||
-      parseInt(E4) < 0 || parseInt(E10) < 0 ||
-      parseInt(E49) < 0 || parseInt(E7) < 0 ||
-      parseInt(E13) < 0 || parseInt(E18) < 0){
+    if(hasWrongValues){
       alert('Sie haben negative Werte in ihrer Planung. Passen Sie die Werte an!')
     }else {
       this.navigationService.isNavigationChanged(2);
@@ -227,6 +218,9 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeP1 -= Number((<HTMLInputElement>el[i]).value);
       }
+      if(this.auftraegeP1 < 0){
+        this.auftraegeP1 = 0;
+      }
     }
 
     this.auftraegeE26 = this.auftraegeP1;
@@ -238,12 +232,18 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE26 -= Number((<HTMLInputElement>el2[i]).value);
       }
+      if(this.auftraegeE26 < 0){
+        this.auftraegeE26 = 0;
+      }
     }
     for (let i = 1 ; i < el3.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE51 += Number((<HTMLInputElement>el3[i]).value);
       }else{
         this.auftraegeE51 -= Number((<HTMLInputElement>el3[i]).value);
+      }
+      if(this.auftraegeE51 < 0){
+        this.auftraegeE51 = 0;
       }
     }
 
@@ -257,6 +257,9 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE16 -= Number((<HTMLInputElement>el4[i]).value);
       }
+      if(this.auftraegeE16 < 0){
+        this.auftraegeE16 = 0;
+      }
     }
     for (let i = 1 ; i < el5.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -264,12 +267,18 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE17 -= Number((<HTMLInputElement>el5[i]).value);
       }
+      if(this.auftraegeE17 < 0){
+        this.auftraegeE17 = 0;
+      }
     }
     for (let i = 1 ; i < el6.length - 1 ; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE50 += Number((<HTMLInputElement>el6[i]).value);
       }else{
         this.auftraegeE50 -= Number((<HTMLInputElement>el6[i]).value);
+      }
+      if(this.auftraegeE50 < 0){
+        this.auftraegeE50 = 0;
       }
     }
 
@@ -284,6 +293,9 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE4 -= Number((<HTMLInputElement>el7[i]).value);
       }
+      if(this.auftraegeE4 < 0){
+        this.auftraegeE4 = 0;
+      }
     }
     for (let i = 1 ; i < el8.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -291,12 +303,18 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE10 -= Number((<HTMLInputElement>el8[i]).value);
       }
+      if(this.auftraegeE10 < 0){
+        this.auftraegeE10 = 0;
+      }
     }
     for (let i = 1 ; i < el9.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE49 += Number((<HTMLInputElement>el9[i]).value);
       }else{
         this.auftraegeE49 -= Number((<HTMLInputElement>el9[i]).value);
+      }
+      if(this.auftraegeE49 < 0){
+        this.auftraegeE49 = 0;
       }
     }
 
@@ -310,6 +328,9 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE7 -= Number((<HTMLInputElement>el10[i]).value);
       }
+      if(this.auftraegeE7 < 0){
+        this.auftraegeE7 = 0;
+      }
     }
     for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -317,12 +338,18 @@ export class ProductionOrdersComponent {
       }else{
         this.auftraegeE13 -= Number((<HTMLInputElement>el11[i]).value);
       }
+      if(this.auftraegeE13 < 0){
+        this.auftraegeE13 = 0;
+      }
     }
     for (let i = 1 ; i < el12.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE18 += Number((<HTMLInputElement>el12[i]).value);
       }else{
         this.auftraegeE18 -= Number((<HTMLInputElement>el12[i]).value);
+      }
+      if(this.auftraegeE18 < 0){
+        this.auftraegeE18 = 0;
       }
     }
   }

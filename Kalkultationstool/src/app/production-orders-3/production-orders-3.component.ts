@@ -75,27 +75,40 @@ export class ProductionOrders3Component {
 
   goToNextStep(){
 
-    this.auftraegeService.auftraegeP3changed({
+    var values = Array.from(document.getElementsByTagName('input'));
+    var hasWrongValues = false;
 
-      P3: (<HTMLInputElement>document.getElementById('P3')).value,
-
-      E26: (<HTMLInputElement>document.getElementById('E26')).value,
-      E31: (<HTMLInputElement>document.getElementById('E31')).value,
-
-      E16: (<HTMLInputElement>document.getElementById('E16')).value,
-      E17: (<HTMLInputElement>document.getElementById('E17')).value,
-      E30: (<HTMLInputElement>document.getElementById('E30')).value,
-
-      E6: (<HTMLInputElement>document.getElementById('E6')).value,
-      E12: (<HTMLInputElement> document.getElementById('E12')).value,
-      E29:  (<HTMLInputElement>document.getElementById('E29')).value,
-
-      E9:  (<HTMLInputElement>document.getElementById('E9')).value,
-      E15: (<HTMLInputElement> document.getElementById('E15')).value,
-      E20:  (<HTMLInputElement>document.getElementById('E20')).value
+    values.forEach(el => {
+      if(parseInt(el.value) < 0 ){
+        hasWrongValues = true;
+      }
     });
 
-    this.navigationService.isNavigationChanged(4);
+    if(hasWrongValues){
+      alert('Sie haben negative Werte in ihrer Planung. Passen Sie die Werte an!')
+    }else {
+      this.auftraegeService.auftraegeP3changed({
+
+        P3: (<HTMLInputElement>document.getElementById('P3')).value,
+
+        E26: (<HTMLInputElement>document.getElementById('E26')).value,
+        E31: (<HTMLInputElement>document.getElementById('E31')).value,
+
+        E16: (<HTMLInputElement>document.getElementById('E16')).value,
+        E17: (<HTMLInputElement>document.getElementById('E17')).value,
+        E30: (<HTMLInputElement>document.getElementById('E30')).value,
+
+        E6: (<HTMLInputElement>document.getElementById('E6')).value,
+        E12: (<HTMLInputElement> document.getElementById('E12')).value,
+        E29: (<HTMLInputElement>document.getElementById('E29')).value,
+
+        E9: (<HTMLInputElement>document.getElementById('E9')).value,
+        E15: (<HTMLInputElement> document.getElementById('E15')).value,
+        E20: (<HTMLInputElement>document.getElementById('E20')).value
+      });
+
+      this.navigationService.isNavigationChanged(4);
+    }
   }
 
   goToLastStep(){
@@ -189,6 +202,9 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeP3 -= Number((<HTMLInputElement>el[i]).value);
       }
+      if(this.auftraegeP3 < 0){
+        this.auftraegeP3 = 0;
+      }
     }
 
     this.auftraegeE26 = this.auftraegeP3;
@@ -200,12 +216,18 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE26 -= Number((<HTMLInputElement>el2[i]).value);
       }
+      if(this.auftraegeE26 < 0){
+        this.auftraegeE26 = 0;
+      }
     }
     for (let i = 1 ; i < el3.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE31 += Number((<HTMLInputElement>el3[i]).value);
       }else{
         this.auftraegeE31 -= Number((<HTMLInputElement>el3[i]).value);
+      }
+      if(this.auftraegeE31 < 0){
+        this.auftraegeE31 = 0;
       }
     }
 
@@ -219,6 +241,9 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE16 -= Number((<HTMLInputElement>el4[i]).value);
       }
+      if(this.auftraegeE16 < 0){
+        this.auftraegeE16 = 0;
+      }
     }
     for (let i = 1 ; i < el5.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -226,12 +251,18 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE17 -= Number((<HTMLInputElement>el5[i]).value);
       }
+      if(this.auftraegeE17 < 0){
+        this.auftraegeE17 = 0;
+      }
     }
     for (let i = 1 ; i < el6.length - 1 ; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE30 += Number((<HTMLInputElement>el6[i]).value);
       }else{
         this.auftraegeE30 -= Number((<HTMLInputElement>el6[i]).value);
+      }
+      if(this.auftraegeE30 < 0){
+        this.auftraegeE30 = 0;
       }
     }
 
@@ -246,6 +277,9 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE6 -= Number((<HTMLInputElement>el7[i]).value);
       }
+      if(this.auftraegeE6 < 0){
+        this.auftraegeE6 = 0;
+      }
     }
     for (let i = 1 ; i < el8.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -253,12 +287,18 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE12 -= Number((<HTMLInputElement>el8[i]).value);
       }
+      if(this.auftraegeE12 < 0){
+        this.auftraegeE12 = 0;
+      }
     }
     for (let i = 1 ; i < el9.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE29 += Number((<HTMLInputElement>el9[i]).value);
       }else{
         this.auftraegeE29 -= Number((<HTMLInputElement>el9[i]).value);
+      }
+      if(this.auftraegeE29 < 0){
+        this.auftraegeE29 = 0;
       }
     }
 
@@ -272,6 +312,9 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE9 -= Number((<HTMLInputElement>el10[i]).value);
       }
+      if(this.auftraegeE9 < 0){
+        this.auftraegeE9 = 0;
+      }
     }
     for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
@@ -279,12 +322,18 @@ export class ProductionOrders3Component {
       }else{
         this.auftraegeE15 -= Number((<HTMLInputElement>el11[i]).value);
       }
+      if(this.auftraegeE15 < 0){
+        this.auftraegeE15 = 0;
+      }
     }
     for (let i = 1 ; i < el11.length - 1; i++) {
       if(i !== 3 && i !== 4 && i !== 5){
         this.auftraegeE20 += Number((<HTMLInputElement>el12[i]).value);
       }else{
         this.auftraegeE20 -= Number((<HTMLInputElement>el12[i]).value);
+      }
+      if(this.auftraegeE20 < 0){
+        this.auftraegeE20 = 0;
       }
     }
   }

@@ -292,8 +292,23 @@ export class WorkCalculationComponent {
   }
 
   goToNextStep(){
-    this.confirmWorktime();
-    this.navigationService.isNavigationChanged(6);
+
+    var elements = Array.from(document.getElementsByName('shift'));
+    var hasWrongValues = false;
+
+    elements.forEach(el => {
+      var element = <HTMLInputElement>el
+      if(parseInt(element.value) < 1 || parseInt(element.value) > 2){
+        hasWrongValues = true
+      }
+    })
+
+    if(hasWrongValues){
+      alert('Sie haben falsche Werte in ihrer Arbeitsplanung');
+    }else{
+      this.confirmWorktime();
+      this.navigationService.isNavigationChanged(6);
+    }
   }
 
   goToLastStep(){

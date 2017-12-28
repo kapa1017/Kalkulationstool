@@ -18,12 +18,12 @@ export class AuftragsPriorisierungComponent {
   p2:any;
   p3:any;
 
-  splitId1: 0;
-  splitId2: 0;
-  prio1: 0;
-  prio2: 0;
-  count1: 0;
-  count2: 0;
+  splitId1: number = 0;
+  splitId2: number = 0;
+  prio1: number = 0;
+  prio2: number = 0;
+  count1: number = 0;
+  count2: number = 0;
 
   wholeList: any = [];
 
@@ -144,29 +144,38 @@ export class AuftragsPriorisierungComponent {
   splitten(event){
     this.wholeList.forEach((el) => {
       if(el.uid === parseInt(event.currentTarget.id)){
-        this.prio1 = el.batch;
-        this.prio2 = el.batch;
-        this.count1 = el.quantity;
-        this.count2 = el.quantity;
-        this.splitId1 = el.id;
-
+        this.prio1 = parseInt(el.batch);
+        this.prio2 = parseInt(el.batch);
+        this.count1 = parseInt(el.quantity);
+        this.count2 = parseInt(el.quantity);
+        this.splitId1 = parseInt(el.id);
       }
     });
   }
 
   saveNewElement(){
-    this.wholeList.forEach((el) => {
-      if(el.id == this.splitId1){
-        el.quantity = this.count1;
-        el.batch = this.prio1;
-      }
-    });
+    debugger;
 
-    this.wholeList.push({uid: this.wholeList.length,
-      id: this.splitId1,
-      item: this.splitId1.toString(),
-      quantity: this.count2,
-      batch: this.prio2
-    });
+    if(this.prio1 < 1 || this.prio2 < 1){
+      alert('Die Priorität muss größer 1 sein')
+    }else if( this.count1 < 0 || this.count2 < 0){
+      alert('Die Mengen sind nicht korrekt')
+    }else {
+
+      this.wholeList.forEach((el) => {
+        if (el.id == this.splitId1) {
+          el.quantity = this.count1;
+          el.batch = this.prio1;
+        }
+      });
+
+      this.wholeList.push({
+        uid: this.wholeList.length,
+        id: this.splitId1,
+        item: this.splitId1.toString(),
+        quantity: this.count2,
+        batch: this.prio2
+      });
+    }
   }
 }

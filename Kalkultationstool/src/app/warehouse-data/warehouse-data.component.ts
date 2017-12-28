@@ -47,10 +47,10 @@ export class WarehouseDataComponent {
   updateValues(){
     this.JSONData.results.warehousestock[0].article.forEach((el) => {
        this.article.push({
-         id: el.$.id,
-         pct: el.$.pct,
-         amount: el.$.amount,
-         stockvalue: el.$.stockvalue,
+         id: el.dollardollar.id,
+         pct: el.dollardollar.pct,
+         amount: el.dollardollar.amount,
+         stockvalue: el.dollardollar.stockvalue,
        });
     });
   }

@@ -21,12 +21,9 @@ export class BackendService {
   getData(id): Observable<Object> {
     return Observable.create((observer) => {
       this.http.get('http://localhost:3000/element/' + id ).subscribe(res => {
-
-        xml2js.parseString(JSON.parse(res['_body']).xmlData, function (err, result) {
-          console.log(result);
-          observer.next(result);
-        });
-      })
+        debugger;
+        observer.next(JSON.parse(res['_body']).xmlData);
+      });
     });
   }
 
@@ -34,6 +31,7 @@ export class BackendService {
     return Observable.create((observer) => {
       this.http.get('http://localhost:3000/element/').subscribe(res => {
         observer.next(JSON.parse(res['_body']));
+        debugger;
       })
     });
   }

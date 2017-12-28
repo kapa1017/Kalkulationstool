@@ -120,18 +120,18 @@ export class ProductionOrders2Component {
 
     // Alter Lagerbestand
 
-    this.warehouseOldP2 = this.JSONData.results.warehousestock[0].article[1].$.amount;
-    this.warehouseOldE26 = this.JSONData.results.warehousestock[0].article[25].$.amount;
-    this.warehouseOldE56 = this.JSONData.results.warehousestock[0].article[55].$.amount;
-    this.warehouseOldE16 = this.JSONData.results.warehousestock[0].article[15].$.amount;
-    this.warehouseOldE17 = this.JSONData.results.warehousestock[0].article[16].$.amount;
-    this.warehouseOldE55 = this.JSONData.results.warehousestock[0].article[54].$.amount;
-    this.warehouseOldE5 = this.JSONData.results.warehousestock[0].article[4].$.amount;
-    this.warehouseOldE11 = this.JSONData.results.warehousestock[0].article[10].$.amount;
-    this.warehouseOldE54 = this.JSONData.results.warehousestock[0].article[53].$.amount;
-    this.warehouseOldE8 = this.JSONData.results.warehousestock[0].article[7].$.amount;
-    this.warehouseOldE14 = this.JSONData.results.warehousestock[0].article[13].$.amount;
-    this.warehouseOldE19 = this.JSONData.results.warehousestock[0].article[18].$.amount;
+    this.warehouseOldP2 = this.JSONData.results.warehousestock[0].article[1].dollardollar.amount;
+    this.warehouseOldE26 = this.JSONData.results.warehousestock[0].article[25].dollardollar.amount;
+    this.warehouseOldE56 = this.JSONData.results.warehousestock[0].article[55].dollardollar.amount;
+    this.warehouseOldE16 = this.JSONData.results.warehousestock[0].article[15].dollardollar.amount;
+    this.warehouseOldE17 = this.JSONData.results.warehousestock[0].article[16].dollardollar.amount;
+    this.warehouseOldE55 = this.JSONData.results.warehousestock[0].article[54].dollardollar.amount;
+    this.warehouseOldE5 = this.JSONData.results.warehousestock[0].article[4].dollardollar.amount;
+    this.warehouseOldE11 = this.JSONData.results.warehousestock[0].article[10].dollardollar.amount;
+    this.warehouseOldE54 = this.JSONData.results.warehousestock[0].article[53].dollardollar.amount;
+    this.warehouseOldE8 = this.JSONData.results.warehousestock[0].article[7].dollardollar.amount;
+    this.warehouseOldE14 = this.JSONData.results.warehousestock[0].article[13].dollardollar.amount;
+    this.warehouseOldE19 = this.JSONData.results.warehousestock[0].article[18].dollardollar.amount;
 
     //Aufträge in Warteschlange
 
@@ -139,21 +139,21 @@ export class ProductionOrders2Component {
       if(el.waitinglist){
         el.waitinglist.forEach(wp => {
 
-          if(this.elementsOfP2.indexOf(parseInt(wp.$.item)) > -1) {
-            if(wp.$.item == 2){
-              this.waitingListUebertragP2 += parseInt(wp.$.amount);
-            }else if(wp.$.item == 56){
-              this.waitingListUebertragE56 +=  parseInt(wp.$.amount);
-            }else if(wp.$.item == 55){
-              this.waitingListUebertragE55 +=  parseInt(wp.$.amount);
-            }else if(wp.$.item == 54){
-              this.waitingListUebertragE54 +=  parseInt(wp.$.amount);
+          if(this.elementsOfP2.indexOf(parseInt(wp.dollardollar.item)) > -1) {
+            if(wp.dollardollar.item == 2){
+              this.waitingListUebertragP2 += parseInt(wp.dollardollar.amount);
+            }else if(wp.dollardollar.item == 56){
+              this.waitingListUebertragE56 +=  parseInt(wp.dollardollar.amount);
+            }else if(wp.dollardollar.item == 55){
+              this.waitingListUebertragE55 +=  parseInt(wp.dollardollar.amount);
+            }else if(wp.dollardollar.item == 54){
+              this.waitingListUebertragE54 +=  parseInt(wp.dollardollar.amount);
             }
 
-            var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.$.item));
+            var element  = (<HTMLInputElement>document.getElementById('inQueue' + wp.dollardollar.item));
 
             if(element){
-              element.value = String(parseInt(element.value) + parseInt(wp.$.amount));
+              element.value = String(parseInt(element.value) + parseInt(wp.dollardollar.amount));
             }
           }
         });
@@ -163,20 +163,18 @@ export class ProductionOrders2Component {
     //Aufträge in Bearbeitung
 
     this.JSONData.results.ordersinwork[0].workplace.forEach(el =>{
-      if(el.$){
-        if(this.elementsOfP2.indexOf(parseInt(el.$.item)) > -1) {
+      if(el.dollardollar){
+        if(this.elementsOfP2.indexOf(parseInt(el.dollardollar.item)) > -1) {
 
-          var element  = (<HTMLInputElement>document.getElementById('inProgress' + el.$.item));
+          var element  = (<HTMLInputElement>document.getElementById('inProgress' + el.dollardollar.item));
 
           if(element){
-            element.value = String(parseInt(element.value) + parseInt(el.$.amount));
+            element.value = String(parseInt(element.value) + parseInt(el.dollardollar.amount));
           }
         }
       }
     });
   }
-
-
 
   updateP2() {
 

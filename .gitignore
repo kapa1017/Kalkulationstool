@@ -1,2 +1,8 @@
 
 \.idea/
+
+node_modules/ng2-file-upload/file-upload/
+
+node_modules/ng2-file-upload/bundles/
+
+node_modules/ng2-file-upload/

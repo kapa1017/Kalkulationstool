@@ -59,19 +59,19 @@ export class ResultComponent {
 
   updateValues(){
 
-    this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].$.current;
+    this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].dollardollar.current;
 
-    this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].$.current;
+    this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].dollardollar.current;
 
-    this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].$.current;
+    this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].dollardollar.current;
 
-    this.idleTimeCostsAc = this.JSONData.results.result[0].general[0].idletimecosts[0].$.current;
+    this.idleTimeCostsAc = this.JSONData.results.result[0].general[0].idletimecosts[0].dollardollar.current;
 
-    this.storeValueAc = this.JSONData.results.result[0].general[0].storevalue[0].$.current;
+    this.storeValueAc = this.JSONData.results.result[0].general[0].storevalue[0].dollardollar.current;
 
-    this.storageCostsAc = this.JSONData.results.result[0].general[0].storagecosts[0].$.current;
+    this.storageCostsAc = this.JSONData.results.result[0].general[0].storagecosts[0].dollardollar.current;
 
-    this.profitAc = this.JSONData.results.result[0].summary[0].profit[0].$.current;
+    this.profitAc = this.JSONData.results.result[0].summary[0].profit[0].dollardollar.current;
 
   }
 }

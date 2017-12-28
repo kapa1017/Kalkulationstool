@@ -20,6 +20,15 @@
   vertical-align: middle;
 }
 
+.input{
+  width: 400px;
+  height: 50px;
+  margin-bottom: 30px;
+  font-size: large;
+  vertical-align: middle;
+  display: unset !important;
+}
+
 .buttonOwn2{
   width: 400px;
   padding-top: 0.5%;

@@ -4,19 +4,20 @@
     Laden Sie eine neue Datei hoch
   </div>
 
-  <div class="row">
-    <label class="btn btn-primary center-block buttonOwn2">
-      <input id="impportFile" type="file" style="display:none;" aria-describedby="fileHelp" accept=".xml,.XML" (change)="upload($event)">
-      Import
-    </label>  </div>
+  <div class="ownRow">
+    <input class="input" id="xml-file" type="file" />
+    <button type="button" class="btn btn-success btn-s buttonOwn" (click)="upload()">
+      Hochladen
+    </button>
+  </div>
 
   <div class="ownRow">
     Oder wählen Sie eine alte Datei aus
   </div>
 
   <div *ngFor="let item of items">
-    <div class="row">
-      <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn" (click)="select(item)">{{item.titel}}</button>
+    <div class="ownRow">
+      <button type="btn btn-primary center-block" class="btn btn-primary center-block buttonOwn" (click)="select(item)">Periode {{item.xmlData.results.dollardollar.period}}</button>
     </div>
   </div>
 

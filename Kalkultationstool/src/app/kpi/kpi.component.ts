@@ -71,27 +71,27 @@ export class KpiComponent {
 
   updateValues(){
 
-    this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].$.current;
-    this.productiveTimeAv = this.JSONData.results.result[0].general[0].productivetime[0].$.average;
+    this.productiveTimeAc = this.JSONData.results.result[0].general[0].productivetime[0].dollardollar.current;
+    this.productiveTimeAv = this.JSONData.results.result[0].general[0].productivetime[0].dollardollar.average;
 
-    this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].$.current;
-    this.efficiencyAv = this.JSONData.results.result[0].general[0].effiency[0].$.average;
+    this.efficiencyAc = this.JSONData.results.result[0].general[0].effiency[0].dollardollar.current;
+    this.efficiencyAv = this.JSONData.results.result[0].general[0].effiency[0].dollardollar.average;
 
-    this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].$.current;
-    this.idleTimeAv = this.JSONData.results.result[0].general[0].idletime[0].$.average;
+    this.idleTimeAc = this.JSONData.results.result[0].general[0].idletime[0].dollardollar.current;
+    this.idleTimeAv = this.JSONData.results.result[0].general[0].idletime[0].dollardollar.average;
 
-    this.idleTimeCostsAc = this.JSONData.results.result[0].general[0].idletimecosts[0].$.current;
-    this.idleTimeCostsAv = this.JSONData.results.result[0].general[0].idletimecosts[0].$.average;
+    this.idleTimeCostsAc = this.JSONData.results.result[0].general[0].idletimecosts[0].dollardollar.current;
+    this.idleTimeCostsAv = this.JSONData.results.result[0].general[0].idletimecosts[0].dollardollar.average;
 
-    this.storeValueAc = this.JSONData.results.result[0].general[0].storevalue[0].$.current;
-    this.storeValueAv = this.JSONData.results.result[0].general[0].storevalue[0].$.average;
+    this.storeValueAc = this.JSONData.results.result[0].general[0].storevalue[0].dollardollar.current;
+    this.storeValueAv = this.JSONData.results.result[0].general[0].storevalue[0].dollardollar.average;
 
-    this.storageCostsAc = this.JSONData.results.result[0].general[0].storagecosts[0].$.current;
-    this.storageCostsAv = this.JSONData.results.result[0].general[0].storagecosts[0].$.average;
+    this.storageCostsAc = this.JSONData.results.result[0].general[0].storagecosts[0].dollardollar.current;
+    this.storageCostsAv = this.JSONData.results.result[0].general[0].storagecosts[0].dollardollar.average;
 
-    this.profitAc = this.JSONData.results.result[0].summary[0].profit[0].$.current;
-    this.profitAv = this.JSONData.results.result[0].summary[0].profit[0].$.average;
-    this.profitAll = this.JSONData.results.result[0].summary[0].profit[0].$.all;
+    this.profitAc = this.JSONData.results.result[0].summary[0].profit[0].dollardollar.current;
+    this.profitAv = this.JSONData.results.result[0].summary[0].profit[0].dollardollar.average;
+    this.profitAll = this.JSONData.results.result[0].summary[0].profit[0].dollardollar.all;
 
     if(parseInt(this.efficiencyAc.replace('%','')) < 90){
       this.efficiencyIsBad = true;

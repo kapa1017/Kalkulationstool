@@ -52,8 +52,8 @@ var translations = {
     en: 'Warehouse Stock'
   },
   typ: {
-    de: 'Typ',
-    en: 'Type'
+    de: 'Typ \n 1=Eil \n 2=Normal',
+    en: 'Type \n 1=Fast \n 2=Normal'
   },
   verwendung: {
     de: 'Verwendung',

@@ -1,6 +1,5 @@
 import {Component, ElementRef, OnInit} from '@angular/core';
 import {BackendService} from "../Services/backend.service";
-import {Observable} from "rxjs/Observable";
 import {Http, RequestOptions} from "@angular/http";
 import {NavigationService} from "../Services/navigation.service";
 import {FileUploader} from "ng2-file-upload";

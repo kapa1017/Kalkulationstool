@@ -750,6 +750,10 @@ debugger;
       menge = parseInt(otherElement.value);
     }
 
+    if(typ == 1){
+      bestelldauer = elementToChange.deliverytime / 2
+    }
+
     debugger;
 
     elementToChange.gpP2 = elementToChange.bestandAktuell - elementToChange.bbP1;
@@ -760,37 +764,49 @@ debugger;
     debugger;
 
     this.futureOrder.forEach(futureOrder => {
-
       if(elementToChange.id == futureOrder.dollardollar.article){
-        debugger;
-        if(((parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung) <= this.actPeriod) || futureOrder.dollardollar.mode == 4){
-          debugger;
+        if(((parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung) <= this.actPeriod) ||
+          (futureOrder.dollardollar.mode == 4 &&
+            (parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime / 2 <= this.actPeriod))){
           elementToChange.gpP2 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP3 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP4 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP5 += parseInt(futureOrder.dollardollar.amount);
-        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 1){
-          debugger;
+        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 1 ||
+          (futureOrder.dollardollar.mode == 4 &&
+            (parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime / 2 <= this.actPeriod + 1))){
           elementToChange.gpP3 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP4 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP5 += parseInt(futureOrder.dollardollar.amount);
-        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 1){
-          debugger;
+        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 2 ||
+          (futureOrder.dollardollar.mode == 4 &&
+            (parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime / 2 <= this.actPeriod + 2))){
           elementToChange.gpP4 += parseInt(futureOrder.dollardollar.amount);
           elementToChange.gpP5 += parseInt(futureOrder.dollardollar.amount);
-        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 1){
-          debugger;
+        } else if(parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime + 0.5*elementToChange.abweichung <= this.actPeriod + 3 ||
+          (futureOrder.dollardollar.mode == 4 &&
+            (parseInt(futureOrder.dollardollar.orderperiod) + elementToChange.deliverytime / 2 <= this.actPeriod + 3))){
           elementToChange.gpP5 += parseInt(futureOrder.dollardollar.amount);
         }
       }
     });
 
-    debugger;
-    if(typ !==  2){
-      elementToChange.gpP2 += parseInt(menge);
-      elementToChange.gpP3 += parseInt(menge);
-      elementToChange.gpP4 += parseInt(menge);
-      elementToChange.gpP5 += parseInt(menge);
+    if(typ !=  2){
+      if( bestelldauer < 1){
+        elementToChange.gpP2 += parseInt(menge);
+        elementToChange.gpP3 += parseInt(menge);
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 2){
+        elementToChange.gpP3 += parseInt(menge);
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 3){
+        elementToChange.gpP4 += parseInt(menge);
+        elementToChange.gpP5 += parseInt(menge);
+      }else if( bestelldauer < 4){
+        elementToChange.gpP5 += parseInt(menge);
+      }
     } else {
       if( bestelldauer < 1){
         elementToChange.gpP2 += parseInt(menge);

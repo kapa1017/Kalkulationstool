@@ -52,7 +52,7 @@ export class NavigationService {
         document.getElementById('toolHeader').innerText = getTranslation('header8', this.language);
         break;
       case 11:
-        document.getElementById('toolHeader').innerText = 'Ergebnisse ';
+        document.getElementById('toolHeader').innerText = getTranslation('header9' , this.language);
         break;
       case 12:
         document.getElementById('toolHeader').innerText = 'KPI\'s ';

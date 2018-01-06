@@ -69,7 +69,7 @@ var translations = {
   },
   aktuell: {
     de: 'Aktuell',
-    en: 'Acutal'
+    en: 'Actual'
   },
   header1:{
     de: 'Geben Sie die Aufträge für P1 ein oder passen Sie die Lagerwerte an',
@@ -88,8 +88,8 @@ var translations = {
     en: 'Split the orders or change the priority'
   },
   header5: {
-    de: 'Kontrollieren Sie die Arbeitszeiten und passen sie ggfs. die Schichten an',
-    en: 'Check the worktimes and change the shifts'
+    de: 'Arbeitsplan Überblick',
+    en: 'Overview shifts'
   },
   header6: {
     de: 'Geben Sie die Absatzprognosen für die Bestellplanung der Kaufteile an',
@@ -175,6 +175,7 @@ var translations = {
     de: 'Ergebnisse der letzten Periode einsehen',
     en: 'Results of the last period'
   },
+
   kpis:{
     de: 'KPI´s einsehen',
     en: 'Check KPI´s'
@@ -259,8 +260,16 @@ var translations = {
     de: 'Priorität',
     en: 'Priority'
   },
+  header9: {
+    de: 'Ergebnisse',
+    en: 'Results'
+  },
   speichern: {
     de: 'Speichern',
     en: 'Save'
+  },
+  verplant: {
+    de: 'Wurde bereits verplant',
+    en: 'Allready planned'
   }
 };

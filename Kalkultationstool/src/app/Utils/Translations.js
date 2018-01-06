@@ -60,7 +60,7 @@ var translations = {
     en: 'Usage'
   },
   bestandPlan: {
-    de: 'Geplanter Bestand nach Wareneinngängen',
+    de: 'Geplanter Bestand nach Wareneingängen',
     en: 'Scheduled Stock after delivery'
   },
   bruttoBedarf: {
